@@ -279,6 +279,13 @@ export default {
                     }}</font></a
                   >
                 </li>
+                <li class="has-submenu">
+                  <a href="https://seed.seedao.xyz" target="_blank"
+                    ><font size="3" style="text-transform: capitalize">{{
+                      $t("SEED NFT")
+                    }}</font></a
+                  >
+                </li>
               </ul>
             </li>
             <li class="has-submenu">
