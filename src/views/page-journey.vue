@@ -40,29 +40,35 @@ export default {
 
             </div>
             <div class="links">
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
+                <div class="link-row mt-4">
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-12 box">
                         SeeDAO Onboarding流程
-                    </div>
-                    <div class="col-md-6 col-12">
-                        SeeDAO身份体系
-                    </div>
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-md-offset-4 col-12  box">
+                        SeeDAO 身份体系
+                    </a>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
+                <div class="link-row mt-4">
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-12 box">
                         悬赏酒馆
-                    </div>
-                    <div class="col-md-6 col-12">
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-md-offset-4 col-12 box">
                         三层提案
-                    </div>
+                    </a>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
+                <div class="link-row mt-4">
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-12 box">
                         Seed NFT
-                    </div>
-                    <div class="col-md-6 col-12">
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer"
+                        class="col-md-4 col-md-offset-4 col-12 box">
                         节点共识大会
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -76,8 +82,27 @@ h2 {
 
 .links {
     border-top: 1px solid #ddd;
-    padding-top: 60px;
+    padding-top: 40px;
     margin-top: 60px;
     padding-bottom: 60px;
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.link-row {
+    display: flex;
+    gap: 100px;
+}
+
+@media (max-width: 767px) {
+    .link-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
 </style>

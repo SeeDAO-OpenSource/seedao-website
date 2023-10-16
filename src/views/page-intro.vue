@@ -30,29 +30,31 @@ export default {
                 <p>SeeDAO是builder们的家园。这个世界由builder们共建、共治、共享，向一切认同此愿景的人们敞开。让我们在世界的午夜，在赛博世界建一座朝霞之城。Enjoy～</p>
             </div>
             <div class="links">
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
-                        SeeDAO白皮书
-                    </div>
-                    <div class="col-md-6 col-12">
-                        SeeDAO元规则
-                    </div>
+                <div class="link-row mt-4">
+                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                        SeeDAO 白皮书
+                    </a>
+                    <a href="https://seedao.notion.site/SeeDAO-SIP-2-a4720f18c068455785a7a9ee5fd626ee" target="_blank"
+                        rel="noopener noreferrer" class="col-md-4 col-12 box">
+
+                        SeeDAO 元规则
+                    </a>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
+                <div class="link-row mt-4">
+                    <a href="https://app.seedao.xyz/" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO App
-                    </div>
-                    <div class="col-md-6 col-12">
-                        SeeDAO全球网络
-                    </div>
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                        SeeDAO 全球网络
+                    </a>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-6 col-12">
-                        SeeDAO市政厅
-                    </div>
-                    <div class="col-md-6 col-12">
-                        SeeDAO孵化器
-                    </div>
+                <div class="link-row mt-4">
+                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                        SeeDAO 市政厅
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                        SeeDAO 孵化器
+                    </a>
                 </div>
             </div>
         </div>
@@ -66,8 +68,27 @@ h2 {
 
 .links {
     border-top: 1px solid #ddd;
-    padding-top: 60px;
+    padding-top: 40px;
     margin-top: 60px;
     padding-bottom: 60px;
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.link-row {
+    display: flex;
+    gap: 100px;
+}
+
+@media (max-width: 767px) {
+    .link-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 }
 </style>

@@ -34,9 +34,9 @@ export default {
             </div>
             <div class="links">
                 <div class="row mt-4">
-                    <div class="col-md-6 col-12">
+                    <a href="https://forum.seedao.xyz/" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO 提案
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -50,8 +50,15 @@ h2 {
 
 .links {
     border-top: 1px solid #ddd;
-    padding-top: 60px;
+    padding-top: 40px;
     margin-top: 60px;
     padding-bottom: 60px;
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    cursor: pointer;
 }
 </style>
