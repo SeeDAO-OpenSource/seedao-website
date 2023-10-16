@@ -56,16 +56,18 @@ export default {
                 </div>
             </div>
         </div>
-
+        <Footer />
     </div>
 </template>
 <style scoped>
 h2 {
     margin-bottom: 30px;
 }
+
 .links {
     border-top: 1px solid #ddd;
     padding-top: 60px;
     margin-top: 60px;
+    padding-bottom: 60px;
 }
 </style>
