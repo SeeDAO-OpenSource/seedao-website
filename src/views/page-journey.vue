@@ -51,21 +51,21 @@ export default {
                     </a>
                 </div>
                 <div class="link-row mt-4">
-                    <a href="" target="_blank" rel="noopener noreferrer"
+                    <a href="https://seedao.notion.site/73d83a0a258d4ac5afa57a997114755a?v=21509260ca7f4e32b285b73e9e1a6815" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-12 box">
                         悬赏酒馆
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer"
+                    <a href="https://forum.seedao.xyz/category/19?filter=category" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-md-offset-4 col-12 box">
                         三层提案
                     </a>
                 </div>
                 <div class="link-row mt-4">
-                    <a href="" target="_blank" rel="noopener noreferrer"
+                    <a href="https://seed.seedao.xyz/" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-12 box">
                         Seed NFT
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer"
+                    <a href="https://node.seedao.xyz/" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-md-offset-4 col-12 box">
                         节点共识大会
                     </a>
