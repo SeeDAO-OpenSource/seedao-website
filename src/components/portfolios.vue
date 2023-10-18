@@ -70,7 +70,7 @@ export default {
 
 <template>
     <div class="row">
-        <div class="col-lg-4 col-md-6 mt-4 pt-2" v-for="(item, index) of newsData" :key="index">
+        <div class="col-lg-3 col-md-6 mt-4 pt-2" v-for="(item, index) of newsData" :key="index">
             <div class="card blog rounded shadow d-flex flex-column justify-content-between h-100">
                 <div class="position-relative">
                     <a :href="item.link" target="_blank">
