@@ -30,7 +30,7 @@ export default {
             </div>
             <div class="links">
                 <div class="link-row mt-4">
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                    <a href="assets/SeeDAO-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Whitepaper") }}
                     </a>
                     <a href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97" target="_blank"
