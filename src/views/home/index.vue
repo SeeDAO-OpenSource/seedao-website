@@ -37,6 +37,7 @@ import Pricing from "@/components/pricing"
 import Proposals from "@/components/proposals"
 
 const SCR_CONTRACT = '0xc74dee15a4700d5df797bdd3982ee649a3bb8c6c';
+const SEED_CONTRACT = '0x30093266E34a816a53e302bE3e59a93B52792FD4';
 
 /**
  * Index-modern Business component
@@ -84,13 +85,14 @@ export default {
     return {
       windowWidth: window.innerWidth,
       scrAmount: 0,
+      seedAmount: 0,
     }
   },
   mounted() {
     window.addEventListener("resize", () => {
       this.windowWidth = window.innerWidth
     })
-    this.getSCR();
+    this.getAmounts();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize)
@@ -99,10 +101,38 @@ export default {
     onResize() {
       this.windowWidth = window.innerWidth
     },
-    async getSCR() {
+    getAmounts() {
       const provider = new ethers.providers.StaticJsonRpcProvider(
         'https://eth-mainnet.g.alchemy.com/v2/YuNeXto27ejHnOIGOwxl2N_cHCfyLyLE',
       );
+      this.getSCR(provider);
+      this.getSeed(provider);
+    },
+    async getSeed(provider) {
+      try {
+        const contract = new ethers.Contract(SEED_CONTRACT, [
+          {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+        ], provider);
+        const supply = await contract.totalSupply();
+        this.seedAmount = Number(supply.toString());
+      } catch (error) {
+        console.error('getSeed error', error);
+
+      }
+    },
+    async getSCR(provider) {
       try {
         const contract = new ethers.Contract(
           SCR_CONTRACT,
@@ -403,8 +433,7 @@ export default {
                 alt=""
               />
               <h2 class="mb-0 mt-4">
-                <countTo :startVal="1" :endVal="520" :duration="10000"></countTo
-                >+
+                <countTo :startVal="1" :endVal="seedAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
