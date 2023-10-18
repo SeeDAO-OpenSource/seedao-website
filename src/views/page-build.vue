@@ -30,7 +30,8 @@ export default {
             </div>
             <div class="links">
                 <div class="row mt-4">
-                    <a href="https://forum.seedao.xyz/" target="_blank" rel="noopener noreferrer"
+                    <!-- TODO the link should be replaced with the app link -->
+                    <a href="https://forum.seedao.xyz/category/61" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-12 box">
                         {{ $t("Link-Proposal") }}
                     </a>

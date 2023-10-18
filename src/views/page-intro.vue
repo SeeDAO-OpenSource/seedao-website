@@ -33,7 +33,7 @@ export default {
                     <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Whitepaper") }}
                     </a>
-                    <a href="https://seedao.notion.site/SeeDAO-SIP-2-a4720f18c068455785a7a9ee5fd626ee" target="_blank"
+                    <a href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97" target="_blank"
                         rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Meta") }}
                     </a>
@@ -42,18 +42,18 @@ export default {
                     <a href="https://app.seedao.xyz/" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-App") }}
                     </a>
-                    <a href="https://seedao.notion.site/8452dbcbeb60412baca99198e65cd85a" target="_blank"
+                    <a href="https://seeu.network/" target="_blank"
                         rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Net") }}
                     </a>
                 </div>
                 <div class="link-row mt-4">
-                    <a href="https://seedao.notion.site/07c258913c5d4847b59271e2ae6f7c66" target="_blank"
+                    <a href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4" target="_blank"
                         rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-City-Hall") }}
 
                     </a>
-                    <a href="https://seedao.notion.site/SeeDAO-9d43e99fd34940f39f66187d11309e45" target="_blank"
+                    <a href="https://beta.seedao.cc/" target="_blank"
                         rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Combinator") }}
                     </a>

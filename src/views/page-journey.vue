@@ -32,10 +32,10 @@ export default {
             </div>
             <div class="links">
                 <div class="link-row mt-4">
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                    <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         {{ $t("Link-Onboarding") }}
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-md-offset-4 col-12  box">
+                    <a href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noopener noreferrer" class="col-md-4 col-md-offset-4 col-12  box">
                         {{ $t("Contributor-Identity") }}
                     </a>
                 </div>
@@ -45,7 +45,7 @@ export default {
                         {{ $t("Bounties") }}
 
                     </a>
-                    <a href="https://forum.seedao.xyz/category/19?filter=category" target="_blank" rel="noopener noreferrer"
+                    <a href="https://forum.seedao.xyz/thread/seedao-46055" target="_blank" rel="noopener noreferrer"
                         class="col-md-4 col-md-offset-4 col-12 box">
                         {{ $t("Proposals") }}
                     </a>
