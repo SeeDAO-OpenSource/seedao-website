@@ -44,15 +44,15 @@ export default {
                     <a href="https://app.seedao.xyz/" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO App
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                    <a href="https://seedao.notion.site/8452dbcbeb60412baca99198e65cd85a" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO 全球网络
                     </a>
                 </div>
                 <div class="link-row mt-4">
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                    <a href="https://seedao.notion.site/07c258913c5d4847b59271e2ae6f7c66" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO 市政厅
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
+                    <a href="https://seedao.notion.site/SeeDAO-9d43e99fd34940f39f66187d11309e45" target="_blank" rel="noopener noreferrer" class="col-md-4 col-12 box">
                         SeeDAO 孵化器
                     </a>
                 </div>
