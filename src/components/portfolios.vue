@@ -34,6 +34,32 @@ export default {
                     image: "images/portfolio/wormhole3.png",
                     name: "Wormhole3",
                     link: "https://alpha.wormhole3.io",
+                },
+                {
+                    image: "images/portfolio/sellix.png",
+                    name: "Sellix",
+                    link: "https://sellix.io/",
+                },
+                {
+                    image: "images/portfolio/metaforo.png",
+                    name: "Metaforo",
+                    link: "https://www.metaforo.io",
+                    style: "height: 100%; width: unset;",
+                },
+                {
+                    image: "images/portfolio/cascad3.svg",
+                    name: "Cascad3",
+                    link: "https://www.cascad3.com/"
+                },
+                {
+                    image: "images/portfolio/AAAny.svg",
+                    name: "AAAny",
+                    link: "https://apps.apple.com/ca/app/aaany-ask-anyone-anything/id6450619356"
+                },
+                {
+                    image: "images/portfolio/joyid.png",
+                    name: "JoyID",
+                    link: "https://joyid.dev/"
                 }
 
             ]
