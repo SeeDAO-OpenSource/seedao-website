@@ -38,7 +38,31 @@ import Proposals from "@/components/proposals"
 
 const SCR_CONTRACT = '0xc74dee15a4700d5df797bdd3982ee649a3bb8c6c';
 const SEED_CONTRACT = '0x30093266E34a816a53e302bE3e59a93B52792FD4';
+const GOV_NODE_CONTRACT = '0x9d34D407D8586478b3e4c39BE633ED3D7be1c80c';
 
+const ABI_TOTAL_SUPPLY = [
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+]
+
+const getNftsByContract = (contract_address, token_id) => {
+  return fetch(`https://restapi.nftscan.com/api/v2/assets/${contract_address}/${token_id}?show_attribute=false`, {
+    headers: {
+      'X-API-KEY': process.env.VUE_APP_NFTSCAN_KEY,
+    },
+  })
+};
 /**
  * Index-modern Business component
  */
@@ -86,6 +110,7 @@ export default {
       windowWidth: window.innerWidth,
       scrAmount: 0,
       seedAmount: 0,
+      s4Amount: 0,
     }
   },
   mounted() {
@@ -107,52 +132,29 @@ export default {
       );
       this.getSCR(provider);
       this.getSeed(provider);
+      this.getS4Nodes();
+    },
+    async getS4Nodes() {
+      try {
+        const res = await getNftsByContract(GOV_NODE_CONTRACT, 4)
+        const resp = await res.json();
+        this.s4Amount = Number(resp.data.amount);
+      } catch (error) {
+        console.error('getNodes error', error);
+      }
     },
     async getSeed(provider) {
       try {
-        const contract = new ethers.Contract(SEED_CONTRACT, [
-          {
-            "inputs": [],
-            "name": "totalSupply",
-            "outputs": [
-              {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-              }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-          },
-        ], provider);
+        const contract = new ethers.Contract(SEED_CONTRACT, ABI_TOTAL_SUPPLY, provider);
         const supply = await contract.totalSupply();
-        this.seedAmount = Number(supply.toString());
+        this.seedAmount = supply.toNumber();
       } catch (error) {
         console.error('getSeed error', error);
-
       }
     },
     async getSCR(provider) {
       try {
-        const contract = new ethers.Contract(
-          SCR_CONTRACT,
-          [
-            {
-              inputs: [],
-              name: 'totalSupply',
-              outputs: [
-                {
-                  internalType: 'uint256',
-                  name: '',
-                  type: 'uint256',
-                },
-              ],
-              stateMutability: 'view',
-              type: 'function',
-            },
-          ],
-          provider,
-        );
+        const contract = new ethers.Contract(SCR_CONTRACT, ABI_TOTAL_SUPPLY, provider);
         const supply = await contract.totalSupply();
         this.scrAmount = Number(ethers.utils.formatEther(supply));
       } catch (error) {
@@ -449,8 +451,7 @@ export default {
             <div class="counter-box text-center">
               <img src="images/Global.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
-                <countTo :startVal="1" :endVal="57" :duration="10000"></countTo
-                >+
+                <countTo :startVal="1" :endVal="s4Amount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
