@@ -24,6 +24,7 @@ import {
   VideoIcon
 } from "vue-feather-icons"
 import countTo from "vue-count-to"
+import { ethers } from "ethers";
 import { Carousel, Slide } from "vue-carousel"
 
 import Navbar from "@/components/navbar"
@@ -34,6 +35,8 @@ import Features from "@/components/features"
 import Contributors from "@/components/contributors"
 import Pricing from "@/components/pricing"
 import Proposals from "@/components/proposals"
+
+const SCR_CONTRACT = '0xc74dee15a4700d5df797bdd3982ee649a3bb8c6c';
 
 /**
  * Index-modern Business component
@@ -79,13 +82,15 @@ export default {
   },
   data() {
     return {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      scrAmount: 0,
     }
   },
   mounted() {
     window.addEventListener("resize", () => {
       this.windowWidth = window.innerWidth
     })
+    this.getSCR();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize)
@@ -93,6 +98,36 @@ export default {
   methods: {
     onResize() {
       this.windowWidth = window.innerWidth
+    },
+    async getSCR() {
+      const provider = new ethers.providers.StaticJsonRpcProvider(
+        'https://eth-mainnet.g.alchemy.com/v2/YuNeXto27ejHnOIGOwxl2N_cHCfyLyLE',
+      );
+      try {
+        const contract = new ethers.Contract(
+          SCR_CONTRACT,
+          [
+            {
+              inputs: [],
+              name: 'totalSupply',
+              outputs: [
+                {
+                  internalType: 'uint256',
+                  name: '',
+                  type: 'uint256',
+                },
+              ],
+              stateMutability: 'view',
+              type: 'function',
+            },
+          ],
+          provider,
+        );
+        const supply = await contract.totalSupply();
+        this.scrAmount = Number(ethers.utils.formatEther(supply));
+      } catch (error) {
+        console.error('getSCR error', error);
+      }
     }
   }
 }
@@ -347,12 +382,7 @@ export default {
             <div class="counter-box text-center">
               <img src="images/Coin.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
-                <countTo
-                  :startVal="1"
-                  :endVal="25279900"
-                  :duration="10000"
-                ></countTo
-                >+
+                <countTo :startVal="1" :endVal="scrAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
