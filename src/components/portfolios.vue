@@ -47,12 +47,12 @@ export default {
                     style: "height: 100%; width: unset;",
                 },
                 {
-                    image: "images/portfolio/cascad3.svg",
+                    image: "images/portfolio/cascad3.png",
                     name: "Cascad3",
                     link: "https://www.cascad3.com/"
                 },
                 {
-                    image: "images/portfolio/AAAny.svg",
+                    image: "images/portfolio/AAAny.png",
                     name: "AAAny",
                     link: "https://apps.apple.com/ca/app/aaany-ask-anyone-anything/id6450619356"
                 },
@@ -76,7 +76,7 @@ export default {
                     <a :href="item.link" target="_blank">
                         <img :src="`${item.image}`" class="card-img-top rounded-top" alt="..."  /></a>
                 </div>
-                <div class="card-body content">
+                <div class="content">
                     <div>
                         <h5 style="text-align: center;">
                             <a :href="item.link" target="_blank" class="card-title title text-dark">{{ item.name }}</a>
@@ -92,20 +92,26 @@ export default {
 <style lang="scss">
 .itemBox{
   border: 1px solid rgba(166, 166, 166, 1);
+  .content{
+    padding: 10px;
+  }
 }
  .imgBox{
-   height: 85px;
    display: flex;
    align-content: center;
    justify-content: center;
+   height: 130px;
    a{
      display: flex;
      align-content: center;
      justify-content: center;
+
    }
    img{
-     max-width: 100%;
-     max-height: 100%;
+
+     width: 100%;
+      object-position: center;
+     object-fit: cover;
    }
  }
 </style>
