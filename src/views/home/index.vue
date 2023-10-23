@@ -63,6 +63,11 @@ const getNftsByContract = (contract_address, token_id) => {
     },
   })
 };
+
+const getDiscordMembers = () => {
+  const endpoint = process.env.NODE_ENV === 'production' ? 'https://api.seedao.tech' : 'https://test-api.seedao.tech';
+  return fetch(`${endpoint}/v1/public_data/discord_member_count`)
+}
 /**
  * Index-modern Business component
  */
@@ -111,6 +116,7 @@ export default {
       scrAmount: 0,
       seedAmount: 0,
       s4Amount: 0,
+      discordAmount: 0,
     }
   },
   mounted() {
@@ -133,6 +139,16 @@ export default {
       this.getSCR(provider);
       this.getSeed(provider);
       this.getS4Nodes();
+      this.getDiscordNumbers();
+    },
+    async getDiscordNumbers() {
+      try {
+        const res = await getDiscordMembers();
+        const resp = await res.json();
+        this.discordAmount = resp.data.approximate_member_count;
+      } catch (error) {
+        console.error('getDiscordNumbers error', error);
+      }
     },
     async getS4Nodes() {
       try {
@@ -397,8 +413,8 @@ export default {
               <h2 class="mb-0 mt-4">
                 <countTo
                   :startVal="1"
-                  :endVal="11140"
-                  :duration="10000"
+                  :endVal="discordAmount"
+                  :duration="2000"
                 ></countTo
                 >+
               </h2>
