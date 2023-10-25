@@ -237,140 +237,22 @@ export default {
               >
             </li> -->
             <li class="has-submenu">
-              <router-link to="/cities" v-if="windowWidth >= 991"
-                ><h5>{{ $t("Cities") }}</h5></router-link
+              <router-link to="/intro" v-if="windowWidth >= 991"
+                ><h5>{{ $t("Intro") }}</h5></router-link
               >
-              <router-link to="/cities" v-else>{{ $t("Cities") }}</router-link>
+              <router-link to="/intro" v-else>{{ $t("Intro") }}</router-link>
             </li>
             <li class="has-submenu">
-              <a
-                href="javascript:void(0)"
-                @click="onMenuClick"
-                v-if="windowWidth < 991"
-                >{{ $t("Community") }}</a
-              >
-              <a href="javascript:void(0)" @click="onMenuClick" v-else
-                ><h5>{{ $t("Community") }}</h5></a
-              >
-              <span class="menu-arrow mt-1"></span>
-              <ul class="submenu">
-                <li class="has-submenu">
-                  <a href="https://forum.seedao.xyz" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Proposals")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="https://seedao.notion.site/73d83a0a258d4ac5afa57a997114755a?v=21509260ca7f4e32b285b73e9e1a6815"
-                    target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Bounties")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="https://seedao.notion.site/46c3294dc6ae440b993a63f05c1753bd?v=5e32c6f3181d462f88e77014b5b44b6b"
-                    target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Events")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a href="https://seed.seedao.xyz" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("SEED NFT")
-                    }}</font></a
-                  >
-                </li>
-              </ul>
+                <router-link to="/journey" v-if="windowWidth >= 991"
+                  ><h5>{{ $t("Journey") }}</h5></router-link
+                >
+                <router-link to="/journey" v-else>{{ $t("Journey") }}</router-link>
             </li>
             <li class="has-submenu">
-              <a
-                href="javascript:void(0)"
-                @click="onMenuClick"
-                v-if="windowWidth < 991"
-                >{{ $t("Resources") }}</a
-              >
-              <a href="javascript:void(0)" @click="onMenuClick" v-else
-                ><h5>{{ $t("Resources") }}</h5></a
-              >
-              <span class="menu-arrow mt-1"></span>
-              <ul class="submenu">
-                <li class="has-submenu">
-                  <a
-                    href="https://seedao.notion.site/SeeDAO-SIP-2-a4720f18c068455785a7a9ee5fd626ee"
-                    target="_blank"
-                    v-if="$i18n.locale.toUpperCase() === 'CN'"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Meta-Rules")
-                    }}</font></a
-                  >
-                  <a
-                    href="https://mirror.xyz/seedao.eth/zFxg9jhRd1Q9-UF-r29lW4-njyf_r4iOp8ik6JRPzcI"
-                    target="_blank"
-                    v-else
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Meta-Rules")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="https://seedao.notion.site/07c258913c5d4847b59271e2ae6f7c66"
-                    target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("City-Hall")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a href="https://node.seedao.xyz" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Nodes-Consensus-Congress")
-                    }}</font></a
-                  >
-                </li>
-                <li class="has-submenu">
-                  <a href="https://beta.seedao.cc" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Incubator")
-                    }}</font></a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.ensoul.io" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Ensoul")
-                    }}</font></a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://deschool.app"
-                    target="_blank"
-                    v-if="$i18n.locale.toUpperCase() === 'CN'"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Deschool")
-                    }}</font></a
-                  >
-                  <a href="https://deschool.app/en/" target="_blank" v-else
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Deschool")
-                    }}</font></a
-                  >
-                </li>
-                <li>
-                  <a href="https://booth.ink/" target="_blank"
-                    ><font size="3" style="text-transform: capitalize">{{
-                      $t("Booth")
-                    }}</font></a
-                  >
-                </li>
-              </ul>
+                <router-link to="/build" v-if="windowWidth >= 991"
+                  ><h5>{{ $t("Build") }}</h5></router-link
+                >
+                <router-link to="/build" v-else>{{ $t("Build") }}</router-link>
             </li>
           </ul>
           <!--end navigation menu-->

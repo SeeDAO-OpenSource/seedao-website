@@ -24,6 +24,7 @@ import {
   VideoIcon
 } from "vue-feather-icons"
 import countTo from "vue-count-to"
+import { ethers } from "ethers";
 import { Carousel, Slide } from "vue-carousel"
 
 import Navbar from "@/components/navbar"
@@ -35,6 +36,38 @@ import Contributors from "@/components/contributors"
 import Pricing from "@/components/pricing"
 import Proposals from "@/components/proposals"
 
+const SCR_CONTRACT = '0xc74dee15a4700d5df797bdd3982ee649a3bb8c6c';
+const SEED_CONTRACT = '0x30093266E34a816a53e302bE3e59a93B52792FD4';
+const GOV_NODE_CONTRACT = '0x9d34D407D8586478b3e4c39BE633ED3D7be1c80c';
+
+const ABI_TOTAL_SUPPLY = [
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+]
+
+const getNftsByContract = (contract_address, token_id) => {
+  return fetch(`https://restapi.nftscan.com/api/v2/assets/${contract_address}/${token_id}?show_attribute=false`, {
+    headers: {
+      'X-API-KEY': process.env.VUE_APP_NFTSCAN_KEY,
+    },
+  })
+};
+
+const getDiscordMembers = () => {
+  const endpoint = process.env.NODE_ENV === 'production' ? 'https://api.seedao.tech' : 'https://test-api.seedao.tech';
+  return fetch(`${endpoint}/v1/public_data/discord_member_count`)
+}
 /**
  * Index-modern Business component
  */
@@ -79,13 +112,18 @@ export default {
   },
   data() {
     return {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      scrAmount: 0,
+      seedAmount: 0,
+      s4Amount: 0,
+      discordAmount: 0,
     }
   },
   mounted() {
     window.addEventListener("resize", () => {
       this.windowWidth = window.innerWidth
     })
+    this.getAmounts();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize)
@@ -93,6 +131,51 @@ export default {
   methods: {
     onResize() {
       this.windowWidth = window.innerWidth
+    },
+    getAmounts() {
+      const provider = new ethers.providers.StaticJsonRpcProvider(
+        'https://eth-mainnet.g.alchemy.com/v2/YuNeXto27ejHnOIGOwxl2N_cHCfyLyLE',
+      );
+      this.getSCR(provider);
+      this.getSeed(provider);
+      this.getS4Nodes();
+      this.getDiscordNumbers();
+    },
+    async getDiscordNumbers() {
+      try {
+        const res = await getDiscordMembers();
+        const resp = await res.json();
+        this.discordAmount = resp.data.approximate_member_count;
+      } catch (error) {
+        console.error('getDiscordNumbers error', error);
+      }
+    },
+    async getS4Nodes() {
+      try {
+        const res = await getNftsByContract(GOV_NODE_CONTRACT, 4)
+        const resp = await res.json();
+        this.s4Amount = Number(resp.data.amount);
+      } catch (error) {
+        console.error('getNodes error', error);
+      }
+    },
+    async getSeed(provider) {
+      try {
+        const contract = new ethers.Contract(SEED_CONTRACT, ABI_TOTAL_SUPPLY, provider);
+        const supply = await contract.totalSupply();
+        this.seedAmount = supply.toNumber();
+      } catch (error) {
+        console.error('getSeed error', error);
+      }
+    },
+    async getSCR(provider) {
+      try {
+        const contract = new ethers.Contract(SCR_CONTRACT, ABI_TOTAL_SUPPLY, provider);
+        const supply = await contract.totalSupply();
+        this.scrAmount = Number(ethers.utils.formatEther(supply));
+      } catch (error) {
+        console.error('getSCR error', error);
+      }
     }
   }
 }
@@ -330,8 +413,8 @@ export default {
               <h2 class="mb-0 mt-4">
                 <countTo
                   :startVal="1"
-                  :endVal="11140"
-                  :duration="10000"
+                  :endVal="discordAmount"
+                  :duration="2000"
                 ></countTo
                 >+
               </h2>
@@ -347,12 +430,7 @@ export default {
             <div class="counter-box text-center">
               <img src="images/Coin.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
-                <countTo
-                  :startVal="1"
-                  :endVal="25279900"
-                  :duration="10000"
-                ></countTo
-                >+
+                <countTo :startVal="1" :endVal="scrAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
@@ -373,8 +451,7 @@ export default {
                 alt=""
               />
               <h2 class="mb-0 mt-4">
-                <countTo :startVal="1" :endVal="520" :duration="10000"></countTo
-                >+
+                <countTo :startVal="1" :endVal="seedAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
@@ -390,8 +467,7 @@ export default {
             <div class="counter-box text-center">
               <img src="images/Global.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
-                <countTo :startVal="1" :endVal="57" :duration="10000"></countTo
-                >+
+                <countTo :startVal="1" :endVal="s4Amount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a
@@ -535,102 +611,6 @@ export default {
               width="90%"
             />
           </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/ethsign.png"
-              style="-webkit-filter: grayscale(1); opacity: 0.8"
-              width="90%"
-            />
-          </div>
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/nftscan.png"
-              style="
-                -webkit-filter: grayscale(1);
-                -webkit-filter: contrast(10%);
-              "
-              width="90%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/sendingme.svg"
-              style="
-                -webkit-filter: grayscale(1);
-                filter: invert(1);
-                opacity: 0.6;
-              "
-              width="100%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/unipass.svg"
-              style="
-                -webkit-filter: grayscale(1);
-                filter: invert(1);
-                opacity: 0.6;
-              "
-              width="90%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/dotbit.png"
-              style="-webkit-filter: grayscale(1); opacity: 0.6"
-              width="60%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/wormhole3.png"
-              style="
-                margin-top: 5px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="100%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/plunckerdao.png"
-              style="-webkit-filter: grayscale(1); opacity: 0.6"
-              width="100%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/buildcities.png"
-              style="
-                margin-top: 5px;
-                -webkit-filter: grayscale(1);
-                filter: invert(1);
-                -webkit-filter: contrast(1%);
-                opacity: 0.6;
-              "
-              width="80%"
-            />
-          </div>
-
-          <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/sellix.png"
-              style="
-                margin-top: 5px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="60%"
-            />
-          </div>
         </div>
         <!--end row-->
       </div>
@@ -647,9 +627,6 @@ export default {
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
               <h4 class="title mb-4">{{ $t("Our-Portfolio") }}</h4>
-              <p class="mb-0 mx-auto text-black" style="font-weight: 300">
-                {{ $t("Our-Portfolio-Details") }} :
-              </p>
             </div>
           </div>
           <!--end col-->
@@ -658,461 +635,6 @@ export default {
         <Portfolios />
       </div>
       <!--end container-->
-
-
-
-      <div class="container mt-100 mt-60">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <div class="section-title mb-4 pb-2">
-              <h4 class="title mb-4">{{ $t("Current-Events") }}</h4>
-              <p class="mb-0 mx-auto text-black" style="font-weight: 300">
-                {{ $t("Current-Events-Details-1") }}&nbsp;{{
-                  $t("Current-Events-Details-2")
-                }}
-              </p>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-        <Events />
-        <div class="row justify-content-center mt-3">
-          <a
-            href="https://seedao.notion.site/46c3294dc6ae440b993a63f05c1753bd?v=5e32c6f3181d462f88e77014b5b44b6b"
-            target="_blank"
-            class="btn mt-3"
-            style="background-color: #03ffa4; color: #ffffff"
-            >{{ $t("More-Events") }}
-          </a>
-        </div>
-      </div>
-      <!--end container-->
-
-      <div class="container mt-100 mt-60">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <div class="section-title mb-4 pb-2">
-              <h4 class="title mb-4">{{ $t("Current-Bounties") }}</h4>
-              <p class="mb-0 mx-auto text-black" style="font-weight: 300">
-                {{ $t("Current-Bounties-Details-1") }}<br />
-                {{ $t("Current-Bounties-Details-2") }}
-              </p>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-
-        <div class="row">
-          <div class="col-12 mt-4 pt-2">
-            <carousel
-              id="customer-testi"
-              ref="carousel"
-              dir="ltr"
-              :per-page="2"
-              class="owl-carousel owl-theme"
-              :autoplay="true"
-              :loop="true"
-            >
-              <slide>
-                <div
-                  class="card customer-testi text-center border rounded mx-2 h-100"
-                  style="border: 1px solid rgba(166, 166, 166, 1) !important"
-                >
-                  <div
-                    class="card-body d-flex flex-column justify-content-between"
-                  >
-                    <div class="border-bottom">
-                      <h5 class="mb-0 position">
-                        <router-link to="/page-job-detail" class="text-dark"
-                          >一起构建程序员的未来，打造ProgrammerX平台</router-link
-                        >
-                      </h5>
-                      <ul class="list-unstyled head mt-3 mb-3">
-                        <li class="badge badge-success badge-pill">招募中</li>
-                        &nbsp;
-                        <li class="badge badge-primary badge-pill">外部招募</li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-body content position-relative d-flex flex-column justify-content-between"
-                    >
-                      <div class="company-detail text-center">
-                        <h5 class="mb-0">
-                          <router-link
-                            to="/page-job-company"
-                            class="text-dark company-name"
-                            >{{
-                              $t("Rewards")
-                            }}
-                            &nbsp;:&nbsp;嗯，可以想象到的美好未来。</router-link
-                          >
-                        </h5>
-                        <br />
-                        <p class="text-muted">
-                          <a
-                            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                            class="video-play-icon text-muted"
-                          >
-                            {{
-                              $t("Required-Skills")
-                            }}&nbsp;:&nbsp;所有愿意为共同目标服务的人。
-                          </a>
-                        </p>
-                      </div>
-                      <div class="">
-                        <ul class="job-facts list-unstyled text-left ml-5">
-                          <li class="text-muted">
-                            <font color="black"
-                              ><b>{{ $t("Deadline") }} :</b></font
-                            >
-                            长期
-                          </li>
-                          <li class="text-muted">
-                            <font color="black"
-                              ><b>{{ $t("Recruiter") }} :</b></font
-                            >
-                            Lamsanren
-                          </li>
-                          <li class="text-muted">
-                            <font color="black"
-                              ><b>{{ $t("Contact-Information") }} :</b></font
-                            >
-                            微信 oltwor_Franklin
-                          </li>
-                        </ul>
-                        <a
-                          href="https://seedao.notion.site/ProgrammerX-ace6d0af90c9472d9b29c7d23c01f17b"
-                          target="_blank"
-                          class="btn btn-outline-primary btn-block"
-                          >{{ $t("Apply-Now") }}</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </slide>
-              <slide>
-                <div
-                  class="card customer-testi text-center border rounded mx-2 h-100"
-                  style="border: 1px solid rgba(166, 166, 166, 1) !important"
-                >
-                  <div class="card-body">
-                    <div class="border-bottom">
-                      <h5 class="mb-0 position">
-                        <router-link to="/page-job-detail" class="text-dark"
-                          >树洞计划：听SeeDAO小伙伴讲故事</router-link
-                        >
-                      </h5>
-                      <ul class="list-unstyled head mt-3 mb-3">
-                        <li class="badge badge-success badge-pill">招募中</li>
-                        &nbsp;
-                        <li class="badge badge-warning badge-pill">项目招募</li>
-                      </ul>
-                    </div>
-                    <div class="card-body content position-relative">
-                      <div class="company-detail text-center">
-                        <h5 class="mb-0">
-                          <router-link
-                            to="/page-job-company"
-                            class="text-dark company-name"
-                            >{{
-                              $t("Rewards")
-                            }}
-                            &nbsp;:&nbsp;如有需求，可以为你的故事整理文字稿</router-link
-                          >
-                        </h5>
-                        <br />
-                        <p class="text-muted">
-                          <a
-                            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                            class="video-play-icon text-muted"
-                          >
-                            {{ $t("Required-Skills") }}&nbsp;:&nbsp; 无
-                          </a>
-                        </p>
-                      </div>
-                      <ul class="job-facts list-unstyled text-left ml-5">
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Deadline") }} :</b></font
-                          >
-                          2023.8.31
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Recruiter") }} :</b></font
-                          >
-                          DNAF
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Contact-Information") }} :</b></font
-                          >
-                          Discord: DANF#2371
-                        </li>
-                      </ul>
-                      <a
-                        href="https://seedao.notion.site/SeeDAO-7cb7894312d948eab0be28ac2cc8758c"
-                        target="_blank"
-                        class="btn btn-outline-primary btn-block"
-                        >{{ $t("Apply-Now") }}</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </slide>
-              <slide>
-                <div
-                  class="card customer-testi text-center border rounded mx-2 h-100"
-                  style="border: 1px solid rgba(166, 166, 166, 1) !important"
-                >
-                  <div
-                    class="card-body d-flex flex-column justify-content-between"
-                  >
-                    <div class="border-bottom">
-                      <h5 class="mb-0 position">
-                        <router-link to="/page-job-detail" class="text-dark"
-                          >SeeDAO口述史项目招募采访者！</router-link
-                        >
-                      </h5>
-                      <ul class="list-unstyled head mt-3 mb-3">
-                        <li class="badge badge-danger badge-pill">新手任务</li>
-                      </ul>
-                    </div>
-                    <div
-                      class="card-body content position-relative d-flex flex-column justify-content-between"
-                    >
-                      <div class="company-detail text-center">
-                        <h5 class="mb-0">
-                          <router-link
-                            to="/page-job-company"
-                            class="text-dark company-name"
-                            >{{ $t("Rewards") }}&nbsp;:&nbsp;1000 积分 +
-                            SBT</router-link
-                          >
-                        </h5>
-                        <br />
-                        <p class="text-muted">
-                          <a
-                            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                            class="video-play-icon text-muted"
-                          >
-                            {{ $t("Required-Skills") }}&nbsp;:&nbsp;
-                            乐于沟通，喜欢和人聊天，善于挖掘故事。
-                          </a>
-                        </p>
-                      </div>
-                      <ul class="job-facts list-unstyled text-left ml-5">
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Deadline") }} :</b></font
-                          >
-                          无
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Recruiter") }} :</b></font
-                          >
-                          栗子
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Contact-Information") }} :</b></font
-                          >
-                          Discord: 栗子#8207
-                        </li>
-                      </ul>
-                      <a
-                        href="https://seedao.notion.site/SeeDAO-ad4a180f9d9e4c6aac4ca4bdee51919a"
-                        target="_blank"
-                        class="btn btn-outline-primary btn-block"
-                        >{{ $t("Apply-Now") }}</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </slide>
-              <slide>
-                <div
-                  class="card customer-testi text-center border rounded mx-2 h-100"
-                  style="border: 1px solid rgba(166, 166, 166, 1) !important"
-                >
-                  <div class="card-body">
-                    <div class="border-bottom">
-                      <h5 class="mb-0 position">
-                        <router-link to="/page-job-detail" class="text-dark"
-                          >招募 “SeeDAO考古家” 考古SeeDAO频道历史！</router-link
-                        >
-                      </h5>
-                      <ul class="list-unstyled head mt-3 mb-3">
-                        <li class="badge badge-danger badge-pill">新手任务</li>
-                      </ul>
-                    </div>
-                    <div class="card-body content position-relative">
-                      <div class="company-detail text-center">
-                        <h5 class="mb-0">
-                          <router-link
-                            to="/page-job-company"
-                            class="text-dark company-name"
-                            >{{ $t("Rewards") }}&nbsp;:&nbsp;1000 积分 +
-                            SBT</router-link
-                          >
-                        </h5>
-                        <br />
-                        <p class="text-muted">
-                          <a
-                            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                            class="video-play-icon text-muted"
-                          >
-                            {{ $t("Required-Skills") }}&nbsp;:&nbsp;
-                            对SeeDAO有兴趣，有一定耐心和闲暇，对考古报告的形式有一定的想法。
-                          </a>
-                        </p>
-                      </div>
-                      <ul class="job-facts list-unstyled text-left ml-5">
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Deadline") }} :</b></font
-                          >
-                          无
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Recruiter") }} :</b></font
-                          >
-                          栗子
-                        </li>
-                        <li class="text-muted">
-                          <font color="black"
-                            ><b>{{ $t("Contact-Information") }} :</b></font
-                          >
-                          Discord: 栗子#8207
-                        </li>
-                      </ul>
-                      <a
-                        href="https://seedao.notion.site/SeeDAO-ad4a180f9d9e4c6aac4ca4bdee51919a"
-                        target="_blank"
-                        class="btn btn-outline-primary btn-block"
-                        >{{ $t("Apply-Now") }}</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </slide>
-            </carousel>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-
-        <div class="row justify-content-center mt-3">
-          <a
-            href="https://seedao.notion.site/73d83a0a258d4ac5afa57a997114755a?v=6c4c36dbcdc74e97af55d02664ef2fb2"
-            target="_blank"
-            class="btn mt-3"
-            style="background-color: #03ffa4; color: #ffffff"
-            >{{ $t("More-Bounties") }}
-          </a>
-        </div>
-      </div>
-      <!--end container-->
-
-      <div class="container mt-60 mt-100">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <div class="section-title mb-4 pb-2">
-              <h4 class="title mb-4">{{ $t("Three-Levels-Proposals") }}</h4>
-              <p class="mb-0 mx-auto text-black" style="font-weight: 300">
-                {{ $t("Three-Levels-Proposals-Details-1") }}
-                <a
-                  href="https://forum.seedao.xyz/thread/search-42436"
-                  target="_blank"
-                  class="text-primary font-weight-bold"
-                  >SIP-54</a
-                >，
-                {{ $t("Three-Levels-Proposals-Details-2") }}
-              </p>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-        <Proposals />
-        <!--end row-->
-      </div>
-      <!--end container-->
-
-      <!-- <div class="container mt-100 mt-60"> -->
-      <!-- <div class="row justify-content-center"> -->
-      <!-- <div class="col-12 text-center">
-            <div class="section-title mb-4 pb-2">
-              <h4 class="title mb-4">{{ $t("Current-Proposals") }}</h4>
-              <p class="text-muted para-desc mx-auto mb-0">
-                {{ $t("Current-Proposals-Details-1") }}<br />
-                {{ $t("Current-Proposals-Details-2") }}
-              </p>
-            </div>
-          </div> -->
-      <!--end col-->
-      <!-- </div> -->
-      <!--end row-->
-
-      <!-- <div class="row">
-          <div class="col-12 mt-2">
-            <div class="media align-items-center shadow rounded p-4 features">
-              <div class="icons m-0 rounded h2 text-primary text-center px-3">
-                <i class="uil uil-clipboard-alt"></i>
-              </div>
-              <div class="content ml-4">
-                <h5 class="mb-1">
-                  <a href="javascript:void(0)" class="text-dark">提案 1</a>
-                </h5>
-                <p class="text-muted mb-0">
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                </p>
-              </div>
-            </div>
-          </div>
-          
-
-          <div class="col-12 mt-4">
-            <div class="media align-items-center shadow rounded p-4 features">
-              <div class="icons m-0 rounded h2 text-primary text-center px-3">
-                <i class="uil uil-usd-circle"></i>
-              </div>
-              <div class="content ml-4">
-                <h5 class="mb-1">
-                  <a href="javascript:void(0)" class="text-dark">提案 2</a>
-                </h5>
-                <p class="text-muted mb-0">
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                </p>
-              </div>
-            </div>
-          </div>
-         
-
-          <div class="col-12 mt-4">
-            <div class="media align-items-center shadow rounded p-4 features">
-              <div class="icons m-0 rounded h2 text-primary text-center px-3">
-                <i class="uil uil-award"></i>
-              </div>
-              <div class="content ml-4">
-                <h5 class="mb-1">
-                  <a href="javascript:void(0)" class="text-dark">提案 3</a>
-                </h5>
-                <p class="text-muted mb-0">
-                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>-->
-      <!-- </div>  -->
-      <!--end container-->
-
       <div class="container mt-60 mt-100">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
