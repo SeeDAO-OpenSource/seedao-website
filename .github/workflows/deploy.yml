@@ -20,7 +20,7 @@ jobs:
 
      - name: Compile
        run: |
-         npm install;
+         npm install --force;
          npm run build;
 
      - name: Pushes to another repository
