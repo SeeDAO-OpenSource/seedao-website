@@ -34,4 +34,4 @@ jobs:
          git status;
          git commit -m "deploy";
          git status;
-         git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/SeeDAO-OpenSource/seedao.xyz.git" --set-upstream main
+         git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/SeeDAO-OpenSource/seedao.xyz.git" --set-upstream master
