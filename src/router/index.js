@@ -23,6 +23,21 @@ const routes = [
     component: () => import('../views/community/cities')
   },
   {
+    path: '/intro',
+    name: 'intro',
+    component: () => import('../views/page-intro')
+  },
+  {
+    path: '/journey',
+    name: 'journey',
+    component: () => import('../views/page-journey')
+  },
+  {
+    path: '/build',
+    name: 'build',
+    component: () => import('../views/page-build')
+  },
+  {
     path: '*',
     component: () => import('../views/general/404')
   },
