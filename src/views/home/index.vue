@@ -65,8 +65,7 @@ const getNftsByContract = (contract_address, token_id) => {
 };
 
 const getDiscordMembers = () => {
-  const endpoint = process.env.NODE_ENV === 'production' ? 'https://api.seedao.tech' : 'https://test-api.seedao.tech';
-  return fetch(`${endpoint}/v1/public_data/discord_member_count`)
+  return fetch(`${process.env.VUE_APP_BASE_ENDPOINT}/v1/public_data/discord_member_count`)
 }
 /**
  * Index-modern Business component
