@@ -184,69 +184,41 @@ export default {
 <template>
   <div>
     <Navbar :nav-light="true" />
-    <!-- Hero Start -->
-    <section
-      class="d-table w-100"
-      style="
-        background: url('images/homebg.png') center center;
-        background-size: 100% auto;
-      "
-      id="home"
-      v-if="windowWidth > 1200"
-    >
+  <!-- Hero Start -->
+    <section class="d-table w-100" style="
+            background: url('images/homebg.png') center center;
+            background-size: 100% auto;
+          " id="home" v-if="windowWidth > 1200">
       <div class="bg-half-170 container">
         <div class="row align-items-center mt-md-5">
           <div class="col-lg-6 col-md-6 order-1">
             <div class="title-heading mt-4 ml-lg-4">
-              <p
-                class="title-dark text-black mb-3"
-                style="
-                  font-weight: 700;
-                  font-size: 3rem;
-                  line-height: 58px;
-                  color: #000000;
-                "
-              >
+              <p class="title-dark text-black mb-3" style="
+                      font-weight: 700;
+                      font-size: 3rem;
+                      line-height: 58px;
+                      color: #000000;
+                  ">
                 {{ $t("Home-Cover-Title-1") }}
               </p>
-              <p
-                class="para-desc para-dark text-black"
-                style="font-size: 24px; font-weight: 300"
-              >
+              <p class="para-desc para-dark text-black" style="font-size: 24px; font-weight: 300">
                 <b>{{ $t("Home-Cover-Title-2") }}</b>
               </p>
               <div class="watch-video mt-4 pt-2">
-                <a
-                  href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning"
-                  class="btn mb-2 mr-2"
-                  style="
-                    background: #000000;
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 24px;
-                    color: #03ffa4;
-                  "
-                  target="_blank"
-                >
+                <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning" class="btn mb-2 mr-2" style="
+                        background: #000000;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 24px;
+                        color: #03ffa4;
+                      " target="_blank">
                   {{ $t("Earn-Membership") }}
                 </a>
               </div>
-              <b-modal
-                id="modal"
-                hide-footer
-                size="lg"
-                header-close-variant="white"
-                header-class="border-0"
-                content-class="border-0"
-                centered
-              >
-                <youtube
-                  video-id="soo7cAft0pc"
-                  ref="youtube"
-                  width="750"
-                  height="450"
-                ></youtube>
+              <b-modal id="modal" hide-footer size="lg" header-close-variant="white" header-class="border-0"
+                content-class="border-0" centered>
+                <youtube video-id="soo7cAft0pc" ref="youtube" width="750" height="450"></youtube>
               </b-modal>
             </div>
           </div>
@@ -278,66 +250,38 @@ export default {
       <!--end container-->
     </section>
     <!--end section-->
-    <section
-      class="d-table w-100"
-      style="background: url('images/homebg.png') center center;
-      background-size: auto 100%;"      
-      id="home"
-      v-else
-    >
+    <section class="d-table w-100" style="background: url('images/homebg.png') center center;
+          background-size: auto 100%;" id="home" v-else>
       <div class="bg-half-170 container">
         <div class="row align-items-center mt-md-5">
           <div class="col-lg-6 col-md-6 order-1">
             <div class="title-heading mt-4 ml-lg-4">
-              <p
-                class="title-dark text-black mb-3"
-                style="
-                  font-weight: 700;
-                  font-size: 3rem;
-                  line-height: 58px;
-                  color: #000000;
-                "
-              >
+              <p class="title-dark text-black mb-3" style="
+                      font-weight: 700;
+                      font-size: 3rem;
+                      line-height: 58px;
+                      color: #000000;
+                    ">
                 {{ $t("Home-Cover-Title-1") }}
               </p>
-              <p
-                class="para-desc para-dark text-black"
-                style="font-size: 24px; font-weight: 300"
-              >
+              <p class="para-desc para-dark text-black" style="font-size: 24px; font-weight: 300">
                 <b>{{ $t("Home-Cover-Title-2") }}</b>
               </p>
               <div class="watch-video mt-4 pt-2">
-                <a
-                  href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning"
-                  class="btn mb-2 mr-2"
-                  style="
-                    background: #000000;
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 20px;
-                    line-height: 24px;
-                    color: #03ffa4;
-                  "
-                  target="_blank"
-                >
+                <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning" class="btn mb-2 mr-2" style="
+                        background: #000000;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 24px;
+                        color: #03ffa4;
+                      " target="_blank">
                   {{ $t("Earn-Membership") }}
                 </a>
               </div>
-              <b-modal
-                id="modal"
-                hide-footer
-                size="lg"
-                header-close-variant="white"
-                header-class="border-0"
-                content-class="border-0"
-                centered
-              >
-                <youtube
-                  video-id="soo7cAft0pc"
-                  ref="youtube"
-                  width="750"
-                  height="450"
-                ></youtube>
+              <b-modal id="modal" hide-footer size="lg" header-close-variant="white" header-class="border-0"
+                content-class="border-0" centered>
+                <youtube video-id="soo7cAft0pc" ref="youtube" width="750" height="450"></youtube>
               </b-modal>
             </div>
           </div>
@@ -373,15 +317,8 @@ export default {
     <!-- Shape Start -->
     <div class="position-relative">
       <div class="shape overflow-hidden text-white">
-        <svg
-          viewBox="0 0 2880 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z"
-            fill="#FBF5EF"
-          ></path>
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#FBF5EF"></path>
         </svg>
       </div>
     </div>
@@ -411,12 +348,7 @@ export default {
             <div class="counter-box text-center">
               <img src="images/Member.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
-                <countTo
-                  :startVal="1"
-                  :endVal="discordAmount"
-                  :duration="2000"
-                ></countTo
-                >+
+                <countTo :startVal="1" :endVal="discordAmount" :duration="2000"></countTo>+
               </h2>
               <h6 class="counter-head text-muted mt-2">
                 <a href="https://discord.gg/seedao" target="_blank">{{
@@ -433,32 +365,23 @@ export default {
                 <countTo :startVal="1" :endVal="scrAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
-                <a
-                  href="https://docs.qq.com/sheet/DVFhrUm1PT0xkS1JG?tab=BB08J3"
-                  target="_blank"
-                >
-                  {{ $t("Score") }}&nbsp;SCR</a
-                >
+                <a href="https://app.seedao.xyz/assets" target="_blank"> {{ $t("Score") }}&nbsp;SCR</a>
+                <!-- <a href="https://docs.qq.com/sheet/DVFhrUm1PT0xkS1JG?tab=BB08J3" target="_blank">
+                    {{ $t("Score") }}&nbsp;SCR</a> -->
               </h6>
             </div>
             <!--end counter box-->
           </div>
           <div class="col-md-3 col-6 mt-4 pt-2">
             <div class="counter-box text-center">
-              <img
-                src="images/Diamond.svg"
-                class="avatar avatar-small"
-                alt=""
-              />
+              <img src="images/Diamond.svg" class="avatar avatar-small" alt="" />
               <h2 class="mb-0 mt-4">
                 <countTo :startVal="1" :endVal="seedAmount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
-                <a
-                  href="https://seedao.notion.site/SGN-7b526f3f41e447d19c6011591d419df9"
-                  target="_blank"
-                  >{{ $t("SGN-Holder") }}</a
-                >
+                <a href="https://opensea.io/collection/seedaoseed" target="_blank"> {{ $t("SEED-Holder") }}</a>
+                <!-- <a href="https://seedao.notion.site/SGN-7b526f3f41e447d19c6011591d419df9" target="_blank">{{
+                    $t("SEED-Holder") }}</a> -->
               </h6>
             </div>
             <!--end counter box-->
@@ -470,11 +393,8 @@ export default {
                 <countTo :startVal="1" :endVal="s4Amount" :duration="2000"></countTo>
               </h2>
               <h6 class="counter-head text-muted mt-2">
-                <a
-                  href="https://docs.qq.com/sheet/DVFhrUm1PT0xkS1JG?tab=BB08J4&u=3dde11036e394628be3066738e3f0da8"
-                  target="_blank"
-                  >{{ $t("Governance-Node") }}</a
-                >
+                <a href="https://docs.qq.com/sheet/DVFhrUm1PT0xkS1JG?tab=BB08J4&u=3dde11036e394628be3066738e3f0da8"
+                  target="_blank">{{ $t("Governance-Node") }}</a>
               </h6>
             </div>
             <!--end counter box-->
@@ -505,111 +425,72 @@ export default {
 
         <div class="row justify-content-center">
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/yandz.png"
-              style="-webkit-filter: grayscale(1); opacity: 0.7"
-              width="80%"
-            />
+            <img src="images/client/yandz.png" style="-webkit-filter: grayscale(1); opacity: 0.7" width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/hashkey_new.png"
-              style="
-                margin-top: 10px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.6;
-              "
-              width="80%"
-            />
+            <img src="images/client/hashkey_new.png" style="
+                    margin-top: 10px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.6;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/hashglobal.png"
-              style="
-                margin-top: 25px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="80%"
-            />
+            <img src="images/client/hashglobal.png" style="
+                    margin-top: 25px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.7;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/masknetwork.svg"
-              style="
-                margin-top: 12px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.8;
-              "
-              width="80%"
-            />
+            <img src="images/client/masknetwork.svg" style="
+                    margin-top: 12px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.8;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/nervos.png"
-              style="
-                margin-top: 15px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="80%"
-            />
+            <img src="images/client/nervos.png" style="
+                    margin-top: 15px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.7;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center">
-            <img
-              src="images/client/conflux.png"
-              style="
-                margin-top: 10px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="80%"
-            />
+            <img src="images/client/conflux.png" style="
+                    margin-top: 10px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.7;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/TessVenture.png"
-              style="
-                margin-top: 10px;
-                -webkit-filter: grayscale(1);
-                opacity: 0.7;
-              "
-              width="80%"
-            />
+            <img src="images/client/TessVenture.png" style="
+                    margin-top: 10px;
+                    -webkit-filter: grayscale(1);
+                    opacity: 0.7;
+                  " width="80%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/rebase.png"
-              style="-webkit-filter: grayscale(1); opacity: 0.7"
-              width="60%"
-            />
+            <img src="images/client/rebase.png" style="-webkit-filter: grayscale(1); opacity: 0.7" width="60%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/chainide.png"
-              style="
-                -webkit-filter: grayscale(1);
-                filter: invert(1);
-                opacity: 0.6;
-              "
-              width="90%"
-            />
+            <img src="images/client/chainide.png" style="
+                    -webkit-filter: grayscale(1);
+                    filter: invert(1);
+                    opacity: 0.6;
+                  " width="90%" />
           </div>
 
           <div class="col-lg-2 col-md-2 col-4 text-center mt-3">
-            <img
-              src="images/client/initiatecapital.png"
-              style="-webkit-filter: grayscale(1); -webkit-filter: contrast(1%)"
-              width="90%"
-            />
+            <img src="images/client/initiatecapital.png"
+              style="-webkit-filter: grayscale(1); -webkit-filter: contrast(1%)" width="90%" />
           </div>
         </div>
         <!--end row-->
@@ -635,128 +516,7 @@ export default {
         <Portfolios />
       </div>
       <!--end container-->
-      <div class="container mt-60 mt-100">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <div class="section-title mb-4 pb-2">
-              <h4 class="title mb-4">{{ $t("Contributor-Identity") }}</h4>
-              <p class="mb-0 mx-auto text-black" style="font-weight: 300">
-                {{ $t("Contributor-Identity-Details-1") }}
-                <a
-                  href="https://forum.seedao.xyz/thread/search-42436"
-                  target="_blank"
-                  class="text-primary font-weight-bold"
-                  >SIP-54</a
-                >，
-                {{ $t("Contributor-Identity-Details-2") }}
-              </p>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-        <Contributors class="mt-4" />
-      </div>
-      <div class="container mt-60 mt-100">
-        <div
-          class="row mt-md-5 pt-md-3 mt-4 pt-2 mt-sm-0 pt-sm-0 justify-content-center"
-        >
-          <div class="col-12 text-center">
-            <div class="section-title">
-              <h4 class="title mb-4">{{ $t("SBT-Introduction") }}</h4>
-              <p class="text-muted para-desc mx-auto">
-                {{ $t("According") }}
-                <a
-                  href="https://forum.seedao.xyz/thread/sip-55-seedao-sbt-42467"
-                  target="_blank"
-                  class="text-primary font-weight-bold"
-                  >SIP-55</a
-                >
-                {{ $t("SBT-Introduction-Details") }}
-              </p>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-        <div class="row mt-4">
-          <div class="col-md-6 col-12">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0 text-center">
-                  {{ $t("Role-SBT") }}
-                </h5>
-                <p class="answer text-muted mb-0">
-                  {{ $t("Role-SBT-Details") }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-
-          <div class="col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0 text-center">
-                  {{ $t("Education-SBT") }}
-                </h5>
-                <p class="answer text-muted mb-0">
-                  {{ $t("Education-SBT-Details") }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-
-          <div class="col-md-6 col-12 mt-4 pt-2">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0 text-center">
-                  {{ $t("Event-SBT") }}
-                </h5>
-                <p class="answer text-muted mb-0">
-                  {{ $t("Event-SBT-Details") }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-
-          <div class="col-md-6 col-12 mt-4 pt-2">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0 text-center">
-                  {{ $t("Project-SBT") }}
-                </h5>
-                <p class="answer text-muted mb-0">
-                  {{ $t("Project-SBT-Details") }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <!--end col-->
-        </div>
-        <!--end row-->
-        <div class="mt-4 pt-2 text-center">
-          <a
-            href="https://www.ensoul.io"
-            target="_blank"
-            class="btn"
-            style="
-              border-radius: 5px;
-              background: #000000;
-              font-style: normal;
-              font-weight: 600;
-              font-size: 20px;
-              line-height: 24px;
-              color: #03ffa4;
-            "
-            >{{ $t("Read-More") }} <i class="mdi mdi-arrow-right"></i
-          ></a>
-        </div>
-      </div>
-      <!--end container-->
-
+    
       <div class="container mt-100 mt-60">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
@@ -776,22 +536,13 @@ export default {
                   <div class="accordion" id="accordionExampleone">
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-1
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-1 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-1-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-1"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-1-Details-1") }}
@@ -804,22 +555,13 @@ export default {
                     </b-card>
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-2
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-2 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-2-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-2"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-2" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-2-Details-1") }}
@@ -841,33 +583,21 @@ export default {
                     </b-card>
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-3
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-3 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-3-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-3"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-3" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-3-Details-1") }}
                           </p>
                           <p>
                             →
-                            <a
-                              href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning"
-                              target="_blank"
-                              >SeeDAO {{ $t("Onboarding-Video") }}</a
-                            >
+                            <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning"
+                              target="_blank">SeeDAO {{ $t("Onboarding-Video") }}</a>
                           </p>
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-3-Details-2") }}
@@ -877,22 +607,13 @@ export default {
                     </b-card>
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-4
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-4 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-4-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-4"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-4" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-4-Details-1") }}
@@ -908,22 +629,13 @@ export default {
                     </b-card>
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-5
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-5 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-5-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-5"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-5" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-5-Details-1") }}
@@ -939,22 +651,13 @@ export default {
                     </b-card>
                     <b-card no-body class="mb-2 border-0 rounded">
                       <b-card-header class="border-0 bg-light p-3 pr-5">
-                        <a
-                          class="faq position-relative text-dark"
-                          v-b-toggle.accordion-6
-                          href="javascript: void(0);"
-                        >
+                        <a class="faq position-relative text-dark" v-b-toggle.accordion-6 href="javascript: void(0);">
                           <h6 class="title mb-0">
                             {{ $t("Home-FAQ-6-Title") }}
                           </h6>
                         </a>
                       </b-card-header>
-                      <b-collapse
-                        id="accordion-6"
-                        visible
-                        accordion="my-accordion"
-                        role="tabpanel"
-                      >
+                      <b-collapse id="accordion-6" visible accordion="my-accordion" role="tabpanel">
                         <b-card-body class="px-2 py-4">
                           <p class="text-muted mb-2 faq-ans">
                             {{ $t("Home-FAQ-6-Details-1") }}
@@ -981,21 +684,16 @@ export default {
                 </div>
 
                 <div class="row justify-content-center mt-3">
-                  <a
-                    href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning"
-                    target="_blank"
-                    class="btn mt-2 mr-2"
-                    style="
-                      border-radius: 5px;
-                      background: #000000;
-                      font-style: normal;
-                      font-weight: 600;
-                      font-size: 15px;
-                      line-height: 24px;
-                      color: #03ffa4;
-                    "
-                    >{{ $t("Join-Us-for-More-Information") }}</a
-                  >
+                  <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning" target="_blank"
+                    class="btn mt-2 mr-2" style="
+                          border-radius: 5px;
+                          background: #000000;
+                          font-style: normal;
+                          font-weight: 600;
+                          font-size: 15px;
+                          line-height: 24px;
+                          color: #03ffa4;
+                        ">{{ $t("Join-Us-for-More-Information") }}</a>
                 </div>
               </div>
             </div>
@@ -1013,12 +711,7 @@ export default {
     <Footers />
 
     <!-- Back to top -->
-    <a
-      href="#"
-      class="btn btn-icon btn-primary back-to-top"
-      id="back-to-top"
-      v-scroll-to="'#topnav'"
-    >
+    <a href="#" class="btn btn-icon btn-primary back-to-top" id="back-to-top" v-scroll-to="'#topnav'">
       <arrow-up-icon class="icons"></arrow-up-icon>
     </a>
     <!-- Back to top -->
