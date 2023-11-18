@@ -90,7 +90,7 @@ export default {
                 </li>
                 <li class="list-inline-item ml-1">
                   <a
-                    href="https://discord.gg/seedao"
+                    href="https://discord.gg/seedao-xyz"
                     target="_blank"
                     class="rounded"
                   >

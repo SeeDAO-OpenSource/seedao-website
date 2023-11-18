@@ -336,7 +336,7 @@ export default {
                 >+
               </h2>
               <h6 class="counter-head text-muted mt-2">
-                <a href="https://discord.gg/seedao" target="_blank">{{
+                <a href="https://discord.gg/seedao-xyz" target="_blank">{{
                   $t("Discord-Member")
                 }}</a>
               </h6>
