@@ -39,7 +39,9 @@ export const MobileIcon = styled.div`
   }
 `;
 
-export const RightSide = styled.div<{ show: boolean }>`
+export const RightSide = styled.div.attrs<{ show: boolean }>((props) => ({
+  show: undefined,
+}))<{ show: boolean }>`
   display: flex;
   @media (max-width: 960px) {
     display: flex;

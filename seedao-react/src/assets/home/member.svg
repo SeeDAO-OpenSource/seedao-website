@@ -1,0 +1,34 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="110" cy="110" r="110" fill="url(#paint0_linear_24_2098)"/>
+<mask id="mask0_24_2098" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="220" height="220">
+<circle cx="110" cy="110" r="110" fill="white"/>
+</mask>
+<g mask="url(#mask0_24_2098)">
+<ellipse cx="110.688" cy="205.562" rx="81.8125" ry="28.1875" fill="url(#paint1_linear_24_2098)"/>
+<ellipse cx="102.995" cy="154.196" rx="65.3125" ry="22.6875" transform="rotate(-5.70801 102.995 154.196)" fill="url(#paint2_linear_24_2098)"/>
+<ellipse cx="114.526" cy="110.484" rx="47.4375" ry="21.3125" transform="rotate(3.11549 114.526 110.484)" fill="url(#paint3_linear_24_2098)"/>
+<ellipse cx="35.5172" cy="14.4241" rx="35.5172" ry="14.4241" transform="matrix(0.97678 -0.214243 0.256846 0.966452 60.5 70.2188)" fill="url(#paint4_linear_24_2098)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_24_2098" x1="110" y1="47.9286" x2="110" y2="220" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="#6FC7FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_24_2098" x1="109.893" y1="177.563" x2="102.256" y2="226.98" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8FC2F0"/>
+<stop offset="1" stop-color="#93E6FB"/>
+</linearGradient>
+<linearGradient id="paint2_linear_24_2098" x1="102.361" y1="131.659" x2="96.4607" y2="176.548" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8FF0CD"/>
+<stop offset="1" stop-color="#93E6FB"/>
+</linearGradient>
+<linearGradient id="paint3_linear_24_2098" x1="114.065" y1="89.3136" x2="106.977" y2="131.005" gradientUnits="userSpaceOnUse">
+<stop stop-color="#BCFFCD" stop-opacity="0.22"/>
+<stop offset="1" stop-color="#7CF8CB"/>
+</linearGradient>
+<linearGradient id="paint4_linear_24_2098" x1="35.1724" y1="0.0959939" x2="30.8139" y2="28.458" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EFFFBE" stop-opacity="0.46"/>
+<stop offset="1" stop-color="#92F9BC" stop-opacity="0.71"/>
+</linearGradient>
+</defs>
+</svg>

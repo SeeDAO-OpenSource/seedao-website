@@ -1,55 +1,31 @@
 import styled from "styled-components";
+import sun from "../assets/home/sun-shadow.svg";
+
 export const HomeSection = styled.section`
   background: linear-gradient(0deg, #fbf5ef 0.09%, #f9f6ff 96.69%);
 `;
 
-export const Header = styled.div`
+export const Title = styled.div`
+  background: url(${sun}) center no-repeat;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px 60px;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-`;
-export const HeaderLeft = styled.div`
-  padding-top: 40px;
-`;
-export const HeaderTitle = styled.h1`
-  font-size: 65px;
-  max-width: 400px;
-  @media (max-width: 1024px) {
-    font-size: 50px;
-    max-width: 300px;
+  height: 300px;
+  text-align: center;
+  padding: 20px;
+  font-size: 36px;
+  line-height: 54px;
+  max-width: 1150px;
+  margin: 0 auto;
+  p {
+    font-size: 36px;
   }
   @media (max-width: 768px) {
-    text-align: center;
-  }
-`;
-export const JoinButton = styled.button`
-  border: none;
-  background-color: #a6a2f9;
-  color: #000;
-  font-size: 18px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 40px;
-  @media (max-width: 768px) {
-    width: 100%;
+    p {
+      font-size: 30px;
+    }
   }
 `;
 
-export const HeaderImg = styled.div`
-  flex: 2;
-  max-width: 900px;
-  margin-left: 20px;
-  margin-inline: auto;
-
-  img {
-  }
-  @media (max-width: 768px) {
-    order: 1;
-  }
-`;
+export const BannerImg = styled.img``;
