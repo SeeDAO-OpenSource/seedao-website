@@ -33,6 +33,7 @@ jobs:
          git config --global user.email dev@seedao.xyz;
          rm -rf *
          cp -R ../build/* .;
+         echo "test.seedao.xyz" > CNAME
          git add .;
          git status;
          git commit -m "deploy";
