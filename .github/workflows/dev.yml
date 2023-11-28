@@ -19,6 +19,8 @@ jobs:
          node-version: '16.17.0'
 
      - name: Compile
+       env:
+         CI: false
        run: |
          npm install --force;
          npm run build;
@@ -29,6 +31,7 @@ jobs:
          cd seedao.xyz;
          git config --global user.name dev;
          git config --global user.email dev@seedao.xyz;
+         rm -rf *
          cp -R ../dist/* .;
          git add .;
          git status;
