@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Container } from "./Global.style";
 
 export const Nav = styled.nav`
@@ -38,10 +38,7 @@ export const MobileIcon = styled.div`
     }
   }
 `;
-
-export const RightSide = styled.div.attrs<{ show: boolean }>((props) => ({
-  show: undefined,
-}))<{ show: boolean }>`
+export const RightSide = styled.div<{ show: boolean }>`
   display: flex;
   @media (max-width: 960px) {
     display: flex;
