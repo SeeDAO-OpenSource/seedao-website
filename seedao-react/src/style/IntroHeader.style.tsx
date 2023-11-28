@@ -4,7 +4,7 @@ export const IntroHeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 40px;
+  padding: 5px 70px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column-reverse;

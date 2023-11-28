@@ -4,9 +4,15 @@ import { Container } from "./Global.style";
 
 export const Nav = styled.nav`
   background-color: #fff;
-  @media screen and (max-width: 960px) {
+  /* @media screen and (max-width: 960px) { */
+  @media screen and (max-width: 768px) {
     background-color: transparent;
   }
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 export const NavContainer = styled(Container)`
   display: flex;
@@ -21,12 +27,17 @@ export const NavContainer = styled(Container)`
 export const Logo = styled.img`
   width: 182px;
   height: 38px;
+  @media screen and (max-width: 1024px) {
+    width: 140px;
+    height: 30px;
+  }
 `;
 
 export const MobileIcon = styled.div`
   display: none;
 
-  @media screen and (max-width: 960px) {
+  /* @media screen and (max-width: 960px) { */
+  @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
     top: 0;
@@ -40,7 +51,11 @@ export const MobileIcon = styled.div`
 `;
 export const RightSide = styled.div<{ show: boolean }>`
   display: flex;
-  @media (max-width: 960px) {
+  @media screen and (max-width: 1024px) {
+    gap: 8px;
+  }
+  /* @media (max-width: 960px) { */
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +77,12 @@ export const NavList = styled.ul`
   margin-right: 30px;
   position: relative;
 
-  @media (max-width: 960px) {
+  @media screen and (max-width: 1024px) {
+    margin-right: 4px;
+  }
+
+  /* @media (max-width: 960px) { */
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +92,8 @@ export const NavList = styled.ul`
 export const NavigationLink = styled.li`
   text-decoration: none;
   list-style: none;
-  @media screen and (max-width: 960px) {
+  /* @media screen and (max-width: 960px) { */
+  @media screen and (max-width: 768px) {
     width: 100%;
     padding: 20px 0;
   }
@@ -85,7 +106,11 @@ export const Navigation = styled(NavLink)`
   font-weight: 700;
   display: flex;
   justify-content: center;
-  @media (min-width: 960px) {
+  @media screen and (max-width: 1024px) {
+    padding: 0 10px;
+  }
+  /* @media (min-width: 960px) { */
+  @media (min-width: 768px) {
     &.active {
       &::before {
         content: "";
@@ -105,7 +130,7 @@ export const Navigation = styled(NavLink)`
 export const NavButton = styled.div`
   display: flex;
   gap: 16px;
-  @media (max-width: 960px) {
+  @media (max-width: 768px) {
     margin-top: 16px;
   }
 `;
