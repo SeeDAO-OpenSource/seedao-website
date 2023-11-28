@@ -22,8 +22,8 @@ jobs:
        env:
          CI: false
        run: |
-         npm install --force;
-         npm run build;
+         yarn;
+         yarn build;
 
      - name: Pushes to another repository
        run: |
@@ -32,7 +32,7 @@ jobs:
          git config --global user.name dev;
          git config --global user.email dev@seedao.xyz;
          rm -rf *
-         cp -R ../dist/* .;
+         cp -R ../build/* .;
          git add .;
          git status;
          git commit -m "deploy";
