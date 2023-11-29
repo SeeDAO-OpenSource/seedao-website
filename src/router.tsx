@@ -4,7 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Intro from "./pages/Intro";
 import Journey from "./pages/Journey";
 import Build from "./pages/Build";
-// import Footer from "./components/layout/Footer";
+import Footer from "./components/layout/Footer";
 
 const RouterLink = () => {
   return (
@@ -17,7 +17,7 @@ const RouterLink = () => {
         <Route path="/build" element={<Build />}></Route>
         {/* <Route path="/podcast" element={< />}></Route> */}
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };
