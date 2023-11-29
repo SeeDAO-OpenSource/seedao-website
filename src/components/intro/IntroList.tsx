@@ -45,7 +45,7 @@ const Lists = styled.div`
   justify-items: center;
   gap: 30px;
   /* padding: 30px 40px; */
-  margin: 30px 40px;
+  margin: 50px 40px;
   @media (max-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

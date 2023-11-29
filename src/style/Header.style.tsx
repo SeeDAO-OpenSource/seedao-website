@@ -4,7 +4,6 @@ export const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column-reverse;
@@ -12,11 +11,15 @@ export const HeaderSection = styled.div`
 `;
 export const HeaderLeft = styled.div`
   padding-top: 40px;
+  padding-left: 60px;
+  @media (max-width: 768px) {
+    text-align: center;
+    padding-left: 0px;
+  }
 `;
 export const HeaderTitle = styled.h1`
   font-size: 65px;
   max-width: 400px;
-  /* font-family: Inter; */
   @media (max-width: 1024px) {
     font-size: 50px;
     max-width: 300px;
@@ -44,9 +47,6 @@ export const HeaderImg = styled.div`
   max-width: 900px;
   margin-left: 20px;
   margin-inline: auto;
-
-  img {
-  }
   @media (max-width: 768px) {
     order: 1;
   }

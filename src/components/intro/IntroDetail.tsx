@@ -48,6 +48,7 @@ const IntroDetails = styled.ul`
   li {
     padding: 16px 0;
     font-size: 20px;
+    font-weight: 400;
   }
   @media (max-width: 768px) {
     max-width: 660px;

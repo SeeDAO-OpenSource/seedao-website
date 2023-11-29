@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Container } from "./Global.style";
 
 export const Nav = styled.nav`
@@ -30,6 +30,7 @@ export const Logo = styled.img`
   @media screen and (max-width: 1024px) {
     width: 140px;
     height: 30px;
+    margin-left: 10px;
   }
 `;
 
@@ -42,7 +43,7 @@ export const MobileIcon = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-60%, 60%);
     cursor: pointer;
     img {
       width: 40px;

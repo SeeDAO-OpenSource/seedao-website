@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import { Container } from "../../style/Global.style";
 import image3 from "../../assets/footer/image 3.svg";
 import Rectangle677 from "../../assets/footer/Rectangle 677.svg";
 import image5 from "../../assets/footer/image 5.svg";
@@ -27,10 +25,44 @@ import Opensee from "../../assets/footer/Opensee.svg";
 import Tg from "../../assets/footer/Tg.svg";
 import mi from "../../assets/footer/Mi.svg";
 import mail from "../../assets/footer/mail.svg";
+import {
+  Cooperation,
+  FooterContainer,
+  FooterSection,
+  Logo1,
+  Logo10,
+  Logo11,
+  Logo12,
+  Logo13,
+  Logo14,
+  Logo15,
+  Logo16,
+  Logo17,
+  Logo18,
+  Logo19,
+  Logo2,
+  Logo20,
+  Logo3,
+  Logo4,
+  Logo5,
+  Logo6,
+  Logo7,
+  Logo8,
+  Logo9,
+  Partner,
+  PartnerTitle,
+  Partners,
+  PartnersContainer,
+  Portfolio,
+  PortfolioTitle,
+  SocialLink,
+  SocialLinks,
+  SocialMedia,
+} from "../../style/Footer.style";
 
 const Footer = () => {
   return (
-    <Container>
+    <FooterContainer>
       <FooterSection>
         <PartnersContainer>
           <PartnerTitle>PARTNERS</PartnerTitle>
@@ -146,233 +178,8 @@ const Footer = () => {
           <p>© 2023 SeeDAO. All Rights Reserved.</p>
         </SocialMedia>
       </FooterSection>
-    </Container>
+    </FooterContainer>
   );
 };
 
 export default Footer;
-const FooterSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  margin: 42px 60px;
-  color: #b0aca7;
-  opacity: 0.8;
-  padding-top: 100px;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 10px 10px;
-  }
-`;
-const PartnersContainer = styled.div`
-  @media (max-width: 768px) {
-    /* text-align: center; */
-  }
-  /* width: 33%; */
-`;
-const PartnerTitle = styled.p`
-  font-size: 18px;
-  font-weight: 700;
-  padding: 0 4px;
-  padding-bottom: 14px;
-`;
-const PortfolioTitle = styled.p`
-  font-size: 18px;
-  font-weight: 700;
-  padding: 14px 4px;
-  margin-top: 30px;
-`;
-const Partners = styled.div`
-  display: flex;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  /* &:last-child {
-    justify-content: flex-start;
-    gap: 22px;
-    border: 1px solid red;
-  } */
-`;
-const Partner = styled.div`
-  display: flex;
-  padding: 10px;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 22px;
-`;
-const Logo1 = styled.div`
-  img {
-    max-width: 53px;
-  }
-`;
-const Logo2 = styled.div`
-  img {
-    max-width: 74px;
-  }
-`;
-const Logo3 = styled.div`
-  img {
-    max-width: 105px;
-  }
-`;
-const Logo4 = styled.div`
-  img {
-    max-width: 84px;
-  }
-`;
-
-const Logo5 = styled.div`
-  img {
-    max-width: 65px;
-  }
-`;
-const Logo6 = styled.div`
-  img {
-    max-width: 91px;
-  }
-`;
-const Logo7 = styled.div`
-  img {
-    max-width: 45px;
-  }
-`;
-const Logo8 = styled.div`
-  img {
-    max-width: 76px;
-  }
-`;
-const Logo9 = styled.div`
-  img {
-    max-width: 76px;
-  }
-`;
-const Logo10 = styled.div`
-  img {
-    max-width: 76px;
-  }
-`;
-
-// portfolio
-const Portfolio = styled.div`
-  display: flex;
-  padding: 10px;
-  gap: 10px;
-  justify-content: space-between;
-  align-items: center;
-`;
-const Logo11 = styled.div`
-  img {
-    max-width: 73px;
-  }
-`;
-const Logo12 = styled.div`
-  img {
-    max-width: 24px;
-  }
-`;
-const Logo13 = styled.div`
-  img {
-    max-width: 87px;
-  }
-`;
-const Logo14 = styled.div`
-  img {
-    max-width: 31px;
-  }
-`;
-const Logo15 = styled.div`
-  img {
-    max-width: 28px;
-  }
-`;
-const Logo16 = styled.div`
-  img {
-    max-width: 61px;
-  }
-`;
-const Logo17 = styled.div`
-  img {
-    max-width: 31px;
-  }
-`;
-const Logo18 = styled.div`
-  img {
-    max-width: 113px;
-  }
-`;
-const Logo19 = styled.div`
-  img {
-    max-width: 33px;
-  }
-`;
-const Logo20 = styled.div`
-  img {
-    max-width: 69px;
-  }
-`;
-
-const Cooperation = styled.div`
-  /* width: 33%; */
-  line-height: 40px;
-  padding: 0 14px;
-  h5 {
-    font-size: 18px;
-    font-weight: 700;
-    padding-bottom: 10px;
-  }
-  p {
-    font-size: 16px;
-    font-weight: 400;
-  }
-  h6 {
-    color: #000;
-    font-size: 16px;
-    font-weight: 400;
-  }
-`;
-const SocialMedia = styled.div`
-  /* width: 33%; */
-  position: relative;
-  h5 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 40px;
-  }
-  p {
-    position: absolute;
-    bottom: 0;
-  }
-  @media (max-width: 768px) {
-    margin-top: 32px;
-    h5 {
-      margin-bottom: 10px;
-    }
-    p {
-      position: relative;
-      margin: 40px;
-    }
-  }
-`;
-const SocialLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 10px 0;
-  max-width: 310px;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-wrap: nowrap;
-    max-width: 100%;
-  }
-`;
-
-const SocialLink = styled.a`
-  img {
-    max-width: 36px;
-  }
-`;

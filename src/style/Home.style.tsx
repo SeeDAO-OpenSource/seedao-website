@@ -6,14 +6,11 @@ export const HomeSection = styled.section`
 `;
 
 export const Title = styled.div`
-  background: url(${sun}) center no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
+  background: url(${sun}) no-repeat;
+  background-position: center;
+  height: 324px;
   text-align: center;
-  padding: 20px;
+  padding: 54px 20px;
   font-size: 36px;
   line-height: 54px;
   max-width: 1150px;
@@ -22,10 +19,16 @@ export const Title = styled.div`
     font-size: 36px;
   }
   @media (max-width: 768px) {
+    background-position: bottom;
     p {
       font-size: 30px;
+      /* padding: 10px 20px; */
     }
   }
 `;
 
-export const BannerImg = styled.img``;
+export const BannerImg = styled.img`
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+`;

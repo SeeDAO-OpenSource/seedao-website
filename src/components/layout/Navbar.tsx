@@ -15,6 +15,7 @@ import {
   MobileIcon,
 } from "../../style/Navbar.style";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -25,7 +26,9 @@ const Navbar = () => {
       <Nav>
         <NavContainer>
           {/* <Container> */}
-          <Logo src={logo}></Logo>
+          <Link to="/">
+            <Logo src={logo} />
+          </Link>
           {/* mobile icon */}
           <MobileIcon onClick={handleNavToggle}>
             <img src={menu} alt="" />

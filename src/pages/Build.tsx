@@ -32,7 +32,8 @@ const List = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 30px 10px 30px 10%;
+  padding: 30px 10px 30px 10px;
+  margin: 50px 40px;
   font-size: 20px;
   border-radius: 16px;
   background: linear-gradient(180deg, #e4fef5 0%, #fbf5ef 100%);
@@ -40,7 +41,8 @@ const List = styled.div`
   @media (max-width: 768px) {
     padding: 20px 5px 20px 10px;
     font-size: 14px;
-    margin: 0 auto;
+    margin: 30px 20px;
+    /* margin: 0 auto; */
   }
 `;
 const Image = styled.img`
