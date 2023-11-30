@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container } from "../style/Global.style";
 import JourneyHeader from "../components/journey/JourneyHeader";
 import JourneyDetails from "../components/journey/JourneyDetails";
 import JourneyList from "../components/journey/JourneyList";

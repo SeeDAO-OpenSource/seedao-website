@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container } from "../style/Global.style";
 import BuildHeader from "../components/build/BuildHeader";
 import BuildDetails from "../components/build/BuildDetails";
 import seedao from "../assets/build/build-seedao.svg";
@@ -9,7 +8,7 @@ const Build = () => {
   const { t } = useTranslation();
   return (
     <BuildSection>
-      <Container>
+      <div>
         <BuildHeader />
         <BuildDetails />
         <List
@@ -20,7 +19,7 @@ const Build = () => {
           <Image src={seedao} />
           <p>{t("Link-Proposal")}</p>
         </List>
-      </Container>
+      </div>
     </BuildSection>
   );
 };

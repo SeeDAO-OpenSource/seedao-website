@@ -1,19 +1,18 @@
 import IntroDetail from "../components/intro/IntroDetail";
 import IntroHeader from "../components/intro/IntroHeader";
 import IntroList from "../components/intro/IntroList";
-import { Container } from "../style/Global.style";
 import styled from "styled-components";
 
 const Intro = () => {
   return (
     <IntroSection>
-      <Container>
+      <div>
         <IntroHeader />
         {/* intro details */}
         <IntroDetail />
         {/* intro details end */}
         <IntroList />
-      </Container>
+      </div>
     </IntroSection>
   );
 };

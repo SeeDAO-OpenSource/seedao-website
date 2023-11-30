@@ -1,8 +1,43 @@
 import member from "../../assets/home/member.svg";
 import seed from "../../assets/home/seed-holder.svg";
 import govern from "../../assets/home/govern-node.svg";
-import { Image, List, ListsSection } from "../../style/MemberList.style";
 import { t } from "i18next";
+import styled from "styled-components";
+
+export const ListsSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 85px 0 55px;
+  //@media (max-width: 768px) {
+  //  padding: 85px 20px 55px 20px;
+  //}
+`;
+
+const H3Title = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Inter-Bold';
+  padding: 24px 0;
+`
+
+export const List = styled.div`
+  text-align: center;
+  width: 33.333%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  a {
+    color: #111;
+    font-size: 16px;
+    font-family: 'DMSans-Regular';
+  }
+  //@media (max-width: 768px) {
+  //  h3 {
+  //    font-size: 24px;
+  //  }
+  //}
+`;
 
 const list = [
   {
@@ -33,20 +68,20 @@ const MemberList = () => {
         </List>
       ))} */}
       <List>
-        <Image src={member} />
-        <h3>
+        <img src={member} />
+        <H3Title>
           11,359 <span>+</span>
-        </h3>
+        </H3Title>
         <a href="">{t("Discord-Member")}</a>
       </List>
       <List>
-        <Image src={seed} />
-        <h3>547</h3>
+        <img src={seed} />
+        <H3Title>547</H3Title>
         <a href="#">{t("SEED-Holder")}</a>
       </List>
       <List>
-        <Image src={govern} />
-        <h3>52</h3>
+        <img src={govern} />
+        <H3Title>52</H3Title>
         <a href="#">{t("Governance-Node")}</a>
       </List>
     </ListsSection>
