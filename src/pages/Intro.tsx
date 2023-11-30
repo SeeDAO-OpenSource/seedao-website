@@ -20,5 +20,5 @@ const Intro = () => {
 export default Intro;
 
 const IntroSection = styled.section`
-  background: linear-gradient(180deg, #e0deff 0%, #fbf5ef 100%);
+
 `;
