@@ -14,13 +14,30 @@ import {
   Button,
   MobileIcon,
 } from "../../style/Navbar.style";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const {
+    t,
+    i18n: { changeLanguage, language },
+  } = useTranslation();
   const [show, setShow] = useState(false);
   const handleNavToggle = () => setShow(!show);
   const closeMobileMenu = () => setShow(false);
+  // change language
+  const initialLanguage = localStorage.getItem("currentLanguage") || "en";
+  const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
+  useEffect(() => {
+    localStorage.setItem("currentLanguage", language);
+    changeLanguage(currentLanguage);
+  }, [currentLanguage, language]);
+
+  const handleChangeLanguage = () => {
+    const newLanguage = currentLanguage === "en" ? "cn" : "en";
+    setCurrentLanguage(newLanguage);
+  };
   return (
     <>
       <Nav>
@@ -37,31 +54,31 @@ const Navbar = () => {
             <NavList>
               <NavigationLink>
                 <Navigation to="/intro" onClick={closeMobileMenu}>
-                  关于SEEDDAO
+                  {t("Intro")}
                 </Navigation>
               </NavigationLink>
               <NavigationLink>
                 <Navigation to="/journey" onClick={closeMobileMenu}>
-                  城邦之旅
+                  {t("Journey")}
                 </Navigation>
               </NavigationLink>
               <NavigationLink>
                 <Navigation to="/build" onClick={closeMobileMenu}>
-                  着手建设
+                  {t("Build")}
                 </Navigation>
               </NavigationLink>
-              <NavigationLink>
+              <NavigationLink style={{ pointerEvents: "none" }}>
                 <Navigation to="/podcast" onClick={closeMobileMenu}>
-                  播客
+                  {t("Podcast")}
                 </Navigation>
               </NavigationLink>
             </NavList>
             <NavButton>
-              <LanguageBtn>
+              <LanguageBtn onClick={handleChangeLanguage}>
                 <img src={lng} alt="" />
-                <p>EN</p>
+                <p>{currentLanguage === "en" ? "CN" : "EN"}</p>
               </LanguageBtn>
-              <Button>进入城邦</Button>
+              <Button>{t("Enter-App")}</Button>
             </NavButton>
           </RightSide>
           {/* </Container> */}

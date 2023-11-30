@@ -3,16 +3,22 @@ import { Container } from "../style/Global.style";
 import BuildHeader from "../components/build/BuildHeader";
 import BuildDetails from "../components/build/BuildDetails";
 import seedao from "../assets/build/build-seedao.svg";
+import { useTranslation } from "react-i18next";
 
 const Build = () => {
+  const { t } = useTranslation();
   return (
     <BuildSection>
       <Container>
         <BuildHeader />
         <BuildDetails />
-        <List>
+        <List
+          href="https://app.seedao.xyz/proposal/category/19"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Image src={seedao} />
-          <p>SeeDAO App</p>
+          <p>{t("Link-Proposal")}</p>
         </List>
       </Container>
     </BuildSection>
@@ -25,7 +31,7 @@ const BuildSection = styled.section`
   background: linear-gradient(181deg, #e0ffff 0.85%, #fbf5ef 95.53%),
     linear-gradient(180deg, #cdcbff 0%, #fbf5ef 100%);
 `;
-const List = styled.div`
+const List = styled.a`
   max-width: 380px;
   border-radius: 16px;
   box-shadow: 2px 5px 12px -13px rgba(201, 176, 151, 0.04);
@@ -38,6 +44,8 @@ const List = styled.div`
   border-radius: 16px;
   background: linear-gradient(180deg, #e4fef5 0%, #fbf5ef 100%);
   box-shadow: 2px 5px 12px -13px rgba(201, 176, 151, 0.04);
+  text-decoration: none;
+  color: #000;
   @media (max-width: 768px) {
     padding: 20px 5px 20px 10px;
     font-size: 14px;

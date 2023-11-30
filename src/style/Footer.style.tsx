@@ -179,20 +179,29 @@ export const Cooperation = styled.div`
   /* width: 33%; */
   line-height: 40px;
   padding: 0 14px;
-  h5 {
-    font-size: 18px;
-    font-weight: 700;
-    padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    margin-top: 35px;
   }
-  p {
-    font-size: 16px;
-    font-weight: 400;
-  }
-  h6 {
-    color: #000;
-    font-size: 16px;
-    font-weight: 400;
-  }
+`;
+export const CooperationTitle = styled.h6`
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 10px;
+`;
+export const Incubator = styled.a`
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+`;
+
+export const CLink = styled.a`
+  font-size: 16px;
+  font-weight: 400;
+  color: #b0aca7;
+  text-decoration: none;
 `;
 export const SocialMedia = styled.div`
   /* width: 33%; */

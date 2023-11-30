@@ -5,33 +5,47 @@ import global from "../../assets/intro/global.svg";
 import city from "../../assets/intro/city-hall.svg";
 import combinator from "../../assets/intro/combinator.svg";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const IntroList = () => {
+  const { t } = useTranslation();
   return (
     <Lists>
-      <WhitePaper>
+      <WhitePaper href="SeeDAO-WhitePaper.pdf" download="SeeDAO-WhitePaper.pdf">
         <Image src={whitePaper} />
-        <p>Meta Protocol</p>
+        <p>{t("Link-Whitepaper")}</p>
       </WhitePaper>
-      <Meta>
+      <Meta
+        href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={meta} />
-        <p>Meta Protocol</p>
+        <p>{t("Link-Meta")}</p>
       </Meta>
-      <Sedao>
+      <Sedao href="https://app.seedao.xyz" target="_blank" rel="noreferrer">
         <Image src={seedao} />
-        <p>SeeDAO App</p>
+        <p>{t("Link-App")}</p>
       </Sedao>
-      <Global>
+      <Global href="https://seeu.network/" target="_blank" rel="noreferrer">
         <Image src={global} />
-        <p>SeeDAO App</p>
+        <p>{t("Link-Net")}</p>
       </Global>
-      <CityHall>
+      <CityHall
+        href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={city} />
-        <p>SeeDAO App</p>
+        <p>{t("Link-City-Hall")}</p>
       </CityHall>
-      <Combinator>
+      <Combinator
+        href="https://beta.seedao.cc/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={combinator} />
-        <p>SeeDAO App</p>
+        <p>{t("Link-Combinator")}</p>
       </Combinator>
     </Lists>
   );
@@ -54,7 +68,7 @@ const Lists = styled.div`
     margin: 30px 20px;
   }
 `;
-const ListGlobal = styled.div`
+const ListGlobal = styled.a`
   /* max-width: 370px; */
   width: 100%;
   border-radius: 16px;
@@ -64,6 +78,8 @@ const ListGlobal = styled.div`
   gap: 10px;
   padding: 30px 10px 30px 10%;
   font-size: 20px;
+  text-decoration: none;
+  color: #000;
   @media (max-width: 768px) {
     padding: 20px 5px 20px 10px;
     font-size: 14px;

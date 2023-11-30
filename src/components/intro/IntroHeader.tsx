@@ -4,16 +4,15 @@ import {
   IntroLogo,
 } from "../../style/IntroHeader.style";
 import introLogo from "../../assets/intro/Intro-Banner.svg";
+import { useTranslation } from "react-i18next";
 
 const IntroHeader = () => {
+  const { t } = useTranslation();
   return (
     <IntroHeaderSection>
       <IntroTitle>
-        <h1>INTRO</h1>
-        <h2>
-          SEEDAO is a digital city-state, a decentralized, autonomous world for
-          the pursuit of the "good life".
-        </h2>
+        <h1>{t("Intro")}</h1>
+        <h2>{t("Intro-Content-1")}</h2>
       </IntroTitle>
       <IntroLogo>
         <img src={introLogo} alt="" />

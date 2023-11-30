@@ -1,15 +1,14 @@
 import buildBanner from "../../assets/build/build-banner.svg";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const BuildHeader = () => {
+  const { t } = useTranslation();
   return (
     <JourneyHeaderContainer>
       <JourneyTitle>
-        <h1>Build</h1>
-        <h2>
-          You'll wonder how this city-state connecting tens of thousands of
-          people and thousands of Builders was actually built.
-        </h2>
+        <h1>{t("Build")}</h1>
+        <h2>{t("Build-Content-1")}</h2>
       </JourneyTitle>
       <JourneyLogo>
         <img src={buildBanner} alt="" />

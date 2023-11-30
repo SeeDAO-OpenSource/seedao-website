@@ -16,6 +16,7 @@ export const IntroTitle = styled.div`
   h1 {
     font-size: 48px;
     font-weight: 500;
+    text-transform: uppercase;
   }
   h2 {
     font-size: 40px;

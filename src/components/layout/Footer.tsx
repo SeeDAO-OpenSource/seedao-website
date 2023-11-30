@@ -26,9 +26,12 @@ import Tg from "../../assets/footer/Tg.svg";
 import mi from "../../assets/footer/Mi.svg";
 import mail from "../../assets/footer/mail.svg";
 import {
+  CLink,
   Cooperation,
+  CooperationTitle,
   FooterContainer,
   FooterSection,
+  Incubator,
   Logo1,
   Logo10,
   Logo11,
@@ -59,13 +62,15 @@ import {
   SocialLinks,
   SocialMedia,
 } from "../../style/Footer.style";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <FooterContainer>
       <FooterSection>
         <PartnersContainer>
-          <PartnerTitle>PARTNERS</PartnerTitle>
+          <PartnerTitle>{t("Partners")}</PartnerTitle>
           <Partners>
             {/* <Logo1 src={image3} /> */}
             <Logo1>
@@ -141,37 +146,87 @@ const Footer = () => {
           </Portfolio>
         </PartnersContainer>
         <Cooperation>
-          <h5>COOPERATION APPLICATION</h5>
-          <p>Application for SeeDAO Cooperation</p>
-          <h6>Incubator Cooperation</h6>
-          <p>Bug Reporting</p>
-          <p>Terms of Services</p>
-          <p>Privacy Policy</p>
+          <CooperationTitle>{t("Cooperation-Application")}</CooperationTitle>
+          <CLink
+            href="https://tally.so/r/wLzvRG"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("City-Hall-Cooperation")}
+          </CLink>
+          <Incubator
+            href="https://tally.so/r/wAr0Q0"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("Incubator-Cooperation")}
+          </Incubator>
+          <CLink
+            href="https://tally.so/r/nG6vRj"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("Bug-Reporting")}
+          </CLink>
+          <CLink href="https://seedao.xyz/tos" target="_blank" rel="noreferrer">
+            {t("Terms-of-Services")}
+          </CLink>
+          <CLink
+            href="https://seedao.xyz/privacy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("Privacy-Policy")}
+          </CLink>
         </Cooperation>
         <SocialMedia>
-          <h5>SEEDAO SOCIAL MEDIA</h5>
+          <h5>{t("Social-medial")}</h5>
           <SocialLinks>
-            <SocialLink href="#">
+            <SocialLink
+              href="https://twitter.com/see_dao"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={twitter} alt="" />
             </SocialLink>
-            <SocialLink href="#">
+            <SocialLink
+              href="https://discord.gg/seedao-xyz"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={Dis} alt="" />
             </SocialLink>
-            <SocialLink href="#">
+            <SocialLink
+              href="https://seedao.notion.site/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={notion} alt="" />
             </SocialLink>
-            <SocialLink href="#">
+            <SocialLink
+              href="https://opensea.io/collection/seedaoseed"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={Opensee} alt="" />
             </SocialLink>
-            <SocialLink href="#">
+            <SocialLink
+              href="https://t.me/theseedao"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={Tg} alt="" />
             </SocialLink>
             {/* </SocialLinks> */}
             {/* <SocialLinks> */}
-            <SocialLink href="#">
+            <SocialLink
+              href="https://mirror.xyz/seedao.eth"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={mi} alt="" />
             </SocialLink>
-            <SocialLink href="#">
+            <SocialLink href="">
               <img src={mail} alt="" />
             </SocialLink>
           </SocialLinks>

@@ -5,38 +5,53 @@ import proposal from "../../assets/journey/proposal.svg";
 import seed from "../../assets/journey/seed.svg";
 import nodes from "../../assets/journey/nodes.svg";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const JourneyList = () => {
+  const { t } = useTranslation();
   return (
     <Lists>
-      <Onboarding>
+      <Onboarding
+        href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={onbording} />
-        <p>
-          Onboarding <br /> Process
-        </p>
+        <p>{t("Onboarding-process")}</p>
       </Onboarding>
-      <Contributor>
+      <Contributor
+        href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={contributor} />
-        <p>
-          Contributor <br /> Identity
-        </p>
+        <p>{t("Contributor-Identity")}</p>
       </Contributor>
-      <Bounties>
+      <Bounties href="#">
         <Image src={bounties} />
-        <p>Bounties</p>
+        <p>{t("Bounties")}</p>
       </Bounties>
-      <Proposals>
+      <Proposals
+        href="https://app.seedao.xyz/proposal/category/19"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={proposal} />
-        <p> Proposals</p>
+        <p>{t("Proposals")}</p>
       </Proposals>
-      <Seed>
+      <Seed href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">
         <Image src={seed} />
-        <p>Seed NFT</p>
+        <p>{t("Seed-NFT")}</p>
       </Seed>
-      <NodesConsensus>
+      <NodesConsensus
+        href="https://node.seedao.xyz/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Image src={nodes} />
         <p>
-          Nodes Consensus <br /> Congress
+          {/* Nodes Consensus <br /> Congress */}
+          {t("Nodes-Consensus-Congress")}
         </p>
       </NodesConsensus>
     </Lists>
@@ -60,7 +75,7 @@ const Lists = styled.div`
     margin: 30px 20px;
   }
 `;
-const ListGlobal = styled.div`
+const ListGlobal = styled.a`
   /* max-width: 370px; */
   width: 100%;
   border-radius: 16px;
@@ -70,6 +85,8 @@ const ListGlobal = styled.div`
   gap: 10px;
   padding: 30px 10px 30px 10%;
   font-size: 20px;
+  text-decoration: none;
+  color: #000;
   @media (max-width: 768px) {
     padding: 20px 5px 20px 10px;
     font-size: 14px;

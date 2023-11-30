@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import journeyLogo from "../../assets/journey/journey-banner.svg";
+import { useTranslation } from "react-i18next";
 
 const JourneyHeader = () => {
+  const { t } = useTranslation();
   return (
     <JourneyHeaderContainer>
       <JourneyTitle>
-        <h1>Journey</h1>
-        <h2>
-          Welcome to the start of your <br /> journey to the city-state!
-        </h2>
+        <h1>{t("Journey")}</h1>
+        <h2>{t("Journey-Content-1")}</h2>
       </JourneyTitle>
       <JourneyLogo>
         <img src={journeyLogo} alt="" />
@@ -32,6 +32,9 @@ const JourneyTitle = styled.div`
   width: 34%;
   padding-top: 100px;
   padding-left: 60px;
+  h2 {
+    max-width: 590px;
+  }
   @media (max-width: 1024px) {
     padding-left: 40px;
   }
