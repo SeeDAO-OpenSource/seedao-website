@@ -110,7 +110,7 @@ export const Cooperation = styled.div`
   padding: 0 14px;
   display: flex;
   flex-direction: column;
-
+  min-width: 280px;
   a{
     font-size: 16px;
     font-weight: 400;
