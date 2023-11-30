@@ -7,115 +7,153 @@ import nodes from "../../assets/journey/nodes.svg";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-const JourneyList = () => {
-  const { t } = useTranslation();
-  return (
-    <Lists>
-      <Onboarding
-        href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image src={onbording} />
-        <p>{t("Onboarding-process")}</p>
-      </Onboarding>
-      <Contributor
-        href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image src={contributor} />
-        <p>{t("Contributor-Identity")}</p>
-      </Contributor>
-      <Bounties href="#">
-        <Image src={bounties} />
-        <p>{t("Bounties")}</p>
-      </Bounties>
-      <Proposals
-        href="https://app.seedao.xyz/proposal/category/19"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image src={proposal} />
-        <p>{t("Proposals")}</p>
-      </Proposals>
-      <Seed href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">
-        <Image src={seed} />
-        <p>{t("Seed-NFT")}</p>
-      </Seed>
-      <NodesConsensus
-        href="https://node.seedao.xyz/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image src={nodes} />
-        <p>
-          {/* Nodes Consensus <br /> Congress */}
-          {t("Nodes-Consensus-Congress")}
-        </p>
-      </NodesConsensus>
-    </Lists>
-  );
+const IntroList = () => {
+    const { t } = useTranslation();
+    return (
+        <Box>
+            <Lists>
+                <li>
+                    <a href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966"
+                       target="_blank"
+                       rel="noreferrer"
+                    >
+                        <img src={onbording} />
+                        <span>{t("Onboarding-process")}</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img src={contributor} />
+                        <span>{t("Contributor-Identity")}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src={bounties} />
+                        <span>{t("Bounties")}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://app.seedao.xyz/proposal/category/19" target="_blank" rel="noreferrer">
+                        <img src={proposal} />
+                        <span>{t("Proposals")}</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://seed.seedao.xyz/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img src={seed} />
+                        <span>{t("Seed-NFT")}</span>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://node.seedao.xyz/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img src={nodes} />
+                        <span>{t("Nodes-Consensus-Congress")}</span>
+                    </a>
+                </li>
+
+            </Lists>
+        </Box>
+    );
 };
 
-export default JourneyList;
+export default IntroList;
 
-const Lists = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  gap: 30px;
-  /* padding: 30px 40px; */
-  margin: 50px 40px;
-  @media (max-width: 1024px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 768px) {
-    margin: 30px 20px;
-  }
-`;
-const ListGlobal = styled.a`
-  /* max-width: 370px; */
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 2px 5px 12px -13px rgba(201, 176, 151, 0.04);
+const Box = styled.div`
+  margin: 50px 7vw 160px;
+`
+
+const Lists = styled.ul`
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 30px 10px 30px 10%;
-  font-size: 20px;
-  text-decoration: none;
-  color: #000;
-  @media (max-width: 768px) {
-    padding: 20px 5px 20px 10px;
-    font-size: 14px;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-between;
+  li{
+    width: 32%;
+    height: 206px;
+    margin-bottom: 30px;
+    /* max-width: 370px; */
+    border-radius: 16px;
+    box-shadow: 2px 5px 12px -13px rgba(201, 176, 151, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+
+    img{
+      margin-right: 23px;
+    }
+    span{
+      font-family: 'DMSans-Bold';
+      font-size: 20px;
+      line-height: 20px;
+    }
+    a{
+      color: #000;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    &:first-child{
+      background: linear-gradient(180deg, #e4fef5 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #e4fef5 0%, #fff 100%);
+      }
+    }
+    &:nth-child(2){
+      background: linear-gradient(180deg, #ffefed 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #ffefed 0%, #fff 100%);
+      }
+    }
+    &:nth-child(3){
+      background: linear-gradient(180deg, #ededff 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #ededff 0%, #fff 100%);
+      }
+    }
+    &:nth-child(4){
+      background: linear-gradient(180deg, #edf9ff 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);
+      }
+    } 
+    &:nth-child(5){
+      background: linear-gradient(180deg, #fffaed 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #fffaed 0%, #fff 100%);
+      }
+    }
+    &:nth-child(6){
+      background: linear-gradient(180deg, #edffed 0%, #fbf5ef 100%);
+      &:hover{
+        background: linear-gradient(180deg, #edffed 0%, #fff 100%);
+      }
+    }
   }
+
+  //@media (max-width: 1024px) {
+  //  display: grid;
+  //  grid-template-columns: repeat(2, 1fr);
+  //}
+  //@media (max-width: 768px) {
+  //  margin: 30px 20px;
+  //}
+  
+  
 `;
-const Onboarding = styled(ListGlobal)`
-  background: linear-gradient(180deg, #e4fef5 0%, #fbf5ef 100%);
-`;
-const Contributor = styled(ListGlobal)`
-  background: linear-gradient(180deg, #ffefed 0%, #fbf5ef 100%);
-`;
-const Bounties = styled(ListGlobal)`
-  background: linear-gradient(180deg, #ededff 0%, #fbf5ef 100%);
-`;
-const Proposals = styled(ListGlobal)`
-  background: linear-gradient(180deg, #edf9ff 0%, #fbf5ef 100%);
-`;
-const Seed = styled(ListGlobal)`
-  background: linear-gradient(180deg, #fffaed 0%, rgba(255, 255, 255, 0) 100%);
-`;
-const NodesConsensus = styled(ListGlobal)`
-  background: linear-gradient(180deg, #edffed 0%, #fbf5ef 100%);
-`;
-const Image = styled.img`
-  max-width: 100px;
-  @media (max-width: 768px) {
-    width: 80px;
-  }
-  @media (max-width: 625px) {
-    width: 50px;
-  }
-`;
+

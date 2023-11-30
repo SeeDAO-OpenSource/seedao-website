@@ -20,18 +20,19 @@ export default JourneyDetails;
 const IntroDetails = styled.ul`
   max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 50px;
   list-style: none;
-  padding: 0 20px;
   li {
     padding: 16px 0;
     font-size: 20px;
     font-weight: 400;
+    line-height: 31px;
   }
-  @media (max-width: 768px) {
-    max-width: 660px;
-    li {
-      /* padding: 16px 0; */
-      font-size: 18px;
-    }
-  }
+  //@media (max-width: 768px) {
+  //  max-width: 660px;
+  //  li {
+  //    /* padding: 16px 0; */
+  //    font-size: 18px;
+  //  }
+  //}
 `;
