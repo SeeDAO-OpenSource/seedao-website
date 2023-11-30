@@ -208,11 +208,11 @@ const Navbar = () => {
                   {t("Build")}
                 </Navigation>
               </NavigationLink>
-              <NavigationLink style={{ pointerEvents: "none" }}>
-                <Navigation to="/podcast" onClick={closeMobileMenu}>
-                  {t("Podcast")}
-                </Navigation>
-              </NavigationLink>
+              {/*<NavigationLink style={{ pointerEvents: "none" }}>*/}
+              {/*  <Navigation to="/podcast" onClick={closeMobileMenu}>*/}
+              {/*    {t("Podcast")}*/}
+              {/*  </Navigation>*/}
+              {/*</NavigationLink>*/}
             </NavList>
             <NavButton>
               <LanguageBtn onClick={handleChangeLanguage}>
