@@ -16,7 +16,7 @@ export const Nav = styled.nav`
     left: 0;
     top: 0;
     width: 100vw;
-    z-index: 999;
+    z-index: 9999;
   }
 `;
 export const NavContainer = styled.div`
@@ -38,6 +38,8 @@ export const Logo = styled.img`
   @media screen and (max-width: 1024px) {
     height:18px;
     width: auto;
+    z-index: 9999;
+    position: relative;
   }
 `;
 
@@ -50,6 +52,7 @@ export const MobileIcon = styled.div`
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 9999;
     transform: translate(-60%, 60%);
     cursor: pointer;
     img {
@@ -65,15 +68,14 @@ export const RightSide = styled.div<{ show: boolean }>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
     width: 100%;
-    height: 60vh;
     position: absolute;
-    top: 90px;
-    opacity: 1;
+    top: 0;
+    z-index: 9;
+    padding-top: 80px;
     transition: all 0.5s ease;
     left: ${({ show }) => (show ? 0 : "-100%")};
-    background-color: #d8cfcf;
+    background-color: #fff;
   }
 `;
 export const NavList = styled.ul`
@@ -81,16 +83,13 @@ export const NavList = styled.ul`
   align-items: center;
   position: relative;
   margin-right: 9vw;
-
-  @media screen and (max-width: 1024px) {
-    margin-right: 4px;
-  }
-
   /* @media (max-width: 960px) { */
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 0;
+    width: 100%;
   }
 `;
 
@@ -102,7 +101,10 @@ export const NavigationLink = styled.li`
   /* @media screen and (max-width: 960px) { */
   @media screen and (max-width: 768px) {
     width: 100%;
-    padding: 20px 0;
+    padding: 15px 25px;
+    margin-left: 0;
+    display: flex;
+    font-size: 15px;
   }
 `;
 
@@ -118,19 +120,20 @@ export const Navigation = styled(NavLink)`
   //}
   ///* @media (min-width: 960px) { */
   @media (min-width: 768px) {
-    &.active {
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 45px;
-        height: 3px;
-        background-color: #000;
-        opacity: 1;
-        border-radius: 7px;
-        transition: opacity 300ms ease-in-out;
-      }
-    }
+  }
+    //&.active {
+    //  &::before {
+    //    //content: "";
+    //    //position: absolute;
+    //    //bottom: 0;
+    //    //width: 45px;
+    //    //height: 3px;
+    //    //background-color: #000;
+    //    //opacity: 1;
+    //    //border-radius: 7px;
+    //    //transition: opacity 300ms ease-in-out;
+    //  }
+    //}
   //}
 `;
 
@@ -138,6 +141,8 @@ export const NavButton = styled.div`
   display: flex;
   @media (max-width: 768px) {
     margin-top: 16px;
+    border-top: 1px solid #D9D9D9;
+    width: 100%;
   }
 `;
 
