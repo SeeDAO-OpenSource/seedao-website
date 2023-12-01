@@ -169,6 +169,7 @@ const Home = () => {
       <Header />
       <Title>
         <p>{t("Home-title2")}</p>
+        <p>{t("Home-title3")}</p>
         {/* <p>{t("Title")}</p> */}
       </Title>
         <BannerImg >
