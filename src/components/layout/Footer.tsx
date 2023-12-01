@@ -402,7 +402,7 @@ const Footer = () => {
           </SocialLinks>
           <div className="btmBox">
             <p>© 2023 SeeDAO. All Rights Reserved.</p>
-            <p className="powerby">Powered with by SeeDAO Polis Team</p>
+            <p className="powerby">Powered with ❤️ by SeeDAO Polis Team</p>
           </div>
 
         </SocialMedia></li>
