@@ -161,6 +161,16 @@ const SeeDAO = styled.a`
   border-radius:40px;
   background: rgba(0,0,0,0.5);
 `
+const Joyid = styled.a`
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  position: absolute;
+  left:55vw;
+  top:8vw;
+  border-radius:40px;
+  background: rgba(0,0,0,0.5);
+`
 
 const Home = () => {
   const { t } = useTranslation();
@@ -185,6 +195,7 @@ const Home = () => {
             <Echo href="https://echo3.world/" target="_blank" rel="noreferrer"  />
             <DAOLink href="https://app.daolink.space" target="_blank" rel="noreferrer"  />
             <SeeDAO href="https://app.seedao.xyz/" target="_blank" rel="noreferrer"  />
+            <Joyid href="https://joy.id/" target="_blank" rel="noreferrer"  />
             <img src={banner} alt=""/>
         </BannerImg>
       <MemberList />
