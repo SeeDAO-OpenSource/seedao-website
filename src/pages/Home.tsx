@@ -1,5 +1,5 @@
 import Header from "../components/home/Header";
-import banner from "../assets/home/banner.svg";
+import banner from "../assets/home/banner.jpg";
 import MemberList from "../components/home/MemberList";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
