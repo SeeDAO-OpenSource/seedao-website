@@ -32,7 +32,7 @@ const IntroList = () => {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://app.seedao.xyz/pub" target="_blank" rel="noreferrer">
                         <img src={bounties} />
                         <span>{t("Bounties")}</span>
                     </a>

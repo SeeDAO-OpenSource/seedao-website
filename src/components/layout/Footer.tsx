@@ -37,6 +37,8 @@ import miHover from "../../assets/footer/hover/Mi.png";
 import mail from "../../assets/footer/mail.svg";
 import mailHover from "../../assets/footer/hover/message.png";
 
+import {Link} from "react-router-dom"
+
 export const FooterContainer = styled.section`
   z-index: 1;
   margin: 0 auto;
@@ -173,11 +175,17 @@ export const SocialMedia = styled.div`
     font-family: 'DMSans-Bold';
     text-transform: uppercase;
   }
-  p {
+  .btmBox {
     position: absolute;
     bottom: 16px;
     color: #000000;
     font-weight: 400;
+  }
+  .powerby{
+    color: #b0aca7;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
   }
   @media (max-width: 768px) {
     margin-top: 32px;
@@ -185,11 +193,14 @@ export const SocialMedia = styled.div`
       margin-bottom: 20px;
       margin-top: 22px;
     }
-    p {
+    .btmBox {
       position: relative;
       margin-top: 40px;
       padding-top: 20px;
       bottom: 0;
+    }
+    .powerby{
+      text-align: center;
     }
   }
 `;
@@ -324,16 +335,12 @@ const Footer = () => {
           >
             {t("Bug-Reporting")}
           </a>
-          <a href="https://seedao.xyz/tos" target="_blank" rel="noreferrer">
+          <Link to="/tos">
             {t("Terms-of-Services")}
-          </a>
-          <a
-              href="https://seedao.xyz/privacy"
-              target="_blank"
-              rel="noreferrer"
-          >
+          </Link>
+          <Link to="/privacy">
             {t("Privacy-Policy")}
-          </a>
+          </Link>
         </Cooperation></li>
         <li> <SocialMedia>
           <h5>{t("Social-medial")}</h5>
@@ -388,12 +395,16 @@ const Footer = () => {
               <img src={mi} alt="" className="nor" />
               <img src={miHover} alt="" className="hover" />
             </a>
-            <a href="">
+            <a href="mailto:contactus@seedao.info">
               <img src={mail} alt="" className="nor" />
               <img src={mailHover} alt=""  className="hover" />
             </a>
           </SocialLinks>
-          <p>© 2023 SeeDAO. All Rights Reserved.</p>
+          <div className="btmBox">
+            <p>© 2023 SeeDAO. All Rights Reserved.</p>
+            <p className="powerby">Powered with by SeeDAO Polis Team</p>
+          </div>
+
         </SocialMedia></li>
       </FooterSection>
     </FooterContainer>
