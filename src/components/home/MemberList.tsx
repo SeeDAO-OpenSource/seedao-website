@@ -55,29 +55,29 @@ const MemberList = () => {
     const [discordAmount,SetDiscordAmount] = useState(0)
     const [seedHolders, setSEEDHolders] = useState(0);
     const [governNodes, setGovernNodes] = useState(0);
-
-    const SEED_CONTRACT = '0x30093266e34a816a53e302be3e59a93b52792fd4';
-    const GOV_NODE_CONTRACT = '0x9d34D407D8586478b3e4c39BE633ED3D7be1c80c';
+    const [base1, setBase1] = useState('https://test-spp-indexer.seedao.tech');
+    const [base2, setBase2] = useState('https://test-api.seedao.tech');
 
     useEffect(() => {
         getDiscordNumbers()
         handleSEEDHolders()
         handleGovNodes()
+        getConfig()
     }, []);
 
     const getConfig = ()=>{
-        if(window.location.href.indexOf("test.seedao.xyz")>-1){
-            return 'https://test-spp-indexer.seedao.tech'
+        if(window.location.href.indexOf("test.seedao.xyz")>-1 || window.location.href.indexOf("localhost")>-1 ){
+            setBase1('https://test-spp-indexer.seedao.tech')
+            setBase2('https://test-api.seedao.tech')
         }else{
-            return 'https://spp-indexer.seedao.tech'
+            setBase1('https://spp-indexer.seedao.tech')
+            setBase2('https://api.seedao.tech')
         }
-
     }
-
 
     const handleGovNodes = async () => {
         fetch(
-            `${getConfig()}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/4`,
+            `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/4`,
         )
             .then((res: any) => res.json())
             .then((r) => {
@@ -88,7 +88,7 @@ const MemberList = () => {
             });
     };
     const handleSEEDHolders = async () => {
-        fetch(`${getConfig()}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
+        fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
 `)
             .then((res: any) => res.json())
             .then((r) => {
@@ -101,7 +101,7 @@ const MemberList = () => {
 
    const  getDiscordNumbers = async() => {
         try {
-            const resp = await axios.get(`https://test-api.seedao.tech/v1/public_data/discord_member_count`);
+            const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
 
             SetDiscordAmount(resp.data.data.approximate_member_count)
         } catch (error) {

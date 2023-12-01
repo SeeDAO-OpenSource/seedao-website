@@ -14,6 +14,7 @@ export const Title = styled.div`
   color: #000;
   font-family: 'DMSans-Medium';
   font-weight: 500;
+  width: 79%;
   max-width: 1150px;
   margin: 0 auto 67px;
 

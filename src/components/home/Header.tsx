@@ -75,7 +75,7 @@ export const JoinButton = styled.button`
 `;
 
 export const HeaderImg = styled.div`
-  max-width: 64vw;
+  max-width: 63vw;
   margin-left: 20px;
   margin-inline: auto;
   flex-shrink: 0;
@@ -102,7 +102,6 @@ const Header = () => {
                 <HeaderTitle>{t("Home-title")}</HeaderTitle>
                 <JoinButton>{t("Earn-Membership")}</JoinButton>
             </HeaderLeft>
-            {/* right side */}
             <HeaderImg>
                 {/* <img src={View} alt="" /> */}
                 {View}
