@@ -33,10 +33,106 @@ export const Title = styled.div`
 `;
 
 export const BannerImg = styled.div`
+  position: relative;
   img{
     width: 100%;
   }
+  a{
+    opacity: 0;
+  }
 `;
+
+const Metaforo = styled.a`
+  display: block;
+  width: 8vw;
+  height: 7vw;
+  position: absolute;
+  left: 19vw;
+  top:11vw;
+  background: rgba(0,0,0,0.5);
+`
+const AAAny = styled.a`
+  display: block;
+  width: 6.8vw;
+  height: 5vw;
+  position: absolute;
+  left: 69vw;
+  top:6.4vw;
+  background: rgba(0,0,0,0.5);
+`
+const Cascad3 = styled.a`
+  display: block;
+  width: 8vw;
+  height: 10vw;
+  position: absolute;
+  left: 80vw;
+  top:22vw;
+  background: rgba(0,0,0,0.5);
+`
+const Wormhole3 = styled.a`
+  display: block;
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  left: 61vw;
+  top:25vw;
+  background: rgba(0,0,0,0.5);
+`
+
+const DeSchool = styled.a`
+  display: block;
+  width: 8vw;
+  height: 7vw;
+  position: absolute;
+  left: 9.5vw;
+  top:15vw;
+  background: rgba(0,0,0,0.5);
+`
+const SeeU = styled.a`
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  position: absolute;
+  left: 84vw;
+  top:13vw;
+  background: rgba(0,0,0,0.5);
+`
+const Ensoul = styled.a`
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  position: absolute;
+  left: 46vw;
+  top:28vw;
+  background: rgba(0,0,0,0.5);
+`
+const PFP = styled.a`
+  display: block;
+  width: 8vw;
+  height: 7vw;
+  position: absolute;
+  left: 89vw;
+  top:32vw;
+  background: rgba(0,0,0,0.5);
+`
+const Sellix = styled.a`
+  display: block;
+  width: 7vw;
+  height: 10vw;
+  position: absolute;
+  left: 79.5vw;
+  top:36vw;
+  background: rgba(0,0,0,0.5);
+`
+const Echo = styled.a`
+  display: block;
+  width: 5.5vw;
+  height: 8vw;
+  position: absolute;
+  left:62vw;
+  top:2.5vw;
+  background: rgba(0,0,0,0.5);
+`
 
 const Home = () => {
   const { t } = useTranslation();
@@ -47,7 +143,17 @@ const Home = () => {
         <p>{t("Home-title2")}</p>
         {/* <p>{t("Title")}</p> */}
       </Title>
-        <BannerImg  >
+        <BannerImg >
+            <Metaforo href="https://forum.seedao.xyz/" target="_blank" rel="noreferrer"  />
+            <AAAny href="https://apps.apple.com/ca/app/aaany-ask-anyone-anything/id6450619356" target="_blank" rel="noreferrer"  />
+            <Cascad3 href="https://www.cascad3.com/" target="_blank" rel="noreferrer"  />
+            <Wormhole3 href="https://alpha.wormhole3.io" target="_blank" rel="noreferrer"  />
+            <DeSchool href="https://deschool.app/" target="_blank" rel="noreferrer"  />
+            <SeeU href="https://seeu.network/" target="_blank" rel="noreferrer"  />
+            <Ensoul href="https://www.ensoul.io/" target="_blank" rel="noreferrer"  />
+            <PFP href="https://www.pfp-dao.io/" target="_blank" rel="noreferrer"  />
+            <Sellix href="https://sellix.io/" target="_blank" rel="noreferrer"  />
+            <Echo href="https://echo3.world/" target="_blank" rel="noreferrer"  />
             <img src={banner} alt=""/>
         </BannerImg>
       <MemberList />
