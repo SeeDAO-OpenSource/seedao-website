@@ -41,6 +41,11 @@ export const BannerImg = styled.div`
   a{
     opacity: 0;
   }
+  @media (max-width: 768px) {
+    a{
+      display: none;
+    }
+  }
 `;
 
 const Metaforo = styled.a`
