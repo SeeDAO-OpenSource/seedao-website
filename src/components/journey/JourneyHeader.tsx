@@ -26,7 +26,7 @@ const CenterBox = styled.div`
     display: flex;
   align-content: center;
   justify-content: space-between;
-  background: url(${journeyLogo}) no-repeat 100% center;
+  background: url(${journeyLogo}) no-repeat 100% top;
   width: 100%;
 `
 
