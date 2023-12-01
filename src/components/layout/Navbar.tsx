@@ -78,6 +78,17 @@ export const RightSide = styled.div<{ show: boolean }>`
     background-color: #fff;
   }
 `;
+
+const Mask = styled.div<{ show: boolean }>`
+  width: 100vw;
+  height: 100vh;
+  z-index: 8;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+  left: ${({ show }) => (show ? 0 : "-100%")};
+  background: rgba(0,0,0,0.3);
+`
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
@@ -190,6 +201,7 @@ export const Button = styled.button`
     margin: 0 24px;
     padding: 15px;
     font-size: 15px;
+    width: calc(100% - 40px);
   }
 `;
 
@@ -226,6 +238,9 @@ const Navbar = () => {
           <MobileIcon onClick={handleNavToggle}>
             <img src={menu} alt="" />
           </MobileIcon>
+          <Mask show={show}>
+
+
           <RightSide show={show}>
             <NavList>
               <NavigationLink>
@@ -265,6 +280,7 @@ const Navbar = () => {
 
             </NavButton>
           </RightSide>
+          </Mask>
           {/* </Container> */}
         </NavContainer>
       </Nav>
