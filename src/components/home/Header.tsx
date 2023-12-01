@@ -100,7 +100,8 @@ const Header = () => {
         <MidBox>
             <HeaderLeft>
                 <HeaderTitle>{t("Home-title")}</HeaderTitle>
-                <JoinButton>{t("Earn-Membership")}</JoinButton>
+                <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer"><JoinButton>{t("Earn-Membership")}</JoinButton></a>
+
             </HeaderLeft>
             <HeaderImg>
                 {/* <img src={View} alt="" /> */}
