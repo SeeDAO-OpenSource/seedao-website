@@ -101,7 +101,7 @@ export const NavigationLink = styled.li`
   /* @media screen and (max-width: 960px) { */
   @media screen and (max-width: 768px) {
     width: 100%;
-    padding: 15px 25px;
+    padding: 15px 10px;
     margin-left: 0;
     display: flex;
     font-size: 15px;
@@ -119,8 +119,6 @@ export const Navigation = styled(NavLink)`
   //  padding: 0 10px;
   //}
   ///* @media (min-width: 960px) { */
-  @media (min-width: 768px) {
-  }
     //&.active {
     //  &::before {
     //    //content: "";
@@ -141,8 +139,8 @@ export const NavButton = styled.div`
   display: flex;
   @media (max-width: 768px) {
     margin-top: 16px;
-    border-top: 1px solid #D9D9D9;
     width: 100%;
+    flex-direction: column;
   }
 `;
 
@@ -155,6 +153,15 @@ export const LanguageBtn = styled.div`
   p {
     font-weight: 700;
   }
+  @media (max-width: 768px) {
+    gap: 0;
+    order:1;
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0;
+    border-top: 1px solid #D9D9D9;
+    margin-top: 20px;
+  }
 `;
 export const Button = styled.button`
   border: none;
@@ -166,6 +173,11 @@ export const Button = styled.button`
   cursor: pointer;
   font-family: 'DMSans-Bold';
   white-space: nowrap;
+  @media (max-width: 768px) {
+    margin: 0 24px;
+    padding: 15px;
+    font-size: 15px;
+  }
 `;
 
 const Navbar = () => {
@@ -187,6 +199,7 @@ const Navbar = () => {
   const handleChangeLanguage = () => {
     const newLanguage = currentLanguage === "en" ? "cn" : "en";
     setCurrentLanguage(newLanguage);
+    setShow(false)
   };
   return (
     <>
