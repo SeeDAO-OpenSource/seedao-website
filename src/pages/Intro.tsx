@@ -8,9 +8,7 @@ const Intro = () => {
     <IntroSection>
       <div>
         <IntroHeader />
-        {/* intro details */}
         <IntroDetail />
-        {/* intro details end */}
         <IntroList />
       </div>
     </IntroSection>

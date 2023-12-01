@@ -27,12 +27,14 @@ const IntroDetails = styled.ul`
     font-weight: 400;
     line-height: 31px;
   }
-  //@media (max-width: 768px) {
-  //  max-width: 660px;
-  //  li {
-  //    /* padding: 16px 0; */
-  //    font-size: 18px;
-  //  }
-  //}
+  @media (max-width: 768px) {
+    width: 88%;
+    margin: 30px auto 0;
+    li {
+      /* padding: 16px 0; */
+      font-size: 14px;
+      line-height: 1.5em;
+    }
+  }
 `;
 

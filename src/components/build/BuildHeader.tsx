@@ -24,6 +24,10 @@ const CenterBox = styled.div`
   justify-content: space-between;
   background: url(${buildBanner}) no-repeat 100% center;
   width: 100%;
+  @media (max-width: 768px) {
+    background: url(${buildBanner}) no-repeat top center;
+    background-size: 100%;
+  }
 `
 
 const JourneyHeaderContainer = styled.div`
@@ -31,12 +35,6 @@ const JourneyHeaderContainer = styled.div`
   background: linear-gradient(181deg, #e0ffff 0.85%, #fbf5ef 95.53%),
   linear-gradient(180deg, #cdcbff 0%, #fbf5ef 100%);
   display: flex;
-
-  //@media (max-width: 768px) {
-  //  display: flex;
-  //  flex-direction: column-reverse;
-  //  align-items: center;
-  //}
 `;
 const JourneyTitle = styled.div`
   display: flex;
@@ -57,31 +55,20 @@ const JourneyTitle = styled.div`
     font-weight: 500;
     line-height: 51px;
   }
-  //@media (max-width: 1024px) {
-  //  padding-left: 40px;
-  //}
-  //h1 {
-  //  font-size: 48px;
-  //  font-weight: 500;
-  //}
-  //h2 {
-  //  position: absolute;
-  //  font-size: 40px;
-  //  margin-top: 42px;
-  //  font-weight: 500;
-  //}
-  //@media (max-width: 768px) {
-  //  width: 100%;
-  //  text-align: center;
-  //  padding-top: 10px;
-  //  padding-left: 0;
-  //  h1 {
-  //    font-size: 28px;
-  //  }
-  //  h2 {
-  //    font-size: 28px;
-  //    position: relative;
-  //  }
-  //}
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    width: 81%;
+    text-align: center;
+    padding-top: 280px;
+    .h1 {
+      font-size: 16px;
+    }
+    .h2 {
+      font-size:16px;
+      line-height: 27px;
+      margin-top: 25px;
+
+    }
+  }
 `;
 const JourneyLogo = styled.div``;

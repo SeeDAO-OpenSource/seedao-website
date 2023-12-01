@@ -19,6 +19,10 @@ const CenterBox = styled.div`
   align-content: center;
   justify-content: space-between;
   background: url(${introLogo}) no-repeat 100% center;
+  @media (max-width: 768px) {
+    background: url(${introLogo}) no-repeat center 40px;
+    background-size: 100%;
+  }
 `
 export const IntroTitle = styled.div`
   display: flex;
@@ -30,7 +34,6 @@ export const IntroTitle = styled.div`
   font-family: 'Inter-Medium';
   .h1 {
     font-size: 32px;
-
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -41,30 +44,22 @@ export const IntroTitle = styled.div`
     font-weight: 500;
     line-height: 51px;
   }
-  //
-  //@media (max-width: 1024px) {
-  //  h2 {
-  //    font-size: 28px;
-  //    max-width: 650px;
-  //  }
-  //}
-  //@media (max-width: 768px) {
-  //  width: 100%;
-  //  text-align: center;
-  //  h1 {
-  //    margin-top: 30px;
-  //    font-size: 28px;
-  //  }
-  //  h2 {
-  //    font-size: 28px;
-  //  }
-  //}
-`;
-export const IntroLogo = styled.div`
-  //@media (max-width: 768px) {
-  //  width: 100%;
-  //}
-  /* padding-right: 164px; */
+  
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    width: 81%;
+    text-align: center;
+    padding-top: 300px;
+    .h1 {
+      font-size: 16px;
+    }
+    .h2 {
+      font-size:16px;
+      line-height: 27px;
+      margin-top: 25px;
+     
+    }
+  }
 `;
 
 const IntroHeader = () => {
@@ -76,9 +71,6 @@ const IntroHeader = () => {
                 <div className="h1">{t("Intro")}</div>
                 <div className="h2">{t("Intro-Content-1")}</div>
             </IntroTitle>
-            {/*<IntroLogo>*/}
-            {/*    <img src={introLogo} alt="" />*/}
-            {/*</IntroLogo>*/}
         </CenterBox>
 
     </IntroHeaderSection>

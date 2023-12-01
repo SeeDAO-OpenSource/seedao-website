@@ -6,8 +6,6 @@ const BuildList = () => {
     const { t } = useTranslation();
     return (
         <Box>
-
-
             <Lists>
 
                 <li>
@@ -31,6 +29,9 @@ export default BuildList;
 
 const Box = styled.div`
   margin: 50px 7vw 160px;
+  @media (max-width: 768px) {
+    margin: 0 24px 15px;
+  }
 `
 
 const Lists = styled.ul`
@@ -103,15 +104,21 @@ const Lists = styled.ul`
       }
     }
   }
-
-  //@media (max-width: 1024px) {
-  //  display: grid;
-  //  grid-template-columns: repeat(2, 1fr);
-  //}
-  //@media (max-width: 768px) {
-  //  margin: 30px 20px;
-  //}
-  
+  @media (max-width: 768px) {
+    li {
+      width: 48%;
+      height: 85px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      img{
+        width: 46px;
+      }
+      span{
+        font-size: 10px;
+        line-height: 10px;
+      }
+    }
+  }
   
 `;
 
