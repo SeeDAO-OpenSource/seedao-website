@@ -8,9 +8,11 @@ export const ListsSection = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 85px 0 55px;
-  //@media (max-width: 768px) {
-  //  padding: 85px 20px 55px 20px;
-  //}
+  
+  @media (max-width: 768px) {
+    background: #FAF7FF;
+    padding: 55px 20px;
+  }
 `;
 
 const H3Title = styled.div`
@@ -18,6 +20,9 @@ const H3Title = styled.div`
   font-weight: 700;
   font-family: 'Inter-Bold';
   padding: 24px 0;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `
 
 export const List = styled.div`
@@ -32,11 +37,14 @@ export const List = styled.div`
     font-size: 16px;
     font-family: 'DMSans-Regular';
   }
-  //@media (max-width: 768px) {
-  //  h3 {
-  //    font-size: 24px;
-  //  }
-  //}
+  @media (max-width: 768px) {
+    img {
+      width: 80px;
+    }
+    a{
+      font-size: 11px;
+    }
+  }
 `;
 
 const list = [

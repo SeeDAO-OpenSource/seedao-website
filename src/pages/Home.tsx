@@ -20,22 +20,22 @@ export const Title = styled.div`
   //p {
   //  font-size: 36px;
   //}
-  //@media (max-width: 768px) {
-  //  background-position: bottom;
-  //  p {
-  //    font-size: 30px;
-  //    /* padding: 10px 20px; */
-  //  }
-  //}
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.35em;
+    padding: 25px 20px 90px;
+    background: url(${sun}) no-repeat center bottom;
+    background-size: auto 80px;
+    margin-bottom: 30px;
+  }
 `;
 
 export const BannerImg = styled.div`
   img{
     width: 100%;
   }
-  //@media (max-width: 768px) {
-  //  margin-top: 30px;
-  //}
 `;
 
 const Home = () => {

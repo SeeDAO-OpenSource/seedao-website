@@ -10,9 +10,14 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   background-color: #fff;
   /* @media screen and (max-width: 960px) { */
-  //@media screen and (max-width: 768px) {
-  //  background-color: transparent;
-  //}
+  @media screen and (max-width: 768px) {
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+  }
 `;
 export const NavContainer = styled.div`
   display: flex;
@@ -22,55 +27,54 @@ export const NavContainer = styled.div`
   height: 90px;
   padding: 0 30px;
   font-family: 'DMSans-Bold';
+  @media screen and (max-width: 768px) {
+    height: 70px;
+  }
 `;
 
 export const Logo = styled.img`
   width: 182px;
 
-  //@media screen and (max-width: 1024px) {
-  //  width: 140px;
-  //  height: 30px;
-  //  margin-left: 10px;
-  //}
+  @media screen and (max-width: 1024px) {
+    height:18px;
+    width: auto;
+  }
 `;
 
 export const MobileIcon = styled.div`
   display: none;
 
   /* @media screen and (max-width: 960px) { */
-  //@media screen and (max-width: 768px) {
-  //  display: block;
-  //  position: absolute;
-  //  top: 0;
-  //  right: 0;
-  //  transform: translate(-60%, 60%);
-  //  cursor: pointer;
-  //  img {
-  //    width: 40px;
-  //  }
-  //}
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-60%, 60%);
+    cursor: pointer;
+    img {
+      width: 24px;
+    }
+  }
 `;
 export const RightSide = styled.div<{ show: boolean }>`
   display: flex;
-  // @media screen and (max-width: 1024px) {
-  //   gap: 8px;
-  // }
   // /* @media (max-width: 960px) { */
-  // @media (max-width: 768px) {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 16px;
-  //   width: 100%;
-  //   height: 60vh;
-  //   position: absolute;
-  //   top: 90px;
-  //   opacity: 1;
-  //   transition: all 0.5s ease;
-  //   left: ${({ show }) => (show ? 0 : "-100%")};
-  //   background-color: #d8cfcf;
-  // }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    height: 60vh;
+    position: absolute;
+    top: 90px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    left: ${({ show }) => (show ? 0 : "-100%")};
+    background-color: #d8cfcf;
+  }
 `;
 export const NavList = styled.ul`
   display: flex;
@@ -78,16 +82,16 @@ export const NavList = styled.ul`
   position: relative;
   margin-right: 9vw;
 
-  //@media screen and (max-width: 1024px) {
-  //  margin-right: 4px;
-  //}
-  //
-  ///* @media (max-width: 960px) { */
-  //@media (max-width: 768px) {
-  //  display: flex;
-  //  flex-direction: column;
-  //  justify-content: center;
-  //}
+  @media screen and (max-width: 1024px) {
+    margin-right: 4px;
+  }
+
+  /* @media (max-width: 960px) { */
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const NavigationLink = styled.li`
@@ -96,10 +100,10 @@ export const NavigationLink = styled.li`
   margin-left: 5vw;
   white-space: nowrap;
   /* @media screen and (max-width: 960px) { */
-  //@media screen and (max-width: 768px) {
-  //  width: 100%;
-  //  padding: 20px 0;
-  //}
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 20px 0;
+  }
 `;
 
 export const Navigation = styled(NavLink)`
@@ -113,20 +117,20 @@ export const Navigation = styled(NavLink)`
   //  padding: 0 10px;
   //}
   ///* @media (min-width: 960px) { */
-  //@media (min-width: 768px) {
-  //  &.active {
-  //    &::before {
-  //      content: "";
-  //      position: absolute;
-  //      bottom: 0;
-  //      width: 45px;
-  //      height: 3px;
-  //      background-color: #000;
-  //      opacity: 1;
-  //      border-radius: 7px;
-  //      transition: opacity 300ms ease-in-out;
-  //    }
-  //  }
+  @media (min-width: 768px) {
+    &.active {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 45px;
+        height: 3px;
+        background-color: #000;
+        opacity: 1;
+        border-radius: 7px;
+        transition: opacity 300ms ease-in-out;
+      }
+    }
   //}
 `;
 

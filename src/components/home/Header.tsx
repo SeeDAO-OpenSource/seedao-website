@@ -9,10 +9,10 @@ export const HeaderSection = styled.div`
   display: flex;
   align-content: center;
   justify-content: center;
-  //@media (max-width: 768px) {
-  //  display: flex;
-  //  flex-direction: column-reverse;
-  //}
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const MidBox = styled.div`
@@ -20,13 +20,20 @@ const MidBox = styled.div`
   align-content: flex-start;
   max-width: 85vw;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    flex-direction: column;
+  }
 `
 export const HeaderLeft = styled.div`
   padding-top: 90px;
-  //@media (max-width: 768px) {
-  //  text-align: center;
-  //  padding-left: 0;
-  //}
+  @media (max-width: 768px) {
+    text-align: center;
+    padding-left: 0;
+    order: 1;
+    padding-top: 0;
+  }
   
 `;
 export const HeaderTitle = styled.h1`
@@ -41,9 +48,13 @@ export const HeaderTitle = styled.h1`
   //  font-size: 50px;
   //  max-width: 300px;
   //}
-  //@media (max-width: 768px) {
-  //  text-align: center;
-  //}
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 64px;
+    margin-left: 0;
+    text-transform: capitalize;
+    width: 100%;
+  }
 `;
 export const JoinButton = styled.button`
   border: none;
@@ -57,7 +68,8 @@ export const JoinButton = styled.button`
   cursor: pointer;
   margin-top: 40px;
   @media (max-width: 768px) {
-    width: 100%;
+    width:88%;
+    margin-left: 0;
   }
 `;
 
@@ -66,9 +78,11 @@ export const HeaderImg = styled.div`
   margin-left: 20px;
   margin-inline: auto;
   flex-shrink: 0;
-  //@media (max-width: 768px) {
-  //  order: 1;
-  //}
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    margin-left: 0;
+  }
+
 `;
 
 const Header = () => {

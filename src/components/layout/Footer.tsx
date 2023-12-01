@@ -31,6 +31,9 @@ export const FooterContainer = styled.section`
   z-index: 1;
   margin: 0 auto;
   padding: 0 0 54px 7vw;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const FooterSection = styled.div`
@@ -53,15 +56,17 @@ export const FooterSection = styled.div`
     /* gap: 20px; */
     justify-content: center;
     text-align: center;
-    margin: 10px 10px;
-    padding: 40px 14px;
+    margin: 0;
+    padding: 40px 13px;
+    &>li{
+      width:100%;
+    }
   }
 `;
 export const PartnersContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-
+  
   @media (max-width: 768px) {
     /* text-align: center; */
   }
@@ -90,6 +95,15 @@ export const Partners = styled.ul`
     margin:0 20px 20px 0;
     flex-shrink: 0;
   }
+
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    justify-content: center;
+    li{
+      margin:0 12px 20px 0;
+      flex-shrink: 0;
+    }
+  }
 `;
 
 // portfolio
@@ -101,6 +115,14 @@ export const Portfolio = styled.ul`
   li{
     margin:0 13px 20px 0;
     flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    justify-content: center;
+    li{
+      margin:0 8px 20px 0;
+      flex-shrink: 0;
+    }
   }
 `;
 
@@ -120,9 +142,9 @@ export const Cooperation = styled.div`
       color: #000;
     }
   }
-  //@media (max-width: 768px) {
-  //  margin-top: 35px;
-  //}
+  @media (max-width: 768px) {
+    margin-top: 35px;
+  }
 `;
 export const CooperationTitle = styled.h6`
   font-size: 18px;
@@ -146,19 +168,19 @@ export const SocialMedia = styled.div`
     color: #000000;
     font-weight: 400;
   }
-  //@media (max-width: 768px) {
-  //  margin-top: 32px;
-  //  h5 {
-  //    margin-bottom: 20px;
-  //    margin-top: 22px;
-  //  }
-  //  p {
-  //    position: relative;
-  //    margin-top: 40px;
-  //    padding-top: 20px;
-  //    bottom: 0;
-  //  }
-  //}
+  @media (max-width: 768px) {
+    margin-top: 32px;
+    h5 {
+      margin-bottom: 20px;
+      margin-top: 22px;
+    }
+    p {
+      position: relative;
+      margin-top: 40px;
+      padding-top: 20px;
+      bottom: 0;
+    }
+  }
 `;
 export const SocialLinks = styled.div`
   display: flex;
@@ -168,15 +190,15 @@ export const SocialLinks = styled.div`
   img {
     max-width: 36px;
   }
-  //@media (max-width: 768px) {
-  //  display: flex;
-  //  flex-wrap: nowrap;
-  //  max-width: 100%;
-  //}
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap:10px
+  }
   
 `;
-
-
 
 const Footer = () => {
   const { t } = useTranslation();
