@@ -18,15 +18,25 @@ import Rectangle1284 from "../../assets/footer/Rectangle-1284.svg";
 import Rectangle1285 from "../../assets/footer/Rectangle-1285.svg";
 import Group from "../../assets/footer/Group.svg";
 import Rectangle1286 from "../../assets/footer/Rectangle-1286.svg";
-import twitter from "../../assets/footer/twitter.svg";
-import Dis from "../../assets/footer/Dis.svg";
-import notion from "../../assets/footer/Notion.svg";
-import Opensee from "../../assets/footer/Opensee.svg";
-import Tg from "../../assets/footer/Tg.svg";
-import mi from "../../assets/footer/Mi.svg";
-import mail from "../../assets/footer/mail.svg";
+
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+
+import twitter from "../../assets/footer/twitter.png";
+import TwitterHover from "../../assets/footer/hover/twitter.png";
+import Dis from "../../assets/footer/Dis.png";
+import DisHover from "../../assets/footer/hover/Dis.png";
+import notion from "../../assets/footer/Notion.png";
+import notionHover from "../../assets/footer/hover/Notion.png";
+import Opensee from "../../assets/footer/Opensee.png";
+import OpenseeHover from "../../assets/footer/hover/Opensee.png";
+import Tg from "../../assets/footer/Tg.png";
+import TgHover from "../../assets/footer/hover/Tg.png";
+import mi from "../../assets/footer/Mi.png";
+import miHover from "../../assets/footer/hover/Mi.png";
+import mail from "../../assets/footer/mail.svg";
+import mailHover from "../../assets/footer/hover/message.png";
+
 export const FooterContainer = styled.section`
   z-index: 1;
   margin: 0 auto;
@@ -138,6 +148,7 @@ export const Cooperation = styled.div`
     font-weight: 400;
     color: #b0aca7;
     text-decoration: none;
+    
     &:hover{
       color: #000;
     }
@@ -189,6 +200,21 @@ export const SocialLinks = styled.div`
   max-width: 310px;
   img {
     max-width: 36px;
+  }
+  a{
+    .hover{
+      display: none;
+    }
+    .nor{
+      display: inline-block;
+    }
+    &:hover{
+      .hover{
+        display: inline-block;
+      }
+      .nor{
+        display: none;
+    }
   }
   @media (max-width: 768px) {
     display: flex;
@@ -317,35 +343,40 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={twitter} alt="" />
+              <img src={twitter} alt="" className="nor"/>
+              <img src={TwitterHover} alt="" className="hover"/>
             </a>
             <a
                 href="https://discord.gg/seedao-xyz"
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={Dis} alt="" />
+              <img src={Dis} alt="" className="nor" />
+              <img src={DisHover} alt=""  className="hover"/>
             </a>
             <a
                 href="https://seedao.notion.site/"
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={notion} alt="" />
+              <img src={notion} alt="" className="nor" />
+              <img src={notionHover} alt=""  className="hover"/>
             </a>
             <a
                 href="https://opensea.io/collection/seedaoseed"
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={Opensee} alt="" />
+              <img src={Opensee} alt="" className="nor" />
+              <img src={OpenseeHover} alt=""  className="hover"/>
             </a>
             <a
                 href="https://t.me/theseedao"
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={Tg} alt="" />
+              <img src={Tg} alt=""  className="nor" />
+              <img src={TgHover} alt="" className="hover" />
             </a>
             {/* </SocialLinks> */}
             {/* <SocialLinks> */}
@@ -354,10 +385,12 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
             >
-              <img src={mi} alt="" />
+              <img src={mi} alt="" className="nor" />
+              <img src={miHover} alt="" className="hover" />
             </a>
             <a href="">
-              <img src={mail} alt="" />
+              <img src={mail} alt="" className="nor" />
+              <img src={mailHover} alt=""  className="hover" />
             </a>
           </SocialLinks>
           <p>© 2023 SeeDAO. All Rights Reserved.</p>
