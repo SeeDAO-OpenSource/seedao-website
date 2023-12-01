@@ -71,12 +71,13 @@ const Cascad3 = styled.a`
 `
 const Wormhole3 = styled.a`
   display: block;
-  width: 10vw;
+  width: 9vw;
   height: 10vw;
   position: absolute;
-  left: 61vw;
+  left: 62vw;
   top:25vw;
   background: rgba(0,0,0,0.5);
+  border-radius: 100px;
 `
 
 const DeSchool = styled.a`
@@ -104,6 +105,7 @@ const Ensoul = styled.a`
   position: absolute;
   left: 46vw;
   top:28vw;
+  border-radius: 50px;
   background: rgba(0,0,0,0.5);
 `
 const PFP = styled.a`
@@ -133,6 +135,26 @@ const Echo = styled.a`
   top:2.5vw;
   background: rgba(0,0,0,0.5);
 `
+const DAOLink = styled.a`
+  display: block;
+  width: 10vw;
+  height: 7vw;
+  position: absolute;
+  left:52.5vw;
+  top:22vw;
+  border-radius:40px;
+  background: rgba(0,0,0,0.5);
+`
+const SeeDAO = styled.a`
+  display: block;
+  width: 8vw;
+  height: 7vw;
+  position: absolute;
+  left:70vw;
+  top:20vw;
+  border-radius:40px;
+  background: rgba(0,0,0,0.5);
+`
 
 const Home = () => {
   const { t } = useTranslation();
@@ -154,6 +176,8 @@ const Home = () => {
             <PFP href="https://www.pfp-dao.io/" target="_blank" rel="noreferrer"  />
             <Sellix href="https://sellix.io/" target="_blank" rel="noreferrer"  />
             <Echo href="https://echo3.world/" target="_blank" rel="noreferrer"  />
+            <DAOLink href="https://app.daolink.space" target="_blank" rel="noreferrer"  />
+            <SeeDAO href="https://app.seedao.xyz/" target="_blank" rel="noreferrer"  />
             <img src={banner} alt=""/>
         </BannerImg>
       <MemberList />
