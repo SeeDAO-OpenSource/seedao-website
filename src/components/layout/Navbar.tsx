@@ -115,6 +115,19 @@ export const Navigation = styled(NavLink)`
   font-weight: 700;
   display: flex;
   justify-content: center;
+  &.active{
+    position: relative;
+    &:after{
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background: #000;
+      margin: 0 auto;
+      bottom: -10px;
+      border-radius: 10px;
+    }
+  }
   //@media screen and (max-width: 1024px) {
   //  padding: 0 10px;
   //}
@@ -216,17 +229,22 @@ const Navbar = () => {
           <RightSide show={show}>
             <NavList>
               <NavigationLink>
-                <Navigation to="/intro" onClick={closeMobileMenu}>
+                <Navigation to="/" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
+                  {t("Home")}
+                </Navigation>
+              </NavigationLink>
+              <NavigationLink>
+                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/intro" onClick={closeMobileMenu}>
                   {t("Intro")}
                 </Navigation>
               </NavigationLink>
               <NavigationLink>
-                <Navigation to="/journey" onClick={closeMobileMenu}>
+                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/journey" onClick={closeMobileMenu}>
                   {t("Journey")}
                 </Navigation>
               </NavigationLink>
               <NavigationLink>
-                <Navigation to="/build" onClick={closeMobileMenu}>
+                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/build" onClick={closeMobileMenu}>
                   {t("Build")}
                 </Navigation>
               </NavigationLink>
@@ -241,7 +259,10 @@ const Navbar = () => {
                 <img src={lng} alt="" />
                 <p>{currentLanguage === "en" ? "CN" : "EN"}</p>
               </LanguageBtn>
-              <Button>{t("Enter-App")}</Button>
+              <a href="https://app.seedao.xyz" rel="noreferrer" target="_blank">
+                <Button >{t("Enter-App")}</Button>
+              </a>
+
             </NavButton>
           </RightSide>
           {/* </Container> */}

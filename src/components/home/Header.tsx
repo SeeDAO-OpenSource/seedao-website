@@ -44,6 +44,7 @@ export const HeaderTitle = styled.h1`
   box-sizing: border-box;
   font-weight: 600;
   margin-bottom: 32px;
+  text-transform: uppercase;
   //@media (max-width: 1024px) {
   //  font-size: 50px;
   //  max-width: 300px;
@@ -52,7 +53,7 @@ export const HeaderTitle = styled.h1`
     text-align: center;
     font-size: 64px;
     margin-left: 0;
-    text-transform: capitalize;
+    text-transform: none;
     width: 100%;
   }
 `;
