@@ -65,29 +65,38 @@ const MemberList = () => {
         handleGovNodes()
     }, []);
 
-    const getDatafromNftscan = (contract: string, base?: string) => {
-        return axios.get(`${base || 'https://polygonapi.nftscan.com'}/api/v2/statistics/collection/${contract}`, {
-            headers: {
-                'X-API-KEY': process.env.REACT_APP_NFTSCAN_KEY,
-            },
-        });
-    };
+    const getConfig = ()=>{
+        if(window.location.href.indexOf("test.seedao.xyz")>-1){
+            return 'https://test-spp-indexer.seedao.tech'
+        }else{
+            return 'https://spp-indexer.seedao.tech'
+        }
+
+    }
+
 
     const handleGovNodes = async () => {
-        try {
-            const res = await getDatafromNftscan(GOV_NODE_CONTRACT, 'https://restapi.nftscan.com');
-            setGovernNodes(res.data?.data?.owners_total || 0);
-        } catch (error) {
-            console.error('[SBT] get gov nodes failed', error);
-        }
+        fetch(
+            `${getConfig()}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/4`,
+        )
+            .then((res: any) => res.json())
+            .then((r) => {
+                setGovernNodes(Number(r.totalSupply));
+            })
+            .catch((error: any) => {
+                console.error('[SBT] get gov nodes failed', error);
+            });
     };
     const handleSEEDHolders = async () => {
-        try {
-            const res = await getDatafromNftscan(SEED_CONTRACT, 'https://restapi.nftscan.com');
-            setSEEDHolders(res.data?.data?.items_total || 0);
-        } catch (error) {
-            console.error('[SBT] get sgn owners failed', error);
-        }
+        fetch(`${getConfig()}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
+`)
+            .then((res: any) => res.json())
+            .then((r) => {
+                setSEEDHolders(Number(r.totalSupply));
+            })
+            .catch((error: any) => {
+                console.error('[SBT] get sgn owners failed', error);
+            });
     };
 
    const  getDiscordNumbers = async() => {
@@ -99,6 +108,8 @@ const MemberList = () => {
             console.error('getDiscordNumbers error', error);
         }
     }
+
+
 
   return (
     <ListsSection>
