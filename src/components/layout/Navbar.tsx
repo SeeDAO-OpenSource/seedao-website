@@ -80,14 +80,17 @@ export const RightSide = styled.div<{ show: boolean }>`
 `;
 
 const Mask = styled.div<{ show: boolean }>`
-  width: 100vw;
-  height: 100vh;
-  z-index: 8;
-  position: absolute;
-  top: 0;
-  transition: all 0.5s ease;
-  left: ${({ show }) => (show ? 0 : "-100%")};
-  background: rgba(0,0,0,0.3);
+  @media (max-width: 768px) {
+    width: 100vw;
+    height: 100vh;
+    z-index: 8;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+    left: ${({ show }) => (show ? 0 : "-100%")};
+    background: rgba(0,0,0,0.3);
+  }
+
 `
 export const NavList = styled.ul`
   display: flex;
