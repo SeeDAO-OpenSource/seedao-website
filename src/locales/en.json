@@ -26,7 +26,6 @@
   "Link-Combinator": "C-Combinator",
   "Contact-Us": "or contact us by email",
   "Our-Portfolio-Details": "SeeDAO incubator successfully incubated several projects",
-  "Our-Portfolio": "Our Portfolio",
   "Partners-And-Investors-Details": "We're honored to be a trusted partner with each web3 builder below",
   "Partners-And-Investors": "Partners And Investors",
   "City-More-Info-2-Details-4": "Have experience in organizing clubs or activities.",
@@ -404,5 +403,6 @@
   "Home-title2": "SeeDAO is a network polis to connect millions nomads in Web3",
   "Home-title3": "Let web3 return to life",
   "Partners": "Partners",
-  "Social-medial": "SEEDAO SOCIAL MEDIA"
+  "Social-medial": "SEEDAO SOCIAL MEDIA",
+  "Our-Portfolio": "PORTFOLIO"
 }

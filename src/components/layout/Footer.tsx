@@ -278,7 +278,7 @@ const Footer = () => {
             </li>
           </Partners>
           {/* portfolio section */}
-          <PortfolioTitle>PORTFOLIO</PortfolioTitle>
+          <PortfolioTitle>{t("Our-Portfolio")}</PortfolioTitle>
           <Portfolio>
             <li>
               <img src={image13} alt="" />

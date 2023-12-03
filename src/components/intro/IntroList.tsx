@@ -22,7 +22,8 @@ const IntroList = () => {
         </li>
         <li>
             <a
-                href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97"
+                // href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97"
+                href="SeeDAO-Meta.pdf" download="SeeDAO-Meta.pdf"
                 target="_blank"
                 rel="noreferrer"
             >
