@@ -40,12 +40,18 @@ export const HeaderTitle = styled.h1`
   font-size: 82px;
   font-family: 'Inter-SemiBold';
   width: 36%;
-  min-width: 200px!important;
   padding-left: 4%;
   box-sizing: border-box;
   font-weight: 600;
   margin-bottom: 32px;
   text-transform: uppercase;
+  &>div{
+    min-width: 300px!important;
+    box-sizing: content-box;
+  }
+  .cn{ padding-left: 120px;}
+
+    
   //@media (max-width: 1024px) {
   //  font-size: 50px;
   //  max-width: 300px;
@@ -92,7 +98,7 @@ const Header = () => {
     animationData: homeBanner,
     loop: true,
   };
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   const { View } = useLottie(options);
   return (
@@ -100,7 +106,11 @@ const Header = () => {
       {/* left side */}
         <MidBox>
             <HeaderLeft>
-                <HeaderTitle>{t("Home-title")}</HeaderTitle>
+                <HeaderTitle>
+                    <div>{t("Home-title-home1")}</div>
+                    <div className={i18n.language}>{t("Home-title-home2")}</div>
+                    <div>{t("Home-title-home3")}</div>
+                </HeaderTitle>
                 <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer"><JoinButton>{t("Earn-Membership")}</JoinButton></a>
 
             </HeaderLeft>
