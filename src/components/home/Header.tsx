@@ -40,6 +40,7 @@ export const HeaderTitle = styled.h1`
   font-size: 82px;
   font-family: 'Inter-SemiBold';
   width: 36%;
+  min-width: 200px!important;
   padding-left: 4%;
   box-sizing: border-box;
   font-weight: 600;
