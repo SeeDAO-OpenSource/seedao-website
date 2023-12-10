@@ -172,16 +172,43 @@ const Joyid = styled.a`
   background: rgba(0,0,0,0.5);
 `
 
+const TitTop = styled.div`
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  .top{
+    font-size: 48px;
+  }
+  .tips{
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  @media (max-width: 768px) {
+    .top{
+      font-size: 30px;
+    }
+    .tips{
+      font-size: 16px;
+    }
+  }
+`
+
 const Home = () => {
   const { t } = useTranslation();
   return (
     <section>
       <Header />
-      <Title>
-        <p>{t("Home-title2")}</p>
-        <p>{t("Home-title3")}</p>
-        {/* <p>{t("Title")}</p> */}
-      </Title>
+      {/*<Title>*/}
+      {/*  <p>{t("Home-title2")}</p>*/}
+      {/*  <p>{t("Home-title3")}</p>*/}
+      {/*  /!* <p>{t("Title")}</p> *!/*/}
+      {/*</Title>*/}
+        <TitTop>
+            <div className="top">{t("map")}</div>
+            <div className="tips">{t("mapTips")}</div>
+        </TitTop>
         <BannerImg >
             <Metaforo href="https://forum.seedao.xyz/" target="_blank" rel="noreferrer"  />
             <AAAny href="https://apps.apple.com/ca/app/aaany-ask-anyone-anything/id6450619356" target="_blank" rel="noreferrer"  />

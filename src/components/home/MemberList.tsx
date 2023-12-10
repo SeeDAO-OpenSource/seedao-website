@@ -5,11 +5,12 @@ import { t } from "i18next";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios"
+import CountUp from 'react-countup';
 
 export const ListsSection = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 85px 0 55px;
+  padding: 55px 0 ;
   
   @media (max-width: 768px) {
     background: #FAF7FF;
@@ -49,6 +50,30 @@ export const List = styled.div`
     }
   }
 `;
+
+
+const TitTop = styled.div`
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  .top{
+    font-size: 48px;
+  }
+  .tips{
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  @media (max-width: 768px) {
+    .top{
+      font-size: 30px;
+    }
+    .tips{
+      font-size: 16px;
+    }
+  }
+`
 
 
 const MemberList = () => {
@@ -112,6 +137,11 @@ const MemberList = () => {
 
 
   return (
+      <>
+          <TitTop>
+              <div className="top">{t("people")}</div>
+              <div className="tips">{t("peopleTips")}</div>
+          </TitTop>
     <ListsSection>
       {/* {list.map((item, i) => (
         <List key={i}>
@@ -120,24 +150,34 @@ const MemberList = () => {
           <a href="#">{item.title}</a>
         </List>
       ))} */}
+
+
       <List>
         <img src={member} />
         <H3Title>
-            {discordAmount}
+            <CountUp end={discordAmount} />
+            {/*{discordAmount}*/}
         </H3Title>
         <a>{t("Discord-Member")}</a>
       </List>
       <List>
         <img src={seed} />
-        <H3Title>{seedHolders}</H3Title>
+        <H3Title>
+            {/*{seedHolders}*/}
+            <CountUp end={seedHolders} />
+        </H3Title>
         <a>{t("SEED-Holder")}</a>
       </List>
       <List>
         <img src={govern} />
-        <H3Title>{governNodes}</H3Title>
+        <H3Title>
+            {/*{governNodes}*/}
+            <CountUp end={governNodes} />
+        </H3Title>
         <a>{t("Governance-Node")}</a>
       </List>
     </ListsSection>
+      </>
   );
 };
 

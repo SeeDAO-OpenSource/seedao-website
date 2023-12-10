@@ -37,19 +37,31 @@ export const HeaderLeft = styled.div`
   
 `;
 export const HeaderTitle = styled.h1`
-  font-size: 82px;
+
   font-family: 'Inter-SemiBold';
   width: 36%;
   padding-left: 4%;
   box-sizing: border-box;
-  font-weight: 600;
-  margin-bottom: 32px;
-  text-transform: uppercase;
+
   &>div{
-    min-width: 300px!important;
+    min-width: 600px!important;
     box-sizing: content-box;
   }
-  .cn{ padding-left: 120px;}
+  .Top1{
+    font-weight: 600;
+    margin-bottom: 32px;
+    font-size: 60px;
+    text-transform: uppercase;
+  }
+  .tips{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    &>div{
+      margin-right: 20px;
+    }
+  }
+  //.cn{ padding-left: 120px;}
 
     
   //@media (max-width: 1024px) {
@@ -58,10 +70,26 @@ export const HeaderTitle = styled.h1`
   //}
   @media (max-width: 768px) {
     text-align: center;
-    font-size: 64px;
     margin-left: 0;
     text-transform: none;
-    width: 100%;
+    &>div{
+      min-width: 93vw!important;
+    }
+    .Top1{
+      font-weight: 600;
+      margin-bottom: 32px;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+    .tips{
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &>div{
+        margin-right: 20px;
+      }
+    }
   }
 `;
 export const JoinButton = styled.button`
@@ -107,9 +135,13 @@ const Header = () => {
         <MidBox>
             <HeaderLeft>
                 <HeaderTitle>
-                    <div>{t("Home-title-home1")}</div>
-                    <div className={i18n.language}>{t("Home-title-home2")}</div>
-                    <div>{t("Home-title-home3")}</div>
+                    <div className="Top1">{t("Home-title-home")}</div>
+                    <div className="tips">
+                        <div>{t("Home-title-home1")}</div>
+                        <div className={i18n.language}>{t("Home-title-home2")}</div>
+                        <div>{t("Home-title-home3")}</div>
+                    </div>
+
                 </HeaderTitle>
                 <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer"><JoinButton>{t("Earn-Membership")}</JoinButton></a>
 

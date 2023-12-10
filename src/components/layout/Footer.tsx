@@ -41,10 +41,14 @@ import {Link} from "react-router-dom"
 
 export const FooterContainer = styled.section`
   z-index: 1;
-  margin: 0 auto;
-  padding: 0 0 54px 7vw;
+  margin: 20px auto;
+  
+  padding: 50px 0 54px 7vw;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  
   @media (max-width: 768px) {
     padding: 0;
+    border-top: 0;
   }
 `;
 

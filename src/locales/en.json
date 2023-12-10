@@ -399,6 +399,7 @@
   "Miscellaneous": "Miscellaneous",
   "Bouns Pages & Apps.": "Bouns Pages & Apps.",
   "Gallery": "Gallery",
+  "Home-title-home": "⼀个连接 100 万加密游⺠的数字城邦",
   "Home-title-home1": "Together",
   "Home-title-home2": "Create",
   "Home-title-home3": "Freedom",
@@ -406,5 +407,9 @@
   "Home-title3": "Let web3 return to life",
   "Partners": "Partners",
   "Social-medial": "SEEDAO SOCIAL MEDIA",
-  "Our-Portfolio": "PORTFOLIO"
+  "Our-Portfolio": "PORTFOLIO",
+  "map": "城邦地图",
+  "mapTips": "⼀览城邦内部⽣态",
+  "people": "城邦⼈群",
+  "peopleTips": "遍及全球 25 个国家，贡献 者超过 1000 ⼈"
 }
