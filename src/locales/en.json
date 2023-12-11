@@ -1,19 +1,6 @@
 {
-  "Journey-Content-1": "Welcome to the start of your journey to the city-state!",
-  "Journey-Content-2": "To join City State, please complete our Onboarding process on Deschool to obtain SeeDAO status SBT.This is your first step into City State.",
-  "Journey-Content-3": "Upon entering the City State, you are unable to have any Proposition Rights, Governance Rights, or Status Benefits in the City State as you have not yet made your mark in the City State and have a Points value of 0. Thus, you embark on an interesting journey through the city-state and begin your gameplay process of collecting points.",
-  "Journey-Content-4": "In this world, the status of members is categorized into five stages from L1-L5 based on their contribution points. Of these, L3 (100,000 points) is the most important threshold, which signifies that you will have the right to mint the SeeDAO core member's identity NFT - Seed - for free.Holding a Seed is a requirement for participation in SeeDAO's highest governance meeting, the Nodal Consensus Conference. Seed also corresponds to a variety of status benefits within the city-state.",
-  "Journey-Content-5": "Of course, the three-tier proposal system of the city-state also grants members at different stages (e.g., L1 and L2 contributors) corresponding governance rights.",
-  "Journey-Content-6": "For a newcomer, the journey in SeeDAO is the process of leaving a mark in the city-state and accumulating all kinds of karma into Seed. When you become a Seed, the game suddenly changes as you begin to touch the power to rewrite the rules of the game and influence the course of the world.",
-  "Journey-Content-7": "This is undoubtedly an adventure full of surprises, in which you will make real friends and invest a lot of time and emotion (and sometimes even money). -- What baffles a lot of people is why SeeDAO members are willing to spend hours in a meeting or bickering, but that's what makes City State so fascinating.",
   "Link-Onboarding": "SeeDAO Onboarding Process",
-  "Build-Content-1": "You'll wonder how this city-state connecting tens of thousands of people and thousands of Builders was actually built.",
-  "Build-Content-2": "Without a company behind us, how on earth did we form a cultural and technical community that has allowed so many apps and events to be born here and expanded our reach globally?",
-  "Build-Content-3": "That's right, it's all thanks to the Builders.",
-  "Build-Content-4": "SeeDAO is a digital city-state built by community members, in which important building projects and resolutions form SIPs.Besides SIPs, P1, P2 and P3 proposals also play an important role in community building. Looking back at these building proposals, you can clearly see the history of SeeDAO.",
-  "Build-Content-5": "Looking forward to you leaving your own proposal in the city-state, let your name be part of this world too!",
   "Link-Proposal": "SeeDAO Proposal",
-
   "Link-Whitepaper": "Whitepaper",
   "Link-Meta": "Meta Protocol",
   "Link-App": "SeeDAO App",
@@ -211,8 +198,8 @@
   "Build": "Build",
   "Podcast": "Podcast",
   "Onboarding-process": "Onboarding Process",
-  "Bounties": "Bounties",
-  "Proposals": "Proposals",
+  "Bounties": "Bounty",
+  "Proposals": "Proposal",
   "Resources": "Resources",
   "Community": "Community",
   "Events": "Events",
@@ -412,5 +399,19 @@
   "Intro-Content-2": "From a concrete form perspective, the polis consists of a unified cyberspace and physical nodes scattered across different regions. In pursuing the goal of \" good life,\" the goodness of the polis is manifested in three aspects: promoting connections between people；fostering personal inner discovery and emergence; and providing a public life beneficial to all.",
   "Intro-Content-3": "The general outline of polis is the SeeDAO White Paper, and the highest principle of governance is the SeeDAO Meta Rule. If you wish to enter this world, this is the document you need to read first, as it represents the fundamental rules of the game.",
   "Intro-Content-4": "You can enter the SeeDAO cyberspace through the SeeDAO App, or enter the real physical nodes of SeeDAO through the SeeDAO Global Network. If you need to access polis resources and participate in polis governance, the SeeDAO City Hall and Incubator are the parts you need to understand.",
-  "Intro-Content-5": "SeeDAO is the\nhomeland of builders. This world is co-built, co-governed, and shared by builders,\nopen to all who identify with this vision. Let us build a city of dawn in the cyber world\nat midnight around the world. Enjoy~"
+  "Intro-Content-5": "SeeDAO is the homeland of builders. This world is co-built, co-governed, and shared by builders, open to all who identify with this vision. Let us build a city of dawn in the cyber world at midnight around the world. Enjoy~",
+
+  "Journey-Content-1": "Welcome to the start of your journey to the city-state!",
+  "Journey-Content-2": "If you are interested in joining SeeDAO, please complete the Onboarding process on Deschool to acquire your SeeDAO Identity SBT. This marks your first step into our polis.",
+  "Journey-Content-3": "As a new entrant, your initial point balance stands at zero, reflecting no prior contributions within the polis. Consequently, you are initially ineligible for proposal rights, governance participation, or access to identity-specific benefits. This commences your intriguing journey through the polis, engaging you in the process of accruing points.",
+  "Journey-Content-4": "In this world, member statuses are segmented into five distinct levels, L1 through L5, based on their accrued contribution points.Notably, reaching L3 (100,000 SCR) is a pivotal milestone, as it entitles you to mint the SeeDAO Core Member Identity NFT — Seed, at no cost. Possession of Seed is a fundamental requirement for participation in SeeDAO's supreme governance assembly — the Node Consensus Conference. Within the polis, Seed holders are entitled to a variety of exclusive benefits.",
+  "Journey-Content-5": "Furthermore, our tri-tiered proposal system endows members at varying levels (such as L1 and L2 contributors) with corresponding governance rights.",
+  "Journey-Content-6": "For newcomers, the journey within SeeDAO involves making impactful contributions to the polis, transforming various endeavors into the coveted Seed. Upon attaining Seed status, the dynamics of the game shift profoundly, as you gain the capacity to influence and reshape the foundational rules and trajectory of our world.",
+  "Journey-Content-7": "This journey is undoubtedly an adventure filled with surprises, where you will forge genuine friendships and invest significant time and emotion (and sometimes even money). — What many find perplexing is why SeeDAO members are willing to spend hours in meetings or debates, but this is precisely what makes the polis so captivating.",
+
+  "Build-Content-1": "You might wonder, how is this polis, connecting tens of thousands of people and over a thousand Builders, being built?",
+  "Build-Content-2": "How do we form a network polis without the backing of a company, giving birth to so many applications and events here, and extending our influence globally?",
+  "Build-Content-3": "Indeed, it's all thanks to the efforts of the Builders.",
+  "Build-Content-4": "SeeDAO represents a network polis collaboratively constructed by its community members. Key construction projects and decisions take the form of SIPs (SeeDAO Improvement Proposals). Beyond SIPs, the P1, P2,and P3 proposal categories also significantly contribute to the community's development. A retrospective look at these construction proposals offers a clear view of SeeDAO's evolutionary journey.",
+  "Build-Content-5": "Eager to see your proposals take shape in the network polis, where your name becomes a celebrated part of our collective world!"
 }

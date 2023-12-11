@@ -5,7 +5,6 @@ const BuildDetails = () => {
   const { t } = useTranslation();
   return (
     <IntroDetails>
-      <li>{t("Build-Content-1")}</li>
       <li>{t("Build-Content-2")}</li>
       <li>{t("Build-Content-3")}</li>
       <li>{t("Build-Content-4")}</li>
