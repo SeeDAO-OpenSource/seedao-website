@@ -15,7 +15,8 @@ const IntroList = () => {
 
     <Lists>
         <li>
-            <a href="SeeDAO-WhitePaper.pdf" download="SeeDAO-WhitePaper.pdf">
+            {/*<a href="SeeDAO-WhitePaper.pdf" download="SeeDAO-WhitePaper.pdf">*/}
+            <a href="SeeDAO-WhitePaper.pdf" target="_blank" rel="noreferrer">
                     <img src={whitePaper} />
                     <span>{t("Link-Whitepaper")}</span>
             </a>
@@ -23,10 +24,7 @@ const IntroList = () => {
         <li>
             <a
                 // href="https://seedao.notion.site/8745195e74c34a90b1aa115504e20a97"
-                href="SeeDAO-Meta.pdf" download="SeeDAO-Meta.pdf"
-                target="_blank"
-                rel="noreferrer"
-            >
+                href="SeeDAO-Meta.pdf" target="_blank" rel="noreferrer">
                 <img src={meta} />
                 <span>{t("Link-Meta")}</span>
             </a>
