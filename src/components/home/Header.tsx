@@ -44,7 +44,7 @@ export const HeaderTitle = styled.h1`
   box-sizing: border-box;
 
   &>div{
-    min-width: 600px!important;
+    min-width: 700px!important;
     box-sizing: content-box;
   }
   .Top1{
@@ -73,7 +73,7 @@ export const HeaderTitle = styled.h1`
     margin-left: 0;
     text-transform: none;
     &>div{
-      min-width: 93vw!important;
+      min-width: 90vw!important;
     }
     .Top1{
       font-weight: 600;

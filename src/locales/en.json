@@ -13,11 +13,7 @@
   "Build-Content-4": "SeeDAO is a digital city-state built by community members, in which important building projects and resolutions form SIPs.Besides SIPs, P1, P2 and P3 proposals also play an important role in community building. Looking back at these building proposals, you can clearly see the history of SeeDAO.",
   "Build-Content-5": "Looking forward to you leaving your own proposal in the city-state, let your name be part of this world too!",
   "Link-Proposal": "SeeDAO Proposal",
-  "Intro-Content-1": "SEEDAO is a digital city-state, a decentralized, autonomous world for the pursuit of the \"good life\".",
-  "Intro-Content-2": "In terms of concrete form, the city-state consists of a unified cyberspace and geographically dispersed physical nodes. In the pursuit of the \"good life\", the goodness of the city-state is manifested in three ways: facilitating connections between people; promoting the inner discovery and emergence of the individual; and providing a public life that is beneficial to all.",
-  "Intro-Content-3": "The overarching program of the City State is the SeeDAO White Book, and the highest principles of governance are the SeeDAO Meta Rules. If you want to enter the world, this is the first document you need to read, as it represents the fundamental rules of the game.",
-  "Intro-Content-4": "You can access SeeDAO's cyberspace through the SeeDAO App, or you can access SeeDAO's real physical nodes through the SeeDAO Global Network. The SeeDAO Town Hall and Incubator will be parts of SeeDAO that you will need to know about if you need to call upon the resources of the city-state and participate in its governance.",
-  "Intro-Content-5": "SeeDAO is the home of the builders. This world is built, governed and shared by builder's and is open to all who share this vision. Let's build a city of sunrise in Cyberworld at the midnight of the world. enjoy~",
+
   "Link-Whitepaper": "Whitepaper",
   "Link-Meta": "Meta Protocol",
   "Link-App": "SeeDAO App",
@@ -399,7 +395,7 @@
   "Miscellaneous": "Miscellaneous",
   "Bouns Pages & Apps.": "Bouns Pages & Apps.",
   "Gallery": "Gallery",
-  "Home-title-home": "A network polis to connect millions of nomads in Web3",
+  "Home-title-home": "A network polis connecting 1 million crypto nomads",
   "Home-title-home1": "Together",
   "Home-title-home2": "Create",
   "Home-title-home3": "Freedom",
@@ -411,5 +407,10 @@
   "map": "Polis Map",
   "mapTips": "View the ecosystem of polis",
   "people": "People in SeeDAO",
-  "peopleTips": "They are from over 25 countries, and there are more than 1000 contributors"
+  "peopleTips": "They are from over 25 countries, and there are more than 1000 contributors",
+  "Intro-Content-1": "SeeDAO is a network polis, a decentralized autonomous world aimed at \"good life.\"",
+  "Intro-Content-2": "From a concrete form perspective, the polis consists of a unified cyberspace and physical nodes scattered across different regions. In pursuing the goal of \" good life,\" the goodness of the polis is manifested in three aspects: promoting connections between people；fostering personal inner discovery and emergence; and providing a public life beneficial to all.",
+  "Intro-Content-3": "The general outline of polis is the SeeDAO White Paper, and the highest principle of governance is the SeeDAO Meta Rule. If you wish to enter this world, this is the document you need to read first, as it represents the fundamental rules of the game.",
+  "Intro-Content-4": "You can enter the SeeDAO cyberspace through the SeeDAO App, or enter the real physical nodes of SeeDAO through the SeeDAO Global Network. If you need to access polis resources and participate in polis governance, the SeeDAO City Hall and Incubator are the parts you need to understand.",
+  "Intro-Content-5": "SeeDAO is the\nhomeland of builders. This world is co-built, co-governed, and shared by builders,\nopen to all who identify with this vision. Let us build a city of dawn in the cyber world\nat midnight around the world. Enjoy~"
 }

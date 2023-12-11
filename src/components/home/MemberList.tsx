@@ -6,6 +6,7 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios"
 import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 export const ListsSection = styled.div`
   display: flex;
@@ -90,6 +91,7 @@ const MemberList = () => {
         getConfig()
     }, []);
 
+
     const getConfig = ()=>{
         if(window.location.href.indexOf("test.seedao.xyz")>-1 || window.location.href.indexOf("localhost")>-1 ){
             setBase1('https://test-spp-indexer.seedao.tech')
@@ -142,6 +144,9 @@ const MemberList = () => {
               <div className="top">{t("people")}</div>
               <div className="tips">{t("peopleTips")}</div>
           </TitTop>
+
+
+
     <ListsSection>
       {/* {list.map((item, i) => (
         <List key={i}>
@@ -150,29 +155,42 @@ const MemberList = () => {
           <a href="#">{item.title}</a>
         </List>
       ))} */}
-
-
       <List>
         <img src={member} />
         <H3Title>
-            <CountUp end={discordAmount} />
-            {/*{discordAmount}*/}
+            <VisibilitySensor partialVisibility key="count_1">
+                {({ isVisible }:any) => (
+                    <div>
+                        {isVisible ? <CountUp end={discordAmount} duration={2} /> : 0}
+                    </div>
+                )}
+            </VisibilitySensor>
         </H3Title>
         <a>{t("Discord-Member")}</a>
       </List>
       <List>
         <img src={seed} />
         <H3Title>
-            {/*{seedHolders}*/}
-            <CountUp end={seedHolders} />
+            <VisibilitySensor partialVisibility key="count_2">
+                {({ isVisible }:any) => (
+                    <div>
+                        {isVisible ? <CountUp end={seedHolders} duration={2} /> : 0}
+                    </div>
+                )}
+            </VisibilitySensor>
         </H3Title>
         <a>{t("SEED-Holder")}</a>
       </List>
       <List>
         <img src={govern} />
         <H3Title>
-            {/*{governNodes}*/}
-            <CountUp end={governNodes} />
+            <VisibilitySensor partialVisibility key="count_3">
+                {({ isVisible }:any) => (
+                    <div>
+                        {isVisible ? <CountUp end={governNodes} duration={2} /> : 0}
+                    </div>
+                )}
+            </VisibilitySensor>
         </H3Title>
         <a>{t("Governance-Node")}</a>
       </List>
