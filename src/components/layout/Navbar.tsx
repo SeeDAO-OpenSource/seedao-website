@@ -6,9 +6,27 @@ import { useEffect, useState } from "react";
 import {Link, NavLink} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import {NavDropdown} from 'react-bootstrap';
 
 export const Nav = styled.nav`
   background-color: #fff;
+
+  .dropdown-toggle::after{
+    display: none;
+  }
+  .dropdown-menu{
+    border: 0;
+    box-shadow: 2px 4px 4px 0px rgba(211,206,221,0.3);
+  }
+  .dropdown-item {
+    display: flex;
+    justify-content: flex-start;
+    padding:8px 10px;
+    &:active{
+      background: var(--bs-dropdown-link-hover-bg);
+      color: #000000;
+    }
+  }
   /* @media screen and (max-width: 960px) { */
   @media screen and (max-width: 768px) {
     background-color: transparent;
@@ -93,10 +111,11 @@ const Mask = styled.div<{ show: boolean }>`
 
 `
 export const NavList = styled.ul`
-  display: flex;
+  //display: flex;
   align-items: center;
   position: relative;
   margin-right: 9vw;
+  display: none;
   /* @media (max-width: 960px) { */
   @media (max-width: 768px) {
     display: flex;
@@ -104,8 +123,16 @@ export const NavList = styled.ul`
     justify-content: center;
     margin-right: 0;
     width: 100%;
+
   }
 `;
+
+const NavList2 = styled(NavList)`
+  display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
 
 export const NavigationLink = styled.li`
   text-decoration: none;
@@ -129,19 +156,21 @@ export const Navigation = styled(NavLink)`
   font-weight: 700;
   display: flex;
   justify-content: center;
-  &.active{
-    position: relative;
-    &:after{
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 3px;
-      background: #000;
-      margin: 0 auto;
-      bottom: -10px;
-      border-radius: 10px;
-    }
-  }
+  //&.active{
+  //  position: relative;
+  //  &:after{
+  //    content: "";
+  //    position: absolute;
+  //    width: 40px;
+  //    height: 3px;
+  //    background: #000;
+  //    margin: 0 auto;
+  //    bottom: -10px;
+  //    border-radius: 10px;
+  //  }
+  //}
+  
+  
   //@media screen and (max-width: 1024px) {
   //  padding: 0 10px;
   //}
@@ -272,6 +301,69 @@ const Navbar = () => {
               {/*  </Navigation>*/}
               {/*</NavigationLink>*/}
             </NavList>
+
+            <NavList2>
+              <NavigationLink>
+
+
+                <NavDropdown title={t("Home")} id="drop1">
+
+                  <NavDropdown.Item href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer" >
+                    {t("Earn-Membership")}
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/" onClick={closeMobileMenu}>
+                      {t("Home")}
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </NavigationLink>
+              <NavigationLink>
+                <NavDropdown title={t("Intro")} id="drop2">
+
+                  <NavDropdown.Item href="SeeDAO-WhitePaper.pdf" target="_blank" rel="noreferrer">
+                    {t("Link-Whitepaper")}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="SeeDAO-Meta.pdf" target="_blank" rel="noreferrer">{t("Link-Meta")}</NavDropdown.Item>
+                  <NavDropdown.Item  href="https://app.seedao.xyz" target="_blank" rel="noreferrer">{t("Link-App")}</NavDropdown.Item>
+                  <NavDropdown.Item  href="https://seeu.network/" target="_blank" rel="noreferrer">{t("Link-Net")}</NavDropdown.Item>
+                  <NavDropdown.Item   href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4" target="_blank" rel="noreferrer">{t("Link-City-Hall")}</NavDropdown.Item>
+                  <NavDropdown.Item  href="https://beta.seedao.cc/" target="_blank" rel="noreferrer">{t("Link-Combinator")}</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/intro">
+                      {t("Intro")}
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </NavigationLink>
+              <NavigationLink>
+                <NavDropdown title={t("Journey")} id="drop3">
+                  <NavDropdown.Item href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966" target="_blank" rel="noreferrer">
+                    {t("Onboarding-process")}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item>
+                  <NavDropdown.Item href="https://app.seedao.xyz/pub" target="_blank" rel="noreferrer">{t("Bounties")}</NavDropdown.Item>
+                  <NavDropdown.Item href="https://app.seedao.xyz/proposal/category/19" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item>
+                  <NavDropdown.Item href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">{t("Seed-NFT")}</NavDropdown.Item>
+                  <NavDropdown.Item  href="https://node.seedao.xyz/" target="_blank" rel="noreferrer">{t("Nodes-Consensus-Congress")}</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/journey">
+                      {t("Journey")}
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </NavigationLink>
+
+              <NavigationLink>
+                <NavDropdown title={t("Build")} id="drop4">
+                  <NavDropdown.Item href="https://app.seedao.xyz/proposal/category/19" target="_blank" rel="noreferrer">
+                    {t("Link-Proposal")}
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/build">
+                      {t("Build")}
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+              </NavigationLink>
+            </NavList2>
             <NavButton>
               <LanguageBtn onClick={handleChangeLanguage}>
                 <img src={lng} alt="" />

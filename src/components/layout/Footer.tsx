@@ -358,7 +358,7 @@ const Footer = () => {
               <img src={TwitterHover} alt="" className="hover"/>
             </a>
             <a
-                href="https://discord.gg/seedao-xyz"
+                href="https://discord.com/invite/seedao-xyz"
                 target="_blank"
                 rel="noreferrer"
             >
@@ -392,7 +392,7 @@ const Footer = () => {
             {/* </SocialLinks> */}
             {/* <SocialLinks> */}
             <a
-                href="https://mirror.xyz/seedao.eth"
+                href="https://seedao.mirror.xyz"
                 target="_blank"
                 rel="noreferrer"
             >
