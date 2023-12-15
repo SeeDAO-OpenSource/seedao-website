@@ -174,21 +174,30 @@ export const Navigation = styled(NavLink)`
   @media screen and (max-width: 1024px) {
     padding: 0 10px;
   }
-  /* @media (min-width: 960px) { */
-    &.active {
-      &::before {
-        //content: "";
-        //position: absolute;
-        //bottom: 0;
-        //width: 45px;
-        //height: 3px;
-        //background-color: #000;
-        //opacity: 1;
-        //border-radius: 7px;
-        //transition: opacity 300ms ease-in-out;
+
+  @media screen and (max-width: 768px) {
+    &.active{
+      position: relative;
+      &:after{
+        display: none;
       }
     }
   }
+//@media (min-width: 960px) { 
+//    &.active {
+//      &::before {
+//        //content: "";
+//        //position: absolute;
+//        //bottom: 0;
+//        //width: 45px;
+//        //height: 3px;
+//        //background-color: #000;
+//        //opacity: 1;
+//        //border-radius: 7px;
+//        //transition: opacity 300ms ease-in-out;
+//      }
+//    }
+//  }
 `;
 
 export const NavButton = styled.div`
