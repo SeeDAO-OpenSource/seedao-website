@@ -54,10 +54,12 @@ export const HeaderLeft = styled.div`
 `;
 export const HeaderTitle = styled.h1`
   font-family: 'Inter-SemiBold';
-  width: 36%;
+  width: 33%;
   padding-left: 4%;
   box-sizing: border-box;
-
+  &.en{
+    width: 800px;
+  }
   &>div{
     min-width:700px!important;
     box-sizing: content-box;
@@ -95,6 +97,7 @@ export const HeaderTitle = styled.h1`
       margin-bottom: 32px;
       font-size: 32px;
       text-transform: uppercase;
+
     }
     .tips{
       font-size: 24px;
@@ -172,7 +175,7 @@ const Header = () => {
       {/* left side */}
         <MidBox>
             <HeaderLeft>
-                <HeaderTitle>
+                <HeaderTitle className={`${i18n.language}`}>
                     <div className="Top1">{t("Home-title-home")}</div>
                     <div className="tips">
                         <div>{t("Home-title-home1")}</div>
