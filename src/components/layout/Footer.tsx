@@ -381,14 +381,14 @@ const Footer = () => {
               <img src={Opensee} alt="" className="nor" />
               <img src={OpenseeHover} alt=""  className="hover"/>
             </a>
-            <a
-                href="https://t.me/theseedao"
-                target="_blank"
-                rel="noreferrer"
-            >
-              <img src={Tg} alt=""  className="nor" />
-              <img src={TgHover} alt="" className="hover" />
-            </a>
+            {/*<a*/}
+            {/*    href="https://t.me/theseedao"*/}
+            {/*    target="_blank"*/}
+            {/*    rel="noreferrer"*/}
+            {/*>*/}
+            {/*  <img src={Tg} alt=""  className="nor" />*/}
+            {/*  <img src={TgHover} alt="" className="hover" />*/}
+            {/*</a>*/}
             {/* </SocialLinks> */}
             {/* <SocialLinks> */}
             <a
