@@ -352,8 +352,8 @@ const Navbar = () => {
                     {t("Onboarding-process")}
                   </NavDropdown.Item>
                   <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item>
-                  <NavDropdown.Item href="https://app.seedao.xyz/pub" target="_blank" rel="noreferrer">{t("Bounties")}</NavDropdown.Item>
-                  <NavDropdown.Item href="https://app.seedao.xyz/proposal/category/19" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item>
+                  <NavDropdown.Item href="https://app.seedao.xyz/hub" target="_blank" rel="noreferrer">{t("Bounties")}</NavDropdown.Item>
+                  <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item>
                   <NavDropdown.Item href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">{t("Seed-NFT")}</NavDropdown.Item>
                   <NavDropdown.Item  href="https://node.seedao.xyz/" target="_blank" rel="noreferrer">{t("Nodes-Consensus-Congress")}</NavDropdown.Item>
                   <NavDropdown.Divider />
@@ -365,7 +365,7 @@ const Navbar = () => {
 
               <NavigationLink>
                 <NavDropdown title={t("Build")} id="drop4">
-                  <NavDropdown.Item href="https://app.seedao.xyz/proposal/category/19" target="_blank" rel="noreferrer">
+                  <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">
                     {t("Link-Proposal")}
                   </NavDropdown.Item>
                   <NavDropdown.Divider />

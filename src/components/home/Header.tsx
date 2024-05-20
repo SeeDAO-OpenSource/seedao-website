@@ -4,11 +4,9 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import twitter from "../../assets/footer/twitter.png";
 import Dis from "../../assets/footer/Dis.png";
-import Tg from "../../assets/footer/Tg.png";
 import mi from "../../assets/footer/Mi.png";
 import TwitterHover from "../../assets/footer/hover/twitter.png";
 import DisHover from "../../assets/footer/hover/Dis.png";
-import TgHover from "../../assets/footer/hover/Tg.png";
 import miHover from "../../assets/footer/hover/Mi.png";
 
 
@@ -195,14 +193,14 @@ const Header = () => {
                             <img src={Dis} alt="" className="nor" />
                             <img src={DisHover} alt=""  className="hover"/>
                         </a>
-                        <a
+                        {/* <a
                             href="https://t.me/theseedao"
                             target="_blank"
                             rel="noreferrer"
                         >
                             <img src={Tg} alt=""  className="nor" />
                             <img src={TgHover} alt="" className="hover" />
-                        </a>
+                        </a> */}
                         <a
                             href="https://twitter.com/see_dao"
                             target="_blank"

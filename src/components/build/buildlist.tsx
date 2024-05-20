@@ -10,7 +10,7 @@ const BuildList = () => {
 
                 <li>
                     <a
-                        href="https://app.seedao.xyz/proposal/category/19"
+                        href="https://app.seedao.xyz/proposal"
                         target="_blank"
                         rel="noreferrer"
                     >

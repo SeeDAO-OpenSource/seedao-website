@@ -43,7 +43,7 @@ const IntroList = () => {
         </li>
         <li>
             <a
-                href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4"
+                href="https://seedao.notion.site/S6-979d37e0f3fb43bdaf456f95ab389d0e"
                 target="_blank"
                 rel="noreferrer"
             >
