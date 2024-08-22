@@ -10,6 +10,9 @@ import image11 from "../../assets/footer/image-11.svg";
 import image12 from "../../assets/footer/image-12.svg";
 import image13 from "../../assets/footer/image-13.svg";
 import daolinkLogo from "../../assets/footer/daolink-logo.svg";
+import Moongate from "../../assets/footer/Moongate.png";
+import rootdata from "../../assets/footer/rootdata.png";
+
 import deschool from "../../assets/footer/deschool.svg";
 import Rectangle from "../../assets/footer/Rectangle.svg";
 import Vector from "../../assets/footer/Vector.svg";
@@ -30,8 +33,8 @@ import notion from "../../assets/footer/Notion.png";
 import notionHover from "../../assets/footer/hover/Notion.png";
 import Opensee from "../../assets/footer/Opensee.png";
 import OpenseeHover from "../../assets/footer/hover/Opensee.png";
-import Tg from "../../assets/footer/Tg.png";
-import TgHover from "../../assets/footer/hover/Tg.png";
+import github from "../../assets/footer/Github.png";
+import githubHover from "../../assets/footer/hover/Github.png";
 import mi from "../../assets/footer/Mi.png";
 import miHover from "../../assets/footer/hover/Mi.png";
 import mail from "../../assets/footer/mail.svg";
@@ -288,6 +291,12 @@ const Footer = () => {
               <img src={image13} alt="" />
             </li>
             <li>
+              <img src={Moongate} alt="" />
+            </li>
+            <li>
+              <img src={rootdata} alt="" />
+            </li>
+            <li>
               <img src={daolinkLogo} alt="" />
             </li>
             <li>
@@ -381,15 +390,16 @@ const Footer = () => {
               <img src={Opensee} alt="" className="nor" />
               <img src={OpenseeHover} alt=""  className="hover"/>
             </a>
-            {/*<a*/}
-            {/*    href="https://t.me/theseedao"*/}
-            {/*    target="_blank"*/}
-            {/*    rel="noreferrer"*/}
-            {/*>*/}
-            {/*  <img src={Tg} alt=""  className="nor" />*/}
-            {/*  <img src={TgHover} alt="" className="hover" />*/}
-            {/*</a>*/}
-            {/* </SocialLinks> */}
+            <a
+                href="https://github.com/SeeDAO-OpenSource"
+                target="_blank"
+                rel="noreferrer"
+            >
+              {/* Replace with actual images or icons for GitHub */}
+              {<img src={github} alt=""  className="nor" /> }
+              {<img src={githubHover} alt="" className="hover" />}
+            </a>
+            {/* { </SocialLinks> } */}
             {/* <SocialLinks> */}
             <a
                 href="https://seedao.mirror.xyz"
