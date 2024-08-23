@@ -11,7 +11,7 @@ import image12 from "../../assets/footer/image-12.svg";
 import image13 from "../../assets/footer/image-13.svg";
 import daolinkLogo from "../../assets/footer/daolink-logo.svg";
 import Moongate from "../../assets/footer/Moongate.png";
-import rootdata from "../../assets/footer/rootdata.png";
+import rootdata from "../../assets/footer/rootdata.jpg";
 
 import deschool from "../../assets/footer/deschool.svg";
 import Rectangle from "../../assets/footer/Rectangle.svg";
