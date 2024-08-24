@@ -351,9 +351,9 @@ const Navbar = () => {
                   <NavDropdown.Item href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966" target="_blank" rel="noreferrer">
                     {t("Onboarding-process")}
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item>
+                  {/* <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item> */}
                   <NavDropdown.Item href="https://app.seedao.xyz/hub" target="_blank" rel="noreferrer">{t("Bounties")}</NavDropdown.Item>
-                  <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item>
+                  {/* <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item> */}
                   <NavDropdown.Item href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">{t("Seed-NFT")}</NavDropdown.Item>
                   <NavDropdown.Item  href="https://node.seedao.xyz/" target="_blank" rel="noreferrer">{t("Nodes-Consensus-Congress")}</NavDropdown.Item>
                   <NavDropdown.Divider />

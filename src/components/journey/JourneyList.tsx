@@ -21,28 +21,14 @@ const IntroList = () => {
                         <span>{t("Onboarding-process")}</span>
                     </a>
                 </li>
-                <li>
-                    <a
-                        href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img src={contributor} />
-                        <span>{t("Contributor-Identity")}</span>
-                    </a>
-                </li>
+               
                 <li>
                     <a href="https://app.seedao.xyz/hub" target="_blank" rel="noreferrer">
                         <img src={bounties} />
                         <span>{t("Bounties")}</span>
                     </a>
                 </li>
-                <li>
-                    <a href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">
-                        <img src={proposal} />
-                        <span>{t("Proposals")}</span>
-                    </a>
-                </li>
+               
                 <li>
                     <a
                         href="https://seed.seedao.xyz/"

@@ -1,6 +1,7 @@
 import member from "../../assets/home/member.svg";
 import seed from "../../assets/home/seed-holder.svg";
 import govern from "../../assets/home/govern-node.svg";
+import sns from "../../assets/home/sns-node.svg";
 import { t } from "i18next";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
@@ -193,6 +194,19 @@ const MemberList = () => {
             </VisibilitySensor>
         </H3Title>
         <a>{t("Governance-Node")}</a>
+      </List>
+      <List>
+        <img src={sns} />
+        <H3Title>
+            <VisibilitySensor partialVisibility key="count_3">
+                {({ isVisible }:any) => (
+                    <div>
+                         {isVisible ? <CountUp end={602} duration={2} /> : 0}
+                    </div>
+                )}
+            </VisibilitySensor>
+        </H3Title>
+        <a>{t("Sns-Node")}</a>
       </List>
     </ListsSection>
       </>
