@@ -105,7 +105,8 @@ const MemberList = () => {
 
     const handleGovNodes = async () => {
         fetch(
-            `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/6`,
+            //Modify 修改节点SBT TokenId
+            `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/9`,
         )
             .then((res: any) => res.json())
             .then((r) => {
@@ -206,7 +207,7 @@ const MemberList = () => {
                 )}
             </VisibilitySensor>
         </H3Title>
-        <a>{t("Sns-Node")}</a>
+        <a>{t("SNS-Node")}</a>
       </List>
     </ListsSection>
       </>
