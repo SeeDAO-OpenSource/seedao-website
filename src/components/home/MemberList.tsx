@@ -206,7 +206,7 @@ const MemberList = () => {
                 )}
             </VisibilitySensor>
         </H3Title>
-        <a>{t("Sns-Node")}</a>
+        <a>{t("SNS-Node")}</a>
       </List>
     </ListsSection>
       </>
