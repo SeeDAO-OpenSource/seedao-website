@@ -13,6 +13,8 @@
     <meta name="keywords" content="SEEDAO, DAO, blockchain, Web3, decentralized governance, cryptocurrency, digital assets, community">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
+    <meta name="author" content="SEEDAO">
+    <link rel="canonical" href="https://seedao.xyz/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -58,7 +60,26 @@
         "https://twitter.com/seedao_xyz",
         "https://discord.gg/seedao",
         "https://github.com/seedao-xyz"
-      ]
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://seedao.xyz/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Website navigation structure for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://seedao.xyz",
+      "name": "SEEDAO",
+      "description": "SEEDAO is a decentralized autonomous organization dedicated to fostering innovation, collaboration, and freedom in the Web3 ecosystem."
     }
     </script>
 
