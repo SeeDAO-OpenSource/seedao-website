@@ -142,6 +142,30 @@ if (fs.existsSync(robotsPath)) {
   console.log('⚠️ robots.txt does not exist. Consider creating one.');
 }
 
+// Check for noscript content
+console.log('\n📊 Checking noscript content...');
+const indexHtmlPath = path.join(publicDir, 'index.html');
+if (fs.existsSync(indexHtmlPath)) {
+  const indexHtmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
+  const noscriptMatch = indexHtmlContent.match(/<noscript>([\s\S]*?)<\/noscript>/i);
+
+  if (noscriptMatch) {
+    const noscriptContent = noscriptMatch[1].trim();
+    if (noscriptContent.length < 50) {
+      console.log(
+        '⚠️ The noscript content is very minimal. Consider adding more informative content for users without JavaScript.'
+      );
+    } else {
+      console.log('✅ The noscript tag contains substantial content. Good job!');
+    }
+  } else {
+    console.log(
+      '⚠️ No noscript tag found in index.html. Consider adding one for better accessibility.'
+    );
+  }
+} else {
+  console.log('⚠️ index.html not found in public directory.');
+}
 console.log('\n✨ SEO Check completed!');
 console.log(
   'Remember to regularly check your website with tools like Lighthouse, PageSpeed Insights, and Google Search Console for more comprehensive SEO analysis.'
