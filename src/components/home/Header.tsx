@@ -1,14 +1,13 @@
-import { useLottie } from "lottie-react";
-import homeBanner from "../../assets/Home-banner.json";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import twitter from "../../assets/footer/twitter.png";
-import Dis from "../../assets/footer/Dis.png";
-import mi from "../../assets/footer/Mi.png";
-import TwitterHover from "../../assets/footer/hover/twitter.png";
-import DisHover from "../../assets/footer/hover/Dis.png";
-import miHover from "../../assets/footer/hover/Mi.png";
-
+import { useLottie } from 'lottie-react';
+import homeBanner from '../../assets/Home-banner.json';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import twitter from '../../assets/footer/twitter.png';
+import Dis from '../../assets/footer/Dis.png';
+import mi from '../../assets/footer/Mi.png';
+import TwitterHover from '../../assets/footer/hover/twitter.png';
+import DisHover from '../../assets/footer/hover/Dis.png';
+import miHover from '../../assets/footer/hover/Mi.png';
 
 export const HeaderSection = styled.div`
   background: linear-gradient(0deg, #fbf5ef 0.09%, #f9f6ff 96.69%);
@@ -23,17 +22,17 @@ export const HeaderSection = styled.div`
 `;
 
 const MidBox = styled.div`
-    display: flex;
+  display: flex;
   align-content: center;
   justify-content: flex-end;
   width: 100%;
-    position: relative;
+  position: relative;
 
   @media (max-width: 768px) {
     max-width: 100vw;
     flex-direction: column;
   }
-`
+`;
 export const HeaderLeft = styled.div`
   padding-top: 90px;
   position: absolute;
@@ -42,43 +41,41 @@ export const HeaderLeft = styled.div`
   z-index: 99;
   @media (max-width: 768px) {
     text-align: center;
-    top:65vw;
+    top: 65vw;
     left: 0;
     //padding-left: 0;
     //order: 1;
     //padding-top: 0;
   }
-  
 `;
 export const HeaderTitle = styled.h1`
   font-family: 'Inter-SemiBold';
   width: 33%;
   padding-left: 4%;
   box-sizing: border-box;
-  &.en{
+  &.en {
     width: 800px;
   }
-  &>div{
-    min-width:700px!important;
+  & > div {
+    min-width: 700px !important;
     box-sizing: content-box;
   }
-  .Top1{
+  .Top1 {
     font-weight: 600;
     margin-bottom: 32px;
     font-size: 60px;
     text-transform: uppercase;
   }
-  .tips{
+  .tips {
     font-size: 24px;
     display: flex;
     align-items: center;
-    &>div{
+    & > div {
       margin-right: 20px;
     }
   }
   //.cn{ padding-left: 120px;}
 
-    
   //@media (max-width: 1024px) {
   //  font-size: 50px;
   //  max-width: 300px;
@@ -87,22 +84,24 @@ export const HeaderTitle = styled.h1`
     text-align: center;
     margin-left: 0;
     text-transform: none;
-    &>div{
-      min-width: 90vw!important;
+    & > div {
+      min-width: 90vw !important;
     }
-    .Top1{
+    &.en {
+      width: 100%;
+    }
+    .Top1 {
       font-weight: 600;
       margin-bottom: 32px;
       font-size: 32px;
       text-transform: uppercase;
-
     }
-    .tips{
+    .tips {
       font-size: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      &>div{
+      & > div {
         margin-right: 20px;
       }
     }
@@ -120,7 +119,7 @@ export const JoinButton = styled.button`
   cursor: pointer;
   margin-top: 40px;
   @media (max-width: 768px) {
-    width:88%;
+    width: 88%;
     margin-left: 0;
   }
 `;
@@ -132,7 +131,6 @@ export const HeaderImg = styled.div`
     margin-left: 0;
     padding-top: 10vw;
   }
-
 `;
 
 const BtnLine = styled.div`
@@ -158,42 +156,39 @@ const BtnLine = styled.div`
       }
     }
     
-`
+`;
 
 const Header = () => {
   const options = {
     animationData: homeBanner,
     loop: true,
   };
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { View } = useLottie(options);
   return (
     <HeaderSection>
       {/* left side */}
-        <MidBox>
-            <HeaderLeft>
-                <HeaderTitle className={`${i18n.language}`}>
-                    <div className="Top1">{t("Home-title-home")}</div>
-                    <div className="tips">
-                        <div>{t("Home-title-home1")}</div>
-                        <div className={i18n.language}>{t("Home-title-home2")}</div>
-                        <div>{t("Home-title-home3")}</div>
-                    </div>
-                </HeaderTitle>
-                <div>
-                    <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer"><JoinButton>{t("Earn-Membership")}</JoinButton></a>
-                    <BtnLine>
-
-                        <a
-                            href="https://discord.com/invite/seedao-xyz"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <img src={Dis} alt="" className="nor" />
-                            <img src={DisHover} alt=""  className="hover"/>
-                        </a>
-                        {/* <a
+      <MidBox>
+        <HeaderLeft>
+          <HeaderTitle className={`${i18n.language}`}>
+            <div className="Top1">{t('Home-title-home')}</div>
+            <div className="tips">
+              <div>{t('Home-title-home1')}</div>
+              <div className={i18n.language}>{t('Home-title-home2')}</div>
+              <div>{t('Home-title-home3')}</div>
+            </div>
+          </HeaderTitle>
+          <div>
+            <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer">
+              <JoinButton>{t('Earn-Membership')}</JoinButton>
+            </a>
+            <BtnLine>
+              <a href="https://discord.com/invite/seedao-xyz" target="_blank" rel="noreferrer">
+                <img src={Dis} alt="" className="nor" />
+                <img src={DisHover} alt="" className="hover" />
+              </a>
+              {/* <a
                             href="https://t.me/theseedao"
                             target="_blank"
                             rel="noreferrer"
@@ -201,33 +196,22 @@ const Header = () => {
                             <img src={Tg} alt=""  className="nor" />
                             <img src={TgHover} alt="" className="hover" />
                         </a> */}
-                        <a
-                            href="https://twitter.com/see_dao"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <img src={twitter} alt="" className="nor"/>
-                            <img src={TwitterHover} alt="" className="hover"/>
-                        </a>
-                        <a
-                            href="https://seedao.mirror.xyz"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <img src={mi} alt="" className="nor" />
-                            <img src={miHover} alt="" className="hover" />
-                        </a>
-                    </BtnLine>
-                </div>
-
-
-            </HeaderLeft>
-            <HeaderImg>
-                {/* <img src={View} alt="" /> */}
-                {View}
-            </HeaderImg>
-        </MidBox>
-
+              <a href="https://twitter.com/see_dao" target="_blank" rel="noreferrer">
+                <img src={twitter} alt="" className="nor" />
+                <img src={TwitterHover} alt="" className="hover" />
+              </a>
+              <a href="https://seedao.mirror.xyz" target="_blank" rel="noreferrer">
+                <img src={mi} alt="" className="nor" />
+                <img src={miHover} alt="" className="hover" />
+              </a>
+            </BtnLine>
+          </div>
+        </HeaderLeft>
+        <HeaderImg>
+          {/* <img src={View} alt="" /> */}
+          {View}
+        </HeaderImg>
+      </MidBox>
     </HeaderSection>
   );
 };
