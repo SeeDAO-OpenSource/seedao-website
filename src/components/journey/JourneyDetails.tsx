@@ -1,16 +1,16 @@
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
+import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const JourneyDetails = () => {
   const { t } = useTranslation();
   return (
     <IntroDetails>
-      <li>{t("Journey-Content-2")}</li>
-      <li>{t("Journey-Content-3")}</li>
-      <li>{t("Journey-Content-4")}</li>
-      <li>{t("Journey-Content-5")}</li>
-      <li>{t("Journey-Content-6")}</li>
-      <li>{t("Journey-Content-7")}</li>
+      <li>{t('Journey-Content-2')}</li>
+      <li>{t('Journey-Content-3')}</li>
+      <li>{t('Journey-Content-4')}</li>
+      {/*<li>{t("Journey-Content-5")}</li>*/}
+      {/*<li>{t("Journey-Content-6")}</li>*/}
+      {/*<li>{t("Journey-Content-7")}</li>*/}
     </IntroDetails>
   );
 };

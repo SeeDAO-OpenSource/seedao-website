@@ -80,14 +80,16 @@ const MemberList = () => {
   const [discordAmount, SetDiscordAmount] = useState(0);
   const [seedHolders, setSEEDHolders] = useState(0);
   const [governNodes, setGovernNodes] = useState(0);
-  const [base1, setBase1] = useState('https://test-spp-indexer.seedao.tech');
+  const [base1, setBase1] = useState('https://spp-indexer.seedao.tech');
   const [base2, setBase2] = useState('https://test-api.seedao.tech');
+  const [scr, setScr] = useState(0);
 
   useEffect(() => {
     getDiscordNumbers();
     handleSEEDHolders();
     handleGovNodes();
     getConfig();
+    getScr();
   }, []);
 
   const getConfig = () => {
@@ -103,10 +105,22 @@ const MemberList = () => {
     }
   };
 
+  const getScr = async () => {
+    fetch(`${base1}/insight/erc20/total_supply/0xE4825A1a31a76f72befa47f7160B132AA03813E0
+`)
+      .then((res: any) => res.json())
+      .then((r) => {
+        // setSEEDHolders(Number(r.totalSupply));
+      })
+      .catch((error: any) => {
+        console.error('[SBT] get sgn owners failed', error);
+      });
+  };
+
   const handleGovNodes = async () => {
     fetch(
       //Modify 修改节点SBT TokenId
-      `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/9`
+      `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/11`
     )
       .then((res: any) => res.json())
       .then((r) => {
@@ -142,7 +156,7 @@ const MemberList = () => {
     <>
       <TitTop>
         <div className="top">{t('people')}</div>
-        <div className="tips">{t('peopleTips')}</div>
+        <div className="tips">{t('peopleTips', { scr })}</div>
       </TitTop>
 
       <ListsSection>
@@ -154,7 +168,7 @@ const MemberList = () => {
         </List>
       ))} */}
         <List>
-          <img src={member} alt="SEEDAO Discord Members" />
+          <img src={member} alt="" />
           <H3Title>
             <VisibilitySensor partialVisibility key="count_1">
               {({ isVisible }: any) => (
@@ -175,8 +189,19 @@ const MemberList = () => {
           </H3Title>
           <a>{t('SEED-Holder')}</a>
         </List>
+        {/*<List>*/}
+        {/*  <img src={govern} alt="SEEDAO Governance Nodes" />*/}
+        {/*  <H3Title>*/}
+        {/*    <VisibilitySensor partialVisibility key="count_3">*/}
+        {/*      {({ isVisible }: any) => (*/}
+        {/*        <div>{isVisible ? <CountUp end={governNodes} duration={2} /> : 0}</div>*/}
+        {/*      )}*/}
+        {/*    </VisibilitySensor>*/}
+        {/*  </H3Title>*/}
+        {/*  <a>{t('Governance-Node')}</a>*/}
+        {/*</List>*/}
         <List>
-          <img src={govern} alt="SEEDAO Governance Nodes" />
+          <img src={sns} alt="SEEDAO SNS Nodes" />
           <H3Title>
             <VisibilitySensor partialVisibility key="count_3">
               {({ isVisible }: any) => (
@@ -185,17 +210,6 @@ const MemberList = () => {
             </VisibilitySensor>
           </H3Title>
           <a>{t('Governance-Node')}</a>
-        </List>
-        <List>
-          <img src={sns} alt="SEEDAO SNS Nodes" />
-          <H3Title>
-            <VisibilitySensor partialVisibility key="count_3">
-              {({ isVisible }: any) => (
-                <div>{isVisible ? <CountUp end={602} duration={2} /> : 0}</div>
-              )}
-            </VisibilitySensor>
-          </H3Title>
-          <a>{t('SNS-Node')}</a>
         </List>
       </ListsSection>
     </>
