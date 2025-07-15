@@ -172,11 +172,9 @@ const Header = () => {
       <MidBox>
         <HeaderLeft>
           <HeaderTitle className={`${i18n.language}`}>
-            <div className="Top1">{t('Home-title-home')}</div>
+            <div className="Top1">{t('Home-Cover-Title-1')}</div>
             <div className="tips">
-              <div>{t('Home-title-home1')}</div>
-              <div className={i18n.language}>{t('Home-title-home2')}</div>
-              <div>{t('Home-title-home3')}</div>
+              <div className={i18n.language}>{t('Home-Cover-Title-2')}</div>
             </div>
           </HeaderTitle>
           <div>
