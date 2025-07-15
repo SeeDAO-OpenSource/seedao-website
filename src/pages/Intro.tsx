@@ -1,7 +1,6 @@
 import IntroDetail from '../components/intro/IntroDetail';
 import IntroHeader from '../components/intro/IntroHeader';
 import IntroList from '../components/intro/IntroList';
-import styled from 'styled-components';
 import PageMeta from '../components/SEO/PageMeta';
 
 const Intro = () => {
@@ -27,7 +26,7 @@ const Intro = () => {
   };
 
   return (
-    <IntroSection>
+    <section>
       <PageMeta
         title="SEEDAO - Introduction | Learn About Our Mission and Vision"
         description="Learn about SEEDAO, a decentralized autonomous organization dedicated to fostering innovation and collaboration in the Web3 ecosystem."
@@ -39,10 +38,8 @@ const Intro = () => {
         <IntroDetail />
         <IntroList />
       </div>
-    </IntroSection>
+    </section>
   );
 };
 
 export default Intro;
-
-const IntroSection = styled.section``;

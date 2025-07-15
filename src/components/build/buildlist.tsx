@@ -1,28 +1,21 @@
-import seedao from "../../assets/build/build-seedao.svg";
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
+import seedao from '../../assets/build/build-seedao.svg';
+import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const BuildList = () => {
-    const { t } = useTranslation();
-    return (
-        <Box>
-            <Lists>
-
-                <li>
-                    <a
-                        href="https://app.seedao.xyz/proposal"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img src={seedao} />
-                        <span>{t("Link-Proposal")}</span>
-                    </a>
-                </li>
-
-
-            </Lists>
-        </Box>
-    );
+  const { t } = useTranslation();
+  return (
+    <Box>
+      <Lists>
+        <li>
+          <a href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">
+            <img src={seedao} alt="SeeDAO" />
+            <span>{t('Link-Proposal')}</span>
+          </a>
+        </li>
+      </Lists>
+    </Box>
+  );
 };
 
 export default BuildList;
@@ -32,14 +25,14 @@ const Box = styled.div`
   @media (max-width: 768px) {
     margin: 0 24px 15px;
   }
-`
+`;
 
 const Lists = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
   justify-content: space-between;
-  li{
+  li {
     width: 32%;
     height: 206px;
     margin-bottom: 30px;
@@ -50,56 +43,55 @@ const Lists = styled.ul`
     align-items: center;
     justify-content: center;
 
-
-    img{
+    img {
       margin-right: 23px;
     }
-    span{
+    span {
       font-family: 'DMSans-Bold';
       font-size: 20px;
       line-height: 20px;
     }
-    a{
+    a {
       color: #000;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
-    &:first-child{
+
+    &:first-child {
       background: linear-gradient(180deg, #e4fef5 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #e4fef5 0%, #fff 100%);
       }
     }
-    &:nth-child(2){
+    &:nth-child(2) {
       background: linear-gradient(180deg, #ffefed 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #ffefed 0%, #fff 100%);
       }
     }
-    &:nth-child(3){
+    &:nth-child(3) {
       background: linear-gradient(180deg, #ededff 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #ededff 0%, #fff 100%);
       }
     }
-    &:nth-child(4){
+    &:nth-child(4) {
       background: linear-gradient(180deg, #edf9ff 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);
       }
-    } 
-    &:nth-child(5){
+    }
+    &:nth-child(5) {
       background: linear-gradient(180deg, #fffaed 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #fffaed 0%, #fff 100%);
       }
     }
-    &:nth-child(6){
+    &:nth-child(6) {
       background: linear-gradient(180deg, #edffed 0%, #fbf5ef 100%);
-      &:hover{
+      &:hover {
         background: linear-gradient(180deg, #edffed 0%, #fff 100%);
       }
     }
@@ -110,15 +102,13 @@ const Lists = styled.ul`
       height: 85px;
       margin-bottom: 12px;
       border-radius: 8px;
-      img{
+      img {
         width: 46px;
       }
-      span{
+      span {
         font-size: 10px;
         line-height: 10px;
       }
     }
   }
-  
 `;
-

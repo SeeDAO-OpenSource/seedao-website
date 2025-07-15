@@ -2,7 +2,7 @@ import logo from '../../assets/navbar/logo.svg';
 import lng from '../../assets/navbar/Frame.svg';
 import menu from '../../assets/navbar/menu.svg';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -244,26 +244,37 @@ export const Button = styled.button`
 `;
 
 const Navbar = () => {
-  const {
-    t,
-    i18n: { changeLanguage, language },
-  } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [show, setShow] = useState(false);
   const handleNavToggle = () => setShow(!show);
   const closeMobileMenu = () => setShow(false);
-  // change language
-  const initialLanguage = localStorage.getItem('currentLanguage') || 'en';
-  const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
+
+  const [currentLanguage, setCurrentLanguage] = useState(
+    localStorage.getItem('i18nextLng') || 'en'
+  );
+
+  const memoizedChangeLanguage = useCallback(
+    (lng: string) => {
+      i18n.changeLanguage(lng);
+      setCurrentLanguage(lng);
+      localStorage.setItem('i18nextLng', lng);
+    },
+    [i18n]
+  );
+
   useEffect(() => {
-    localStorage.setItem('currentLanguage', language);
-    changeLanguage(currentLanguage);
-  }, [currentLanguage, language]);
+    const lng = localStorage.getItem('i18nextLng');
+    if (lng) {
+      memoizedChangeLanguage(lng);
+    }
+  }, [memoizedChangeLanguage]);
 
   const handleChangeLanguage = () => {
-    const newLanguage = currentLanguage === 'en' ? 'cn' : 'en';
-    setCurrentLanguage(newLanguage);
+    const newLanguage = currentLanguage.startsWith('zh') ? 'en' : 'zh_CN';
+    memoizedChangeLanguage(newLanguage);
     setShow(false);
   };
+
   return (
     <>
       <Nav>

@@ -1,10 +1,9 @@
 import member from '../../assets/home/member.svg';
 import seed from '../../assets/home/seed-holder.svg';
-import govern from '../../assets/home/govern-node.svg';
 import sns from '../../assets/home/sns-node.svg';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -77,6 +76,7 @@ const TitTop = styled.div`
 `;
 
 const MemberList = () => {
+  const { t } = useTranslation();
   const [discordAmount, SetDiscordAmount] = useState(0);
   const [seedHolders, setSEEDHolders] = useState(0);
   const [governNodes, setGovernNodes] = useState(0);
@@ -84,15 +84,7 @@ const MemberList = () => {
   const [base2, setBase2] = useState('https://test-api.seedao.tech');
   const [scr, setScr] = useState(0);
 
-  useEffect(() => {
-    getDiscordNumbers();
-    handleSEEDHolders();
-    handleGovNodes();
-    getConfig();
-    getScr();
-  }, []);
-
-  const getConfig = () => {
+  const getConfig = useCallback(() => {
     if (
       window.location.href.indexOf('test.seedao.xyz') > -1 ||
       window.location.href.indexOf('localhost') > -1
@@ -103,21 +95,21 @@ const MemberList = () => {
       setBase1('https://spp-indexer.seedao.tech');
       setBase2('https://api.seedao.tech');
     }
-  };
+  }, []);
 
-  const getScr = async () => {
+  const getScr = useCallback(async () => {
     fetch(`${base1}/insight/erc20/total_supply/0xE4825A1a31a76f72befa47f7160B132AA03813E0
 `)
       .then((res: any) => res.json())
       .then((r) => {
-        // setSEEDHolders(Number(r.totalSupply));
+        setScr(Number(r.totalSupply));
       })
       .catch((error: any) => {
         console.error('[SBT] get sgn owners failed', error);
       });
-  };
+  }, [base1]);
 
-  const handleGovNodes = async () => {
+  const handleGovNodes = useCallback(async () => {
     fetch(
       //Modify 修改节点SBT TokenId
       `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/11`
@@ -129,8 +121,8 @@ const MemberList = () => {
       .catch((error: any) => {
         console.error('[SBT] get gov nodes failed', error);
       });
-  };
-  const handleSEEDHolders = async () => {
+  }, [base1]);
+  const handleSEEDHolders = useCallback(async () => {
     fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
 `)
       .then((res: any) => res.json())
@@ -140,9 +132,9 @@ const MemberList = () => {
       .catch((error: any) => {
         console.error('[SBT] get sgn owners failed', error);
       });
-  };
+  }, [base1]);
 
-  const getDiscordNumbers = async () => {
+  const getDiscordNumbers = useCallback(async () => {
     try {
       const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
 
@@ -150,7 +142,15 @@ const MemberList = () => {
     } catch (error) {
       console.error('getDiscordNumbers error', error);
     }
-  };
+  }, [base2]);
+
+  useEffect(() => {
+    getDiscordNumbers();
+    handleSEEDHolders();
+    handleGovNodes();
+    getConfig();
+    getScr();
+  }, [getConfig, getDiscordNumbers, getScr, handleGovNodes, handleSEEDHolders]);
 
   return (
     <>
@@ -176,7 +176,7 @@ const MemberList = () => {
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('Discord-Member')}</a>
+          <span>{t('Discord-Member')}</span>
         </List>
         <List>
           <img src={seed} alt="SEEDAO SEED Holders" />
@@ -187,7 +187,7 @@ const MemberList = () => {
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('SEED-Holder')}</a>
+          <span>{t('SEED-Holder')}</span>
         </List>
         {/*<List>*/}
         {/*  <img src={govern} alt="SEEDAO Governance Nodes" />*/}
@@ -209,7 +209,7 @@ const MemberList = () => {
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('Governance-Node')}</a>
+          <span>{t('Governance-Node')}</span>
         </List>
       </ListsSection>
     </>

@@ -8,19 +8,6 @@ import image9 from '../../assets/footer/image-9.svg';
 import image10 from '../../assets/footer/image-10.svg';
 import image11 from '../../assets/footer/image-11.svg';
 import image12 from '../../assets/footer/image-12.svg';
-import image13 from '../../assets/footer/image-13.svg';
-import daolinkLogo from '../../assets/footer/daolink-logo.svg';
-import Moongate from '../../assets/footer/Moongate.png';
-import rootdata from '../../assets/footer/rootdata.jpg';
-
-import deschool from '../../assets/footer/deschool.svg';
-import Rectangle from '../../assets/footer/Rectangle.svg';
-import Vector from '../../assets/footer/Vector.svg';
-import Rectangle1283 from '../../assets/footer/Rectangle-1283.svg';
-import Rectangle1284 from '../../assets/footer/Rectangle-1284.svg';
-import Rectangle1285 from '../../assets/footer/Rectangle-1285.svg';
-import Group from '../../assets/footer/Group.svg';
-import Rectangle1286 from '../../assets/footer/Rectangle-1286.svg';
 
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -29,10 +16,6 @@ import twitter from '../../assets/footer/twitter.png';
 import TwitterHover from '../../assets/footer/hover/twitter.png';
 import Dis from '../../assets/footer/Dis.png';
 import DisHover from '../../assets/footer/hover/Dis.png';
-import notion from '../../assets/footer/Notion.png';
-import notionHover from '../../assets/footer/hover/Notion.png';
-import Opensee from '../../assets/footer/Opensee.png';
-import OpenseeHover from '../../assets/footer/hover/Opensee.png';
 import github from '../../assets/footer/Github.png';
 import githubHover from '../../assets/footer/hover/Github.png';
 import mi from '../../assets/footer/Mi.png';
@@ -122,12 +105,6 @@ export const PartnerTitle = styled.p`
   font-family: 'DMSans-Bold';
   text-transform: uppercase;
 `;
-export const PortfolioTitle = styled.p`
-  font-size: 18px;
-  font-weight: 700;
-  padding: 14px 4px;
-  margin-top: 30px;
-`;
 export const Partners = styled.ul`
   display: flex;
   align-items: center;
@@ -188,13 +165,6 @@ export const Cooperation = styled.div`
   @media (max-width: 768px) {
     margin-top: 35px;
   }
-`;
-export const CooperationTitle = styled.h6`
-  font-size: 18px;
-  font-weight: 700;
-  padding-bottom: 20px;
-  font-family: 'DMSans-Bold';
-  text-transform: uppercase;
 `;
 export const SocialMedia = styled.div`
   /* width: 33%; */

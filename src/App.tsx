@@ -1,8 +1,7 @@
-import RouterLink from "./router";
-import GlobalStyle from "./utils/GlobalStyle";
-import {useEffect} from "react";
-const App = () => {
+import RouterLink from './router';
+import GlobalStyle from './utils/GlobalStyle';
 
+const App = () => {
   return (
     <>
       <RouterLink />
