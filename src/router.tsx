@@ -5,8 +5,8 @@ import Intro from './pages/Intro';
 import Journey from './pages/Journey';
 import Build from './pages/Build';
 import Footer from './components/layout/Footer';
-import Privacy from './pages/Privacy';
-import Tos from './pages/Tos';
+import Privacy from './pages/privacy';
+import Tos from './pages/tos';
 
 const RouterLink = () => {
   return (
