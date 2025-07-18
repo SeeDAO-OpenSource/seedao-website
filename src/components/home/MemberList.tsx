@@ -1,10 +1,9 @@
 import member from '../../assets/home/member.svg';
 import seed from '../../assets/home/seed-holder.svg';
-import govern from '../../assets/home/govern-node.svg';
 import sns from '../../assets/home/sns-node.svg';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -77,20 +76,16 @@ const TitTop = styled.div`
 `;
 
 const MemberList = () => {
+  const { t } = useTranslation();
   const [discordAmount, SetDiscordAmount] = useState(0);
   const [seedHolders, setSEEDHolders] = useState(0);
   const [governNodes, setGovernNodes] = useState(0);
-  const [base1, setBase1] = useState('https://test-spp-indexer.seedao.tech');
+  const [base1, setBase1] = useState('https://spp-indexer.seedao.tech');
   const [base2, setBase2] = useState('https://test-api.seedao.tech');
+  const [scr, setScr] = useState(0);
+  const [snsNum, setSnsNum] = useState(0);
 
-  useEffect(() => {
-    getDiscordNumbers();
-    handleSEEDHolders();
-    handleGovNodes();
-    getConfig();
-  }, []);
-
-  const getConfig = () => {
+  const getConfig = useCallback(() => {
     if (
       window.location.href.indexOf('test.seedao.xyz') > -1 ||
       window.location.href.indexOf('localhost') > -1
@@ -101,12 +96,24 @@ const MemberList = () => {
       setBase1('https://spp-indexer.seedao.tech');
       setBase2('https://api.seedao.tech');
     }
-  };
+  }, []);
 
-  const handleGovNodes = async () => {
+  //   const getScr = useCallback(async () => {
+  //     fetch(`${base1}/insight/erc20/total_supply/0xE4825A1a31a76f72befa47f7160B132AA03813E0
+  // `)
+  //       .then((res: any) => res.json())
+  //       .then((r) => {
+  //         setScr(Number(r.totalSupply));
+  //       })
+  //       .catch((error: any) => {
+  //         console.error('[SBT] get sgn owners failed', error);
+  //       });
+  //   }, [base1]);
+
+  const handleGovNodes = useCallback(async () => {
     fetch(
       //Modify 修改节点SBT TokenId
-      `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/9`
+      `${base1}/insight/erc1155/total_supply_of_tokenId/0x9d34D407D8586478b3e4c39BE633ED3D7be1c80C/11`
     )
       .then((res: any) => res.json())
       .then((r) => {
@@ -115,34 +122,59 @@ const MemberList = () => {
       .catch((error: any) => {
         console.error('[SBT] get gov nodes failed', error);
       });
-  };
-  const handleSEEDHolders = async () => {
-    fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
-`)
-      .then((res: any) => res.json())
-      .then((r) => {
-        setSEEDHolders(Number(r.totalSupply));
-      })
-      .catch((error: any) => {
-        console.error('[SBT] get sgn owners failed', error);
-      });
-  };
+  }, [base1]);
+  //   const handleSEEDHolders = useCallback(async () => {
+  //     fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
+  // `)
+  //       .then((res: any) => res.json())
+  //       .then((r) => {
+  //         setSEEDHolders(Number(r.totalSupply));
+  //       })
+  //       .catch((error: any) => {
+  //         console.error('[SBT] get sgn owners failed', error);
+  //       });
+  //   }, [base1]);
 
-  const getDiscordNumbers = async () => {
+  // const getDiscordNumbers = useCallback(async () => {
+  //   try {
+  //     const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
+  //
+  //     SetDiscordAmount(resp.data.data.approximate_member_count);
+  //   } catch (error) {
+  //     console.error('getDiscordNumbers error', error);
+  //   }
+  // }, [base2]);
+
+  const getNumber = async () => {
     try {
-      const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
+      const res = await axios.get(`https://tokentracker.seedao.tech`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      SetDiscordAmount(resp.data.data.approximate_member_count);
+      setSEEDHolders(res.data?.seed?.holders);
+      setSnsNum(res.data?.sns?.holders);
+      setScr(res.data?.scr?.holders);
     } catch (error) {
-      console.error('getDiscordNumbers error', error);
+      console.error(error);
     }
   };
+
+  useEffect(() => {
+    // getDiscordNumbers();
+    // handleSEEDHolders();
+    handleGovNodes();
+    getConfig();
+    // getScr();
+    getNumber();
+  }, [getConfig, handleGovNodes]);
 
   return (
     <>
       <TitTop>
         <div className="top">{t('people')}</div>
-        <div className="tips">{t('peopleTips')}</div>
+        <div className="tips">{t('peopleTips', { scr })}</div>
       </TitTop>
 
       <ListsSection>
@@ -154,15 +186,15 @@ const MemberList = () => {
         </List>
       ))} */}
         <List>
-          <img src={member} alt="SEEDAO Discord Members" />
+          <img src={member} alt="" />
           <H3Title>
             <VisibilitySensor partialVisibility key="count_1">
               {({ isVisible }: any) => (
-                <div>{isVisible ? <CountUp end={discordAmount} duration={2} /> : 0}</div>
+                <div>{isVisible ? <CountUp end={snsNum} duration={2} /> : 0}</div>
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('Discord-Member')}</a>
+          <span>{t('Discord-Member')}</span>
         </List>
         <List>
           <img src={seed} alt="SEEDAO SEED Holders" />
@@ -173,10 +205,21 @@ const MemberList = () => {
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('SEED-Holder')}</a>
+          <span>{t('SEED-Holder')}</span>
         </List>
+        {/*<List>*/}
+        {/*  <img src={govern} alt="SEEDAO Governance Nodes" />*/}
+        {/*  <H3Title>*/}
+        {/*    <VisibilitySensor partialVisibility key="count_3">*/}
+        {/*      {({ isVisible }: any) => (*/}
+        {/*        <div>{isVisible ? <CountUp end={governNodes} duration={2} /> : 0}</div>*/}
+        {/*      )}*/}
+        {/*    </VisibilitySensor>*/}
+        {/*  </H3Title>*/}
+        {/*  <a>{t('Governance-Node')}</a>*/}
+        {/*</List>*/}
         <List>
-          <img src={govern} alt="SEEDAO Governance Nodes" />
+          <img src={sns} alt="SEEDAO SNS Nodes" />
           <H3Title>
             <VisibilitySensor partialVisibility key="count_3">
               {({ isVisible }: any) => (
@@ -184,18 +227,7 @@ const MemberList = () => {
               )}
             </VisibilitySensor>
           </H3Title>
-          <a>{t('Governance-Node')}</a>
-        </List>
-        <List>
-          <img src={sns} alt="SEEDAO SNS Nodes" />
-          <H3Title>
-            <VisibilitySensor partialVisibility key="count_3">
-              {({ isVisible }: any) => (
-                <div>{isVisible ? <CountUp end={602} duration={2} /> : 0}</div>
-              )}
-            </VisibilitySensor>
-          </H3Title>
-          <a>{t('SNS-Node')}</a>
+          <span>{t('Governance-Node')}</span>
         </List>
       </ListsSection>
     </>

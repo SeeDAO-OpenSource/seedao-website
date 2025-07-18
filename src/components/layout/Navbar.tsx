@@ -1,28 +1,28 @@
-import logo from "../../assets/navbar/logo.svg";
-import lng from "../../assets/navbar/Frame.svg";
-import menu from "../../assets/navbar/menu.svg";
+import logo from '../../assets/navbar/logo.svg';
+import lng from '../../assets/navbar/Frame.svg';
+import menu from '../../assets/navbar/menu.svg';
 
-import { useEffect, useState } from "react";
-import {Link, NavLink} from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import {NavDropdown} from 'react-bootstrap';
+import { useEffect, useState, useCallback } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { NavDropdown } from 'react-bootstrap';
 
 export const Nav = styled.nav`
   background-color: #fff;
 
-  .dropdown-toggle::after{
+  .dropdown-toggle::after {
     display: none;
   }
-  .dropdown-menu{
+  .dropdown-menu {
     border: 0;
-    box-shadow: 2px 4px 4px 0px rgba(211,206,221,0.3);
+    box-shadow: 2px 4px 4px 0px rgba(211, 206, 221, 0.3);
   }
   .dropdown-item {
     display: flex;
     justify-content: flex-start;
-    padding:8px 10px;
-    &:active{
+    padding: 8px 10px;
+    &:active {
       background: var(--bs-dropdown-link-hover-bg);
       color: #000000;
     }
@@ -54,7 +54,7 @@ export const Logo = styled.img`
   width: 182px;
 
   @media screen and (max-width: 1024px) {
-    height:18px;
+    height: 18px;
     width: auto;
     z-index: 9999;
     position: relative;
@@ -92,7 +92,7 @@ export const RightSide = styled.div<{ show: boolean }>`
     z-index: 9;
     padding-top: 80px;
     transition: all 0.5s ease;
-    left: ${({ show }) => (show ? 0 : "-100%")};
+    left: ${({ show }) => (show ? 0 : '-100%')};
     background-color: #fff;
   }
 `;
@@ -105,11 +105,10 @@ const Mask = styled.div<{ show: boolean }>`
     position: absolute;
     top: 0;
     transition: all 0.5s ease;
-    left: ${({ show }) => (show ? 0 : "-100%")};
-    background: rgba(0,0,0,0.3);
+    left: ${({ show }) => (show ? 0 : '-100%')};
+    background: rgba(0, 0, 0, 0.3);
   }
-
-`
+`;
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
@@ -123,7 +122,6 @@ export const NavList = styled.ul`
     justify-content: center;
     margin-right: 0;
     width: 100%;
-
   }
 `;
 
@@ -132,7 +130,7 @@ const NavList2 = styled(NavList)`
   @media (max-width: 768px) {
     display: none;
   }
-`
+`;
 
 export const NavigationLink = styled.li`
   text-decoration: none;
@@ -156,10 +154,10 @@ export const Navigation = styled(NavLink)`
   font-weight: 700;
   display: flex;
   justify-content: center;
-  &.active{
+  &.active {
     position: relative;
-    &:after{
-      content: "";
+    &:after {
+      content: '';
       position: absolute;
       width: 40px;
       height: 3px;
@@ -169,35 +167,34 @@ export const Navigation = styled(NavLink)`
       border-radius: 10px;
     }
   }
-  
-  
+
   @media screen and (max-width: 1024px) {
     padding: 0 10px;
   }
 
   @media screen and (max-width: 768px) {
-    &.active{
+    &.active {
       position: relative;
-      &:after{
+      &:after {
         display: none;
       }
     }
   }
-//@media (min-width: 960px) { 
-//    &.active {
-//      &::before {
-//        //content: "";
-//        //position: absolute;
-//        //bottom: 0;
-//        //width: 45px;
-//        //height: 3px;
-//        //background-color: #000;
-//        //opacity: 1;
-//        //border-radius: 7px;
-//        //transition: opacity 300ms ease-in-out;
-//      }
-//    }
-//  }
+  //@media (min-width: 960px) {
+  //    &.active {
+  //      &::before {
+  //        //content: "";
+  //        //position: absolute;
+  //        //bottom: 0;
+  //        //width: 45px;
+  //        //height: 3px;
+  //        //background-color: #000;
+  //        //opacity: 1;
+  //        //border-radius: 7px;
+  //        //transition: opacity 300ms ease-in-out;
+  //      }
+  //    }
+  //  }
 `;
 
 export const NavButton = styled.div`
@@ -220,11 +217,11 @@ export const LanguageBtn = styled.div`
   }
   @media (max-width: 768px) {
     gap: 0;
-    order:1;
+    order: 1;
     width: 100%;
     justify-content: center;
     padding: 15px 0;
-    border-top: 1px solid #D9D9D9;
+    border-top: 1px solid #d9d9d9;
     margin-top: 20px;
   }
 `;
@@ -247,26 +244,37 @@ export const Button = styled.button`
 `;
 
 const Navbar = () => {
-  const {
-    t,
-    i18n: { changeLanguage, language },
-  } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [show, setShow] = useState(false);
   const handleNavToggle = () => setShow(!show);
   const closeMobileMenu = () => setShow(false);
-  // change language
-  const initialLanguage = localStorage.getItem("currentLanguage") || "en";
-  const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
+
+  const [currentLanguage, setCurrentLanguage] = useState(
+    localStorage.getItem('i18nextLng') || 'en'
+  );
+
+  const memoizedChangeLanguage = useCallback(
+    (lng: string) => {
+      i18n.changeLanguage(lng);
+      setCurrentLanguage(lng);
+      localStorage.setItem('i18nextLng', lng);
+    },
+    [i18n]
+  );
+
   useEffect(() => {
-    localStorage.setItem("currentLanguage", language);
-    changeLanguage(currentLanguage);
-  }, [currentLanguage, language]);
+    const lng = localStorage.getItem('i18nextLng');
+    if (lng) {
+      memoizedChangeLanguage(lng);
+    }
+  }, [memoizedChangeLanguage]);
 
   const handleChangeLanguage = () => {
-    const newLanguage = currentLanguage === "en" ? "cn" : "en";
-    setCurrentLanguage(newLanguage);
-    setShow(false)
+    const newLanguage = currentLanguage.startsWith('zh') ? 'en' : 'zh_CN';
+    memoizedChangeLanguage(newLanguage);
+    setShow(false);
   };
+
   return (
     <>
       <Nav>
@@ -280,113 +288,169 @@ const Navbar = () => {
             <img src={menu} alt="" />
           </MobileIcon>
           <Mask show={show}>
+            <RightSide show={show}>
+              <NavList>
+                <NavigationLink>
+                  <Navigation
+                    to="/"
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={closeMobileMenu}
+                  >
+                    {t('Home')}
+                  </Navigation>
+                </NavigationLink>
+                <NavigationLink>
+                  <Navigation
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                    to="/intro"
+                    onClick={closeMobileMenu}
+                  >
+                    {t('Intro')}
+                  </Navigation>
+                </NavigationLink>
+                <NavigationLink>
+                  <Navigation
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                    to="/journey"
+                    onClick={closeMobileMenu}
+                  >
+                    {t('Journey')}
+                  </Navigation>
+                </NavigationLink>
+                <NavigationLink>
+                  <Navigation
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                    to="/build"
+                    onClick={closeMobileMenu}
+                  >
+                    {t('Build')}
+                  </Navigation>
+                </NavigationLink>
+                {/*<NavigationLink style={{ pointerEvents: "none" }}>*/}
+                {/*  <Navigation to="/podcast" onClick={closeMobileMenu}>*/}
+                {/*    {t("Podcast")}*/}
+                {/*  </Navigation>*/}
+                {/*</NavigationLink>*/}
+              </NavList>
 
+              <NavList2>
+                <NavigationLink>
+                  <Navigation
+                    to="/"
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                    onClick={closeMobileMenu}
+                  >
+                    {t('Home')}
+                  </Navigation>
+                </NavigationLink>
+                {/*<NavigationLink>*/}
+                {/*  <NavDropdown title={t("Home")} id="drop1">*/}
+                {/*    <NavDropdown.Item href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer" >*/}
+                {/*      {t("Earn-Membership")}*/}
+                {/*    </NavDropdown.Item>*/}
+                {/*    <NavDropdown.Divider />*/}
+                {/*    <NavDropdown.Item href="/" onClick={closeMobileMenu}>*/}
+                {/*        {t("Home")}*/}
+                {/*    </NavDropdown.Item>*/}
+                {/*  </NavDropdown>*/}
+                {/*</NavigationLink>*/}
+                <NavigationLink>
+                  <NavDropdown title={t('Intro')} id="drop2">
+                    <NavDropdown.Item href="SeeDAO-WhitePaper.pdf" target="_blank" rel="noreferrer">
+                      {t('Link-Whitepaper')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="SeeDAO-Meta.pdf" target="_blank" rel="noreferrer">
+                      {t('Link-Meta')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="https://app.seedao.xyz"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Link-App')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="https://seeu.network/" target="_blank" rel="noreferrer">
+                      {t('Link-Net')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Link-City-Hall')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="https://beta.seedao.cc/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Link-Combinator')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/intro">{t('Intro')}</NavDropdown.Item>
+                  </NavDropdown>
+                </NavigationLink>
+                <NavigationLink>
+                  <NavDropdown title={t('Journey')} id="drop3">
+                    <NavDropdown.Item
+                      href="https://app.seedao.xyz/sns"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Onboarding-process')}
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item> */}
+                    <NavDropdown.Item
+                      href="https://app.seedao.xyz/explore"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Bounties')}
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item> */}
+                    <NavDropdown.Item
+                      href="https://seed.seedao.xyz/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Seed-NFT')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="https://node.seedao.xyz/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Nodes-Consensus-Congress')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/journey">{t('Journey')}</NavDropdown.Item>
+                  </NavDropdown>
+                </NavigationLink>
 
-          <RightSide show={show}>
-            <NavList>
-              <NavigationLink>
-                <Navigation to="/" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
-                  {t("Home")}
-                </Navigation>
-              </NavigationLink>
-              <NavigationLink>
-                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/intro" onClick={closeMobileMenu}>
-                  {t("Intro")}
-                </Navigation>
-              </NavigationLink>
-              <NavigationLink>
-                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/journey" onClick={closeMobileMenu}>
-                  {t("Journey")}
-                </Navigation>
-              </NavigationLink>
-              <NavigationLink>
-                <Navigation className={({ isActive }) => isActive ? 'active' : ''} to="/build" onClick={closeMobileMenu}>
-                  {t("Build")}
-                </Navigation>
-              </NavigationLink>
-              {/*<NavigationLink style={{ pointerEvents: "none" }}>*/}
-              {/*  <Navigation to="/podcast" onClick={closeMobileMenu}>*/}
-              {/*    {t("Podcast")}*/}
-              {/*  </Navigation>*/}
-              {/*</NavigationLink>*/}
-            </NavList>
-
-            <NavList2>
-
-              <NavigationLink>
-                <Navigation to="/" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
-                  {t("Home")}
-                </Navigation>
-              </NavigationLink>
-              {/*<NavigationLink>*/}
-              {/*  <NavDropdown title={t("Home")} id="drop1">*/}
-              {/*    <NavDropdown.Item href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer" >*/}
-              {/*      {t("Earn-Membership")}*/}
-              {/*    </NavDropdown.Item>*/}
-              {/*    <NavDropdown.Divider />*/}
-              {/*    <NavDropdown.Item href="/" onClick={closeMobileMenu}>*/}
-              {/*        {t("Home")}*/}
-              {/*    </NavDropdown.Item>*/}
-              {/*  </NavDropdown>*/}
-              {/*</NavigationLink>*/}
-              <NavigationLink>
-                <NavDropdown title={t("Intro")} id="drop2">
-
-                  <NavDropdown.Item href="SeeDAO-WhitePaper.pdf" target="_blank" rel="noreferrer">
-                    {t("Link-Whitepaper")}
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="SeeDAO-Meta.pdf" target="_blank" rel="noreferrer">{t("Link-Meta")}</NavDropdown.Item>
-                  <NavDropdown.Item  href="https://app.seedao.xyz" target="_blank" rel="noreferrer">{t("Link-App")}</NavDropdown.Item>
-                  <NavDropdown.Item  href="https://seeu.network/" target="_blank" rel="noreferrer">{t("Link-Net")}</NavDropdown.Item>
-                  <NavDropdown.Item   href="https://seedao.notion.site/b99eb0b3bf97436490f9839aebe29b3e?pvs=4" target="_blank" rel="noreferrer">{t("Link-City-Hall")}</NavDropdown.Item>
-                  <NavDropdown.Item  href="https://beta.seedao.cc/" target="_blank" rel="noreferrer">{t("Link-Combinator")}</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/intro">
-                      {t("Intro")}
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </NavigationLink>
-              <NavigationLink>
-                <NavDropdown title={t("Journey")} id="drop3">
-                  <NavDropdown.Item href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966" target="_blank" rel="noreferrer">
-                    {t("Onboarding-process")}
-                  </NavDropdown.Item>
-                  {/* <NavDropdown.Item href="https://seedao.notion.site/SeeDAO-title-3776ce83b95e4a5f9209d90911ed84c1?pvs=4" target="_blank" rel="noreferrer">{t("Contributor-Identity")}</NavDropdown.Item> */}
-                  <NavDropdown.Item href="https://app.seedao.xyz/hub" target="_blank" rel="noreferrer">{t("Bounties")}</NavDropdown.Item>
-                  {/* <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">{t("Proposals")}</NavDropdown.Item> */}
-                  <NavDropdown.Item href="https://seed.seedao.xyz/" target="_blank" rel="noreferrer">{t("Seed-NFT")}</NavDropdown.Item>
-                  <NavDropdown.Item  href="https://node.seedao.xyz/" target="_blank" rel="noreferrer">{t("Nodes-Consensus-Congress")}</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/journey">
-                      {t("Journey")}
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </NavigationLink>
-
-              <NavigationLink>
-                <NavDropdown title={t("Build")} id="drop4">
-                  <NavDropdown.Item href="https://app.seedao.xyz/proposal" target="_blank" rel="noreferrer">
-                    {t("Link-Proposal")}
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/build">
-                      {t("Build")}
-                  </NavDropdown.Item>
-                </NavDropdown>
-
-              </NavigationLink>
-            </NavList2>
-            <NavButton>
-              <LanguageBtn onClick={handleChangeLanguage}>
-                <img src={lng} alt="" />
-                <p>{currentLanguage === "en" ? "CN" : "EN"}</p>
-              </LanguageBtn>
-              <a href="https://app.seedao.xyz" rel="noreferrer" target="_blank">
-                <Button >{t("Enter-App")}</Button>
-              </a>
-
-            </NavButton>
-          </RightSide>
+                <NavigationLink>
+                  <NavDropdown title={t('Build')} id="drop4">
+                    <NavDropdown.Item
+                      href="https://app.seedao.xyz/proposal"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t('Link-Proposal')}
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/build">{t('Build')}</NavDropdown.Item>
+                  </NavDropdown>
+                </NavigationLink>
+              </NavList2>
+              <NavButton>
+                <LanguageBtn onClick={handleChangeLanguage}>
+                  <img src={lng} alt="" />
+                  <p>{currentLanguage === 'en' ? 'CN' : 'EN'}</p>
+                </LanguageBtn>
+                <a href="https://app.seedao.xyz" rel="noreferrer" target="_blank">
+                  <Button>{t('Enter-App')}</Button>
+                </a>
+              </NavButton>
+            </RightSide>
           </Mask>
           {/* </Container> */}
         </NavContainer>
@@ -396,4 +460,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

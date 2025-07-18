@@ -1,17 +1,17 @@
-import buildBanner from "../../assets/build/build-banner.svg";
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
+import buildBanner from '../../assets/build/build-banner.svg';
+import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const BuildHeader = () => {
   const { t } = useTranslation();
   return (
     <JourneyHeaderContainer>
-        <CenterBox>
-            <JourneyTitle>
-                <div className="h1">{t("Build")}</div>
-                <div className="h2">{t("Build-Content-1")}</div>
-            </JourneyTitle>
-        </CenterBox>
+      <CenterBox>
+        <JourneyTitle>
+          <div className="h1">{t('Build')}</div>
+          <div className="h2">{t('Build-Content-1')}</div>
+        </JourneyTitle>
+      </CenterBox>
     </JourneyHeaderContainer>
   );
 };
@@ -19,7 +19,7 @@ const BuildHeader = () => {
 export default BuildHeader;
 
 const CenterBox = styled.div`
-    display: flex;
+  display: flex;
   align-content: center;
   justify-content: space-between;
   background: url(${buildBanner}) no-repeat 100% center;
@@ -28,12 +28,13 @@ const CenterBox = styled.div`
     background: url(${buildBanner}) no-repeat top center;
     background-size: 100%;
   }
-`
+`;
 
 const JourneyHeaderContainer = styled.div`
   /* padding-top: 45px; */
-  background: linear-gradient(181deg, #e0ffff 0.85%, #fbf5ef 95.53%),
-  linear-gradient(180deg, #cdcbff 0%, #fbf5ef 100%);
+  background:
+    linear-gradient(181deg, #e0ffff 0.85%, #fbf5ef 95.53%),
+    linear-gradient(180deg, #cdcbff 0%, #fbf5ef 100%);
   display: flex;
 `;
 const JourneyTitle = styled.div`
@@ -64,11 +65,9 @@ const JourneyTitle = styled.div`
       font-size: 16px;
     }
     .h2 {
-      font-size:16px;
+      font-size: 16px;
       line-height: 27px;
       margin-top: 25px;
-
     }
   }
 `;
-const JourneyLogo = styled.div``;
