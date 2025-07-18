@@ -14,10 +14,11 @@ const resources = {
     },
   },
 };
+const localLang = localStorage.getItem('i18nextLng');
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'zh_CN',
+  lng: localLang || 'zh_CN',
 
   interpolation: {
     escapeValue: false,

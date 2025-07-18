@@ -250,6 +250,8 @@
   "Build-Content-5": "Eager to see your proposals take shape in the network polis, where your name becomes a celebrated part of our collective world!",
 
   "SNS-Node": "SNS Node",
-  "people": "People",
-  "peopleTips": "SCR: {{scr}}"
+  "people": "People in SeeDAO",
+  "peopleTips": "With a presence spanning 25 countries across the globe and more than {{scr}} contributors.",
+  "map": "Polis Map",
+  "mapTips": "View the ecosystem of polis"
 }

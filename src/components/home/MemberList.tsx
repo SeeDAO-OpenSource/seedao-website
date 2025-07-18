@@ -83,6 +83,7 @@ const MemberList = () => {
   const [base1, setBase1] = useState('https://spp-indexer.seedao.tech');
   const [base2, setBase2] = useState('https://test-api.seedao.tech');
   const [scr, setScr] = useState(0);
+  const [snsNum, setSnsNum] = useState(0);
 
   const getConfig = useCallback(() => {
     if (
@@ -97,17 +98,17 @@ const MemberList = () => {
     }
   }, []);
 
-  const getScr = useCallback(async () => {
-    fetch(`${base1}/insight/erc20/total_supply/0xE4825A1a31a76f72befa47f7160B132AA03813E0
-`)
-      .then((res: any) => res.json())
-      .then((r) => {
-        setScr(Number(r.totalSupply));
-      })
-      .catch((error: any) => {
-        console.error('[SBT] get sgn owners failed', error);
-      });
-  }, [base1]);
+  //   const getScr = useCallback(async () => {
+  //     fetch(`${base1}/insight/erc20/total_supply/0xE4825A1a31a76f72befa47f7160B132AA03813E0
+  // `)
+  //       .then((res: any) => res.json())
+  //       .then((r) => {
+  //         setScr(Number(r.totalSupply));
+  //       })
+  //       .catch((error: any) => {
+  //         console.error('[SBT] get sgn owners failed', error);
+  //       });
+  //   }, [base1]);
 
   const handleGovNodes = useCallback(async () => {
     fetch(
@@ -122,35 +123,52 @@ const MemberList = () => {
         console.error('[SBT] get gov nodes failed', error);
       });
   }, [base1]);
-  const handleSEEDHolders = useCallback(async () => {
-    fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
-`)
-      .then((res: any) => res.json())
-      .then((r) => {
-        setSEEDHolders(Number(r.totalSupply));
-      })
-      .catch((error: any) => {
-        console.error('[SBT] get sgn owners failed', error);
-      });
-  }, [base1]);
+  //   const handleSEEDHolders = useCallback(async () => {
+  //     fetch(`${base1}/insight/erc721/total_supply/0x30093266E34a816a53e302bE3e59a93B52792FD4
+  // `)
+  //       .then((res: any) => res.json())
+  //       .then((r) => {
+  //         setSEEDHolders(Number(r.totalSupply));
+  //       })
+  //       .catch((error: any) => {
+  //         console.error('[SBT] get sgn owners failed', error);
+  //       });
+  //   }, [base1]);
 
-  const getDiscordNumbers = useCallback(async () => {
+  // const getDiscordNumbers = useCallback(async () => {
+  //   try {
+  //     const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
+  //
+  //     SetDiscordAmount(resp.data.data.approximate_member_count);
+  //   } catch (error) {
+  //     console.error('getDiscordNumbers error', error);
+  //   }
+  // }, [base2]);
+
+  const getNumber = async () => {
     try {
-      const resp = await axios.get(`${base2}/v1/public_data/discord_member_count`);
+      const res = await axios.get(`https://tokentracker.seedao.tech`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      SetDiscordAmount(resp.data.data.approximate_member_count);
+      setSEEDHolders(res.data?.seed?.holders);
+      setSnsNum(res.data?.sns?.holders);
+      setScr(res.data?.scr?.holders);
     } catch (error) {
-      console.error('getDiscordNumbers error', error);
+      console.error(error);
     }
-  }, [base2]);
+  };
 
   useEffect(() => {
-    getDiscordNumbers();
-    handleSEEDHolders();
+    // getDiscordNumbers();
+    // handleSEEDHolders();
     handleGovNodes();
     getConfig();
-    getScr();
-  }, [getConfig, getDiscordNumbers, getScr, handleGovNodes, handleSEEDHolders]);
+    // getScr();
+    getNumber();
+  }, [getConfig, handleGovNodes]);
 
   return (
     <>
@@ -172,7 +190,7 @@ const MemberList = () => {
           <H3Title>
             <VisibilitySensor partialVisibility key="count_1">
               {({ isVisible }: any) => (
-                <div>{isVisible ? <CountUp end={discordAmount} duration={2} /> : 0}</div>
+                <div>{isVisible ? <CountUp end={snsNum} duration={2} /> : 0}</div>
               )}
             </VisibilitySensor>
           </H3Title>
