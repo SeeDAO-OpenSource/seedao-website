@@ -11,18 +11,14 @@ const IntroList = () => {
     <Box>
       <Lists>
         <li>
-          <a
-            href="https://deschool.app/zh/series/62f0adc68b90ee1aa913a965/learning?courseId=62f0adc68b90ee1aa913a966"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://app.seedao.xyz/sns" target="_blank" rel="noreferrer">
             <img src={onbording} alt="Onboarding process" />
             <span>{t('Onboarding-process')}</span>
           </a>
         </li>
 
         <li>
-          <a href="https://app.seedao.xyz/hub" target="_blank" rel="noreferrer">
+          <a href="https://app.seedao.xyz/explore" target="_blank" rel="noreferrer">
             <img src={bounties} alt="Bounties" />
             <span>{t('Bounties')}</span>
           </a>
